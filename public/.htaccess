@@ -1,0 +1,13 @@
+# Redirection 301 permanente de www vers non-www
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTP_HOST} ^www\.obd-diagnostic\.fr$ [NC]
+    RewriteRule ^(.*)$ https://obd-diagnostic.fr/$1 [R=301,L]
+</IfModule>
+
+# Force HTTPS (recommandé pour SEO)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
