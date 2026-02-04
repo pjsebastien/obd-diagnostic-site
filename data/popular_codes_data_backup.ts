@@ -1,13 +1,6 @@
 // Donnees enrichies pour les codes OBD populaires
 // Ces donnees completent le fichier obd_codes.json avec des informations detaillees
 
-import { popularCodesBatch1 } from './popular_codes_batch1';
-import { popularCodesBatch2 } from './popular_codes_batch2';
-import { popularCodesBatch3 } from './popular_codes_batch3';
-import { popularCodesBatch4 } from './popular_codes_batch4';
-import { popularCodesBatch5 } from './popular_codes_batch5';
-import { popularCodesBatch6 } from './popular_codes_batch6';
-
 export interface RepairCostData {
   minimum: number;
   average: number;
@@ -269,35 +262,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Non, un filtre a air tres sale provoque plutot un melange RICHE (P0172) car il reduit le debit d\'air. Le P0171 signale trop d\'air ou pas assez de carburant, donc c\'est l\'inverse. Neanmoins, verifiez quand meme votre filtre a air car un filtre en bon etat facilite le diagnostic en eliminant une variable. Si votre filtre a plus de 30 000 km ou est visiblement sale, remplacez-le (15-40 euros), mais ne vous attendez pas a ce que ca resolue un P0171.'
       }
     ],
-    relatedCodes: ['P0172', 'P0174', 'P0175', 'P0100', 'P0101'],
-    repairCosts: {
-      minimum: 10,
-      average: 150,
-      maximum: 600,
-      parts: [
-        { name: 'Debitmetre MAF', priceMin: 120, priceMax: 400 },
-        { name: 'Durite admission', priceMin: 15, priceMax: 50 },
-        { name: 'Filtre a carburant', priceMin: 15, priceMax: 45 },
-        { name: 'Spray nettoyant MAF', priceMin: 10, priceMax: 15 },
-        { name: 'Vanne PCV', priceMin: 15, priceMax: 40 }
-      ],
-      laborTime: '30min - 2h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '1h - 3h',
-        tools: ['Valise OBD2', 'Spray nettoyant MAF', 'Spray detecteur fuite', 'Multimetre', 'Manometre pression carburant']
-      },
-      tips: [
-        'Commencer par nettoyer le debitmetre MAF avec un spray specifique (10-15 euros) : resout 25% des cas',
-        'Inspecter les durites apres le MAF : une fissure coute 15-30 euros a reparer',
-        'Un test fumigene en garage (50-80 euros) localise les prises d air rapidement',
-        'Dans 40-50% des cas, la reparation coute moins de 50 euros'
-      ],
-      warningNote: 'Un melange pauvre prolonge peut endommager les soupapes et le catalyseur par surchauffe. Diagnostic et reparation dans les 2-4 semaines.'
-    }
+    relatedCodes: ['P0172', 'P0174', 'P0175', 'P0100', 'P0101']
   },
   P0401: {
     code: 'P0401',
@@ -352,35 +317,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Le P0401 est beaucoup plus frequent sur les moteurs diesel, surtout les modeles sans FAP ou avec trajets courts. Les diesels produisent plus de suie qui encrasse rapidement l\'EGR. Sur essence, le probleme existe aussi mais se manifeste generalement apres 150 000-200 000 km. Sur diesel, c\'est souvent des 80 000-120 000 km, voire moins si utilisation urbaine predominante. Les diesels recents avec FAP sont encore plus touches car le systeme EGR est tres sollicite.'
       }
     ],
-    relatedCodes: ['P0400', 'P0402', 'P0403', 'P0404', 'P0405'],
-    repairCosts: {
-      minimum: 15,
-      average: 160,
-      maximum: 550,
-      parts: [
-        { name: 'Vanne EGR', priceMin: 120, priceMax: 350 },
-        { name: 'Joint vanne EGR', priceMin: 5, priceMax: 15 },
-        { name: 'Spray nettoyant EGR', priceMin: 10, priceMax: 20 },
-        { name: 'Capteur pression differentielle DPFE', priceMin: 40, priceMax: 120 },
-        { name: 'Durites depression EGR', priceMin: 10, priceMax: 30 }
-      ],
-      laborTime: '1h - 3h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '2h - 3h',
-        tools: ['Cle a pipe jeu complet', 'Spray nettoyant EGR', 'Brosse laiton', 'Valise OBD2', 'Tournevis']
-      },
-      tips: [
-        'Le nettoyage DIY de la vanne EGR resout le probleme dans 70-80% des cas',
-        'Des tutoriels video existent pour la plupart des modeles de vehicules',
-        'Toujours remplacer le joint de la vanne EGR lors du remontage (5-15 euros)',
-        'Utiliser un additif decalaminant tous les 10 000 km pour prevenir l encrassement'
-      ],
-      warningNote: 'Pas d urgence mecanique mais refus controle technique assure pour emissions NOx excessives. Reparer avant le CT obligatoirement.'
-    }
+    relatedCodes: ['P0400', 'P0402', 'P0403', 'P0404', 'P0405']
   },
   P0100: {
     code: 'P0100',
@@ -1099,33 +1036,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Ca depend de la cause. Court-circuit dans cablage: reparation du fil 20-50 euros de main d\'oeuvre. Connecteur corrode: nouveau connecteur 20-40 euros. Capteur MAP HS: 50-150 euros de capteur plus 30-50 euros de main d\'oeuvre. Sur turbo, si c\'est la wastegate bloquee: 200-600 euros selon si reparable ou remplacement complet. Si turbo completement casse: 800-2500 euros. Commencez toujours par verifier le cablage et le connecteur (gratuit) avant d\'envisager pieces couteuses.'
       }
     ],
-    relatedCodes: ['P0105', 'P0106', 'P0107', 'P0171', 'P0174', 'P0234'],
-    repairCosts: {
-      minimum: 10,
-      average: 110,
-      maximum: 280,
-      parts: [
-        { name: 'Capteur MAP (adaptable)', priceMin: 20, priceMax: 80 },
-        { name: 'Capteur MAP (origine)', priceMin: 60, priceMax: 200 },
-        { name: 'Connecteur capteur MAP', priceMin: 10, priceMax: 30 }
-      ],
-      laborTime: '20min - 1h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Facile' as const,
-        savings: '60-80%',
-        timeNeeded: '15min - 40min',
-        tools: ['Tournevis cruciforme', 'Multimetre', 'Valise OBD2', 'Nettoyant contact']
-      },
-      tips: [
-        'Le P0108 (signal haut) peut indiquer un circuit ouvert dans le cablage du MAP',
-        'Verifier que le fil de masse du capteur MAP est bien raccorde',
-        'Un connecteur oxyde peut provoquer une resistance elevee simulant un signal haut',
-        'Sur les moteurs turbo, verifier aussi la soupape de decharge (wastegate)'
-      ],
-      warningNote: 'Un signal MAP bloque en position haute fait tourner le moteur en melange tres pauvre. Cela provoque des temperatures de combustion excessives pouvant endommager les soupapes et le catalyseur. Intervenir dans la semaine.'
-    }
+    relatedCodes: ['P0105', 'P0106', 'P0107', 'P0171', 'P0174', 'P0234']
   },
   P0115: {
     code: 'P0115',
@@ -1181,34 +1092,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Non c\'est une piece bon marche. Un capteur ECT coute entre 15-50 euros selon marque et modele. Le remplacement est simple: vidanger partiellement le liquide de refroidissement, devisser l\'ancien capteur (souvent 1 cle de 19 ou 22), visser le nouveau avec un peu de pate d\'etancheite, rebrancher le connecteur, refaire le niveau. Total garage: 50-120 euros. En DIY: 20-50 euros de capteur plus liquide. C\'est une des reparations les moins cheres pour un code defaut moteur.'
       }
     ],
-    relatedCodes: ['P0116', 'P0117', 'P0118', 'P0125', 'P0128'],
-    repairCosts: {
-      minimum: 10,
-      average: 80,
-      maximum: 250,
-      parts: [
-        { name: 'Capteur temperature liquide refroidissement (ECT)', priceMin: 10, priceMax: 45 },
-        { name: 'Connecteur capteur ECT', priceMin: 8, priceMax: 25 },
-        { name: 'Liquide de refroidissement (1L)', priceMin: 5, priceMax: 15 },
-        { name: 'Joint capteur ECT', priceMin: 2, priceMax: 8 }
-      ],
-      laborTime: '20min - 1h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Facile' as const,
-        savings: '60-80%',
-        timeNeeded: '20min - 45min',
-        tools: ['Cle a douille (19 ou 22mm selon modele)', 'Multimetre', 'Valise OBD2', 'Bac de recuperation liquide refroidissement']
-      },
-      tips: [
-        'Le capteur ECT est une des pieces les moins cheres a remplacer (10-45 euros)',
-        'Attendre que le moteur soit froid avant de demonter le capteur (risque brulure)',
-        'Prevoir un peu de liquide de refroidissement qui s\'echappera au demontage',
-        'Tester la resistance du capteur avec un multimetre (2-3 kohms a froid, 200-300 ohms a chaud)'
-      ],
-      warningNote: 'Le capteur ECT influence le demarrage a froid, la richesse du melange et le ventilateur de refroidissement. Un capteur defaillant peut empecher le ventilateur de se declencher, ce qui risque de provoquer une surchauffe moteur. Surveillez la temperature sur le tableau de bord en attendant la reparation.'
-    }
+    relatedCodes: ['P0116', 'P0117', 'P0118', 'P0125', 'P0128']
   },
   P0116: {
     code: 'P0116',
@@ -1264,34 +1148,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Si c\'est le thermostat: 30-80 euros piece + 50-100 euros main d\'oeuvre = 80-180 euros total garage. En DIY: 30-80 euros uniquement. Si c\'est le capteur ECT: 15-50 euros piece + 30-60 euros main d\'oeuvre = 45-110 euros total. Si c\'est juste un manque de liquide: 10-30 euros de liquide de refroidissement. La reparation est donc relativement abordable. Le diagnostic avec valise OBD permet de cibler rapidement la cause et d\'eviter de remplacer des pieces inutilement.'
       }
     ],
-    relatedCodes: ['P0115', 'P0117', 'P0118', 'P0125', 'P0128'],
-    repairCosts: {
-      minimum: 15,
-      average: 100,
-      maximum: 300,
-      parts: [
-        { name: 'Capteur ECT', priceMin: 10, priceMax: 45 },
-        { name: 'Thermostat complet avec boitier', priceMin: 25, priceMax: 120 },
-        { name: 'Liquide de refroidissement (2L)', priceMin: 10, priceMax: 25 },
-        { name: 'Joint de thermostat', priceMin: 3, priceMax: 12 }
-      ],
-      laborTime: '30min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '45min - 1h30',
-        tools: ['Cle a douille', 'Multimetre', 'Valise OBD2', 'Bac de recuperation', 'Thermometre infrarouge']
-      },
-      tips: [
-        'Le P0116 est souvent cause par un thermostat bloque ouvert (25-120 euros) et non par le capteur ECT',
-        'Verifier la temperature reelle du moteur avec un thermometre infrarouge pour comparer',
-        'Un thermostat bloque ouvert augmente la consommation de 10-15% (moteur trop froid)',
-        'Remplacer le calorstat et le capteur ECT en meme temps si les deux ont plus de 150 000 km'
-      ],
-      warningNote: 'Le P0116 indique une incoherence de temperature, pas forcement un capteur HS. Le thermostat (calorstat) bloque ouvert est la cause dans 50% des cas. Un moteur qui ne monte pas en temperature correctement consomme plus et s\'use prematurement. Diagnostiquer avant de remplacer des pieces.'
-    }
+    relatedCodes: ['P0115', 'P0117', 'P0118', 'P0125', 'P0128']
   },
   P0117: {
     code: 'P0117',
@@ -1347,33 +1204,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Si c\'est juste le capteur: 15-50 euros piece + 30-60 euros main d\'oeuvre = 45-110 euros total garage. En DIY: 15-50 euros seulement. Si c\'est le connecteur corrode: nettoyage gratuit ou 10-15 euros de bombe contact. Si c\'est le faisceau endommage: 30-100 euros selon longueur a remplacer + 50-150 euros main d\'oeuvre = 80-250 euros total. Dans 80% des cas c\'est juste le capteur a changer, donc budget previsionnel 50-120 euros. C\'est une reparation simple et abordable.'
       }
     ],
-    relatedCodes: ['P0115', 'P0116', 'P0118', 'P0125', 'P0128'],
-    repairCosts: {
-      minimum: 10,
-      average: 70,
-      maximum: 200,
-      parts: [
-        { name: 'Capteur ECT', priceMin: 10, priceMax: 45 },
-        { name: 'Connecteur capteur ECT', priceMin: 8, priceMax: 25 },
-        { name: 'Liquide de refroidissement (1L)', priceMin: 5, priceMax: 15 }
-      ],
-      laborTime: '20min - 45min',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Facile' as const,
-        savings: '70-85%',
-        timeNeeded: '15min - 30min',
-        tools: ['Cle a douille (19 ou 22mm)', 'Multimetre', 'Valise OBD2', 'Bac de recuperation']
-      },
-      tips: [
-        'Le P0117 (signal bas) indique souvent un court-circuit a la masse du fil capteur',
-        'Verifier le connecteur pour corrosion avant de remplacer le capteur',
-        'Le capteur ECT est tres peu couteux (10-45 euros), ne pas hesiter a le remplacer',
-        'Profiter du remplacement pour verifier le niveau et l\'etat du liquide de refroidissement'
-      ],
-      warningNote: 'Un signal ECT bloque bas fait croire au calculateur que le moteur est glace. Il enrichit massivement le melange, provoquant surconsommation et encrassement rapide des bougies et du catalyseur. Le ventilateur de refroidissement peut aussi ne pas se declencher. Intervenir rapidement.'
-    }
+    relatedCodes: ['P0115', 'P0116', 'P0118', 'P0125', 'P0128']
   },
   P0118: {
     code: 'P0118',
@@ -1429,33 +1260,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Si c\'est juste le connecteur mal enfiche: gratuit (reenclenchement). Si c\'est le connecteur corrode: 5-20 euros de nouveau connecteur. Si c\'est le capteur: 15-50 euros piece + 30-60 euros main d\'oeuvre = 45-110 euros total garage, ou 15-50 euros DIY. Si c\'est le cablage coupe: 30-100 euros selon longueur + 50-150 euros main d\'oeuvre = 80-250 euros total. Dans 80% des cas c\'est le capteur ou le connecteur, donc budget previsionnel: 50-130 euros. C\'est une reparation abordable qui evite des degats moteur couteux.'
       }
     ],
-    relatedCodes: ['P0115', 'P0116', 'P0117', 'P0125', 'P0128'],
-    repairCosts: {
-      minimum: 10,
-      average: 70,
-      maximum: 200,
-      parts: [
-        { name: 'Capteur ECT', priceMin: 10, priceMax: 45 },
-        { name: 'Connecteur capteur ECT', priceMin: 8, priceMax: 25 },
-        { name: 'Liquide de refroidissement (1L)', priceMin: 5, priceMax: 15 }
-      ],
-      laborTime: '20min - 45min',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Facile' as const,
-        savings: '70-85%',
-        timeNeeded: '15min - 30min',
-        tools: ['Cle a douille (19 ou 22mm)', 'Multimetre', 'Valise OBD2', 'Bac de recuperation']
-      },
-      tips: [
-        'Le P0118 (signal haut) est souvent du a un circuit ouvert (fil coupe ou connecteur debranche)',
-        'Verifier que le connecteur ECT est bien enfiche et que les broches ne sont pas ecartees',
-        'Tester la continuite du cablage entre le capteur et le calculateur avec un multimetre',
-        'Un capteur ECT neuf coute 10-45 euros, ne pas perdre de temps a diagnostiquer si le capteur a plus de 200 000 km'
-      ],
-      warningNote: 'Un signal ECT bloque haut fait croire au calculateur que le moteur surchauffe. Il appauvrit le melange et peut activer le ventilateur en permanence (batterie a plat). Plus grave, le demarrage a froid est tres difficile car l\'ECU ne fournit pas l\'enrichissement necessaire.'
-    }
+    relatedCodes: ['P0115', 'P0116', 'P0117', 'P0125', 'P0128']
   },
   P0119: {
     code: 'P0119',
@@ -1511,34 +1316,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Si c\'est juste nettoyage connecteur: 10-15 euros de bombe contact (DIY) ou 30-50 euros garage. Si c\'est remplacement connecteur: 5-20 euros piece + 20-40 euros main d\'oeuvre = 25-60 euros total. Si c\'est remplacement capteur: 15-50 euros piece + 30-60 euros MO = 45-110 euros total. Si c\'est reparation faisceau: 30-80 euros + 50-100 euros MO = 80-180 euros total. Dans 70% des cas un nettoyage connecteur ou remplacement capteur suffit, donc budget previsionnel: 50-120 euros. Commencez par le moins cher (nettoyage) avant de remplacer des pieces.'
       }
     ],
-    relatedCodes: ['P0115', 'P0116', 'P0117', 'P0118', 'P0125'],
-    repairCosts: {
-      minimum: 10,
-      average: 75,
-      maximum: 200,
-      parts: [
-        { name: 'Capteur ECT', priceMin: 10, priceMax: 45 },
-        { name: 'Connecteur capteur ECT avec fils', priceMin: 10, priceMax: 30 },
-        { name: 'Nettoyant contact electrique', priceMin: 5, priceMax: 12 },
-        { name: 'Liquide de refroidissement (1L)', priceMin: 5, priceMax: 15 }
-      ],
-      laborTime: '20min - 45min',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Facile' as const,
-        savings: '70-85%',
-        timeNeeded: '15min - 30min',
-        tools: ['Cle a douille (19 ou 22mm)', 'Multimetre', 'Valise OBD2', 'Nettoyant contact electrique']
-      },
-      tips: [
-        'Le P0119 (signal intermittent) est souvent un simple faux contact au connecteur',
-        'Nettoyer les broches du connecteur avec du nettoyant contact et une brosse fine',
-        'Bouger delicatement le connecteur moteur tournant pour confirmer le faux contact',
-        'Si le connecteur est oxyde, le remplacer plutot que de simplement le nettoyer'
-      ],
-      warningNote: 'Un signal ECT intermittent provoque des a-coups de richesse et un comportement moteur imprevisible. Le ventilateur de refroidissement peut s\'activer et se couper de maniere erratique. Reparez ce defaut avant de prendre la route pour eviter un comportement dangereux du vehicule.'
-    }
+    relatedCodes: ['P0115', 'P0116', 'P0117', 'P0118', 'P0125']
   },
   P0120: {
     code: 'P0120',
@@ -1594,34 +1372,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Si c\'est juste nettoyage corps papillon et connecteur: 10-30 euros DIY ou 40-80 euros garage. Si c\'est remplacement TPS: 40-120 euros piece + 50-100 euros main d\'oeuvre + calibration = 90-220 euros total garage, ou 40-120 euros DIY si vous faites calibration vous-meme. Si c\'est reparation cablage: 30-100 euros + 50-150 euros MO = 80-250 euros total. Budget previsionnel moyen: 100-200 euros garage. Le TPS est accessible sur la plupart des vehicules, donc reparation relativement simple.'
       }
     ],
-    relatedCodes: ['P0121', 'P0122', 'P0123', 'P0220', 'P0222'],
-    repairCosts: {
-      minimum: 15,
-      average: 150,
-      maximum: 500,
-      parts: [
-        { name: 'Capteur position papillon TPS', priceMin: 20, priceMax: 80 },
-        { name: 'Boitier papillon complet (si TPS integre)', priceMin: 100, priceMax: 400 },
-        { name: 'Connecteur TPS', priceMin: 10, priceMax: 30 },
-        { name: 'Nettoyant papillon des gaz', priceMin: 8, priceMax: 15 }
-      ],
-      laborTime: '30min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '30min - 1h30',
-        tools: ['Tournevis Torx', 'Multimetre', 'Valise OBD2', 'Nettoyant papillon des gaz', 'Cle a douille']
-      },
-      tips: [
-        'Nettoyer le papillon des gaz avant de remplacer le TPS (resolution dans 20% des cas)',
-        'Verifier si le TPS est remplacable separement ou integre au boitier papillon',
-        'Apres remplacement du TPS, une reapprentissage du ralenti peut etre necessaire via la valise OBD',
-        'Sur les vehicules modernes avec accelerateur electronique, le capteur pedale est parfois en cause'
-      ],
-      warningNote: 'Un TPS defaillant peut provoquer des accelerations involontaires ou un passage en mode degrade (regime limite a 2000-3000 tr/min). Si le vehicule accelere de maniere erratique, cessez de rouler immediatement et faites remorquer le vehicule.'
-    }
+    relatedCodes: ['P0121', 'P0122', 'P0123', 'P0220', 'P0222']
   },
   P0121: {
     code: 'P0121',
@@ -1677,33 +1428,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Si c\'est juste recalibration TPS: gratuit DIY ou 30-50 euros garage. Si c\'est nettoyage papillon + recalibration: 10-20 euros produit DIY ou 60-100 euros garage. Si c\'est remplacement TPS: 40-120 euros piece + 50-100 euros MO = 90-220 euros total. Si c\'est reparation fuite air: 20-80 euros selon piece + 40-120 euros MO = 60-200 euros total. Dans 70% des cas une recalibration ou nettoyage suffis ent, donc essayez ca avant de remplacer des pieces. Budget previsionnel: 50-150 euros.'
       }
     ],
-    relatedCodes: ['P0120', 'P0122', 'P0123', 'P0171', 'P0174'],
-    repairCosts: {
-      minimum: 15,
-      average: 140,
-      maximum: 450,
-      parts: [
-        { name: 'Capteur position papillon TPS', priceMin: 20, priceMax: 80 },
-        { name: 'Boitier papillon complet (si TPS integre)', priceMin: 100, priceMax: 400 },
-        { name: 'Nettoyant papillon des gaz', priceMin: 8, priceMax: 15 }
-      ],
-      laborTime: '30min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '30min - 1h30',
-        tools: ['Tournevis Torx', 'Multimetre', 'Valise OBD2', 'Nettoyant papillon', 'Cle a douille']
-      },
-      tips: [
-        'Nettoyer le boitier papillon en premier (encrassement peut fausser les valeurs TPS)',
-        'Verifier la coherence entre TPS et MAF avec la valise OBD en temps reel',
-        'Le P0121 indique souvent une usure du potentiometre interne du TPS (zones mortes)',
-        'Apres intervention, faire un reapprentissage papillon via la valise OBD (obligatoire sur certains modeles)'
-      ],
-      warningNote: 'Le P0121 peut provoquer un passage en mode degrade avec limitation de regime. Si le vehicule perd soudainement de la puissance et refuse de depasser 2500 tr/min, c\'est le mode de secours active par l\'ECU. Roulez prudemment jusqu\'au garage le plus proche.'
-    }
+    relatedCodes: ['P0120', 'P0122', 'P0123', 'P0171', 'P0174']
   },
   P0122: {
     code: 'P0122',
@@ -1759,33 +1484,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Si c\'est juste nettoyage connecteur: 10-15 euros bombe contact DIY ou 30-50 euros garage. Si c\'est reglage mecanique TPS: gratuit DIY ou 30-50 euros garage. Si c\'est remplacement TPS: 40-120 euros piece + 50-100 euros MO + recalibration = 90-220 euros total. Si c\'est reparation faisceau: 30-100 euros + 50-150 euros MO = 80-250 euros total. Dans 75% des cas c\'est le capteur TPS a remplacer, donc budget previsionnel: 100-200 euros. Reparation relativement simple et rapide (1-2h).'
       }
     ],
-    relatedCodes: ['P0120', 'P0121', 'P0123', 'P0220', 'P0222'],
-    repairCosts: {
-      minimum: 10,
-      average: 130,
-      maximum: 450,
-      parts: [
-        { name: 'Capteur position papillon TPS', priceMin: 20, priceMax: 80 },
-        { name: 'Boitier papillon complet (si TPS integre)', priceMin: 100, priceMax: 400 },
-        { name: 'Connecteur TPS', priceMin: 10, priceMax: 30 }
-      ],
-      laborTime: '30min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '30min - 1h',
-        tools: ['Tournevis Torx', 'Multimetre', 'Valise OBD2', 'Nettoyant contact electrique']
-      },
-      tips: [
-        'Le P0122 (signal bas) indique souvent un court-circuit a la masse dans le cablage TPS',
-        'Verifier le connecteur TPS pour corrosion (frequente sur vehicules exposes au sel)',
-        'Mesurer la tension TPS: doit etre environ 0,5V au ralenti et monter progressivement',
-        'Sur les vehicules avec accelerateur electronique, verifier aussi le capteur pedale d\'accelerateur'
-      ],
-      warningNote: 'Un TPS bloque en signal bas peut forcer le mode degrade avec ralenti eleve et impossibilite d\'accelerer normalement. Le vehicule peut etre dangereux a conduire car la reponse a l\'accelerateur est imprevisible. Faites reparer avant de reprendre la route.'
-    }
+    relatedCodes: ['P0120', 'P0121', 'P0123', 'P0220', 'P0222']
   },
   P0123: {
     code: 'P0123',
@@ -1841,33 +1540,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Si c\'est juste reconnexion connecteur: gratuit. Si c\'est nettoyage connecteur: 10-15 euros bombe DIY ou 30-50 euros garage. Si c\'est remplacement connecteur: 5-20 euros + 20-40 euros MO = 25-60 euros total. Si c\'est remplacement TPS: 40-120 euros piece + 50-100 euros MO + recalibration = 90-220 euros total. Si c\'est reparation faisceau: 30-100 euros + 50-150 euros MO = 80-250 euros total. Dans 75% des cas c\'est TPS ou connecteur, donc budget previsionnel: 60-150 euros. Simple et rapide (1-2h).'
       }
     ],
-    relatedCodes: ['P0120', 'P0121', 'P0122', 'P0220', 'P0223'],
-    repairCosts: {
-      minimum: 10,
-      average: 130,
-      maximum: 450,
-      parts: [
-        { name: 'Capteur position papillon TPS', priceMin: 20, priceMax: 80 },
-        { name: 'Boitier papillon complet (si TPS integre)', priceMin: 100, priceMax: 400 },
-        { name: 'Connecteur TPS', priceMin: 10, priceMax: 30 }
-      ],
-      laborTime: '30min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '30min - 1h',
-        tools: ['Tournevis Torx', 'Multimetre', 'Valise OBD2', 'Nettoyant contact electrique']
-      },
-      tips: [
-        'Le P0123 (signal haut) indique souvent un circuit ouvert ou fil de masse coupe',
-        'Verifier la masse du capteur TPS en premier (fil noir ou brun selon constructeur)',
-        'Un TPS avec signal bloque haut provoque un ralenti tres eleve (2000-3000 tr/min)',
-        'Certains TPS sont ajustables: verifier le reglage avant de remplacer la piece'
-      ],
-      warningNote: 'Un TPS signalant papillon grand ouvert en permanence provoque un ralenti tres eleve et une surconsommation extreme. Le vehicule peut aussi avoir des a-coups violents au passage des rapports. Ne roulez pas longtemps dans ces conditions car l\'exces de carburant endommage le catalyseur.'
-    }
+    relatedCodes: ['P0120', 'P0121', 'P0122', 'P0220', 'P0223']
   },
   P0125: {
     code: 'P0125',
@@ -1923,34 +1596,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Piece: 30-80 euros selon vehicule (piece tres courante). Main d\'oeuvre: 50-100 euros (1-2h selon accessibilite). Liquide refroidissement si vidange necessaire: 10-30 euros. Total garage: 90-210 euros. En DIY: 40-110 euros (thermostat + liquide). C\'est une reparation simple: vidanger partiellement liquide, deboiter durites, retirer ancien thermostat, nettoyer surfaces, poser nouveau avec joint neuf, remonter durites, remplir liquide, purger air, tester. Niveau DIY: intermediaire. Attention: toujours remplacer le joint du thermostat, ne jamais reutiliser ancien joint.'
       }
     ],
-    relatedCodes: ['P0115', 'P0116', 'P0117', 'P0118', 'P0128'],
-    repairCosts: {
-      minimum: 20,
-      average: 120,
-      maximum: 300,
-      parts: [
-        { name: 'Thermostat (calorstat)', priceMin: 15, priceMax: 60 },
-        { name: 'Boitier thermostat complet', priceMin: 30, priceMax: 120 },
-        { name: 'Liquide de refroidissement (2L)', priceMin: 10, priceMax: 25 },
-        { name: 'Joint de boitier thermostat', priceMin: 3, priceMax: 12 }
-      ],
-      laborTime: '45min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '1h - 2h',
-        tools: ['Cle a douille', 'Bac de recuperation', 'Valise OBD2', 'Thermometre infrarouge', 'Pince pour colliers']
-      },
-      tips: [
-        'Le thermostat bloque ouvert est la cause dans 80% des cas de P0125',
-        'Verifier la temperature reelle du moteur avec un thermometre IR (doit atteindre 85-95C)',
-        'Un moteur trop froid consomme 10-20% de plus et use l\'huile prematurement',
-        'En attendant la reparation, surveiller la jauge de temperature (si elle ne monte jamais, c\'est le thermostat)'
-      ],
-      warningNote: 'Le P0125 semble mineur mais un moteur trop froid consomme excessivement et s\'use plus vite. L\'huile moteur trop froide ne lubrifie pas correctement et accumule de l\'humidite (mousse blanche sur le bouchon d\'huile). Reparer avant que la surconsommation ne depasse le cout de la reparation.'
-    }
+    relatedCodes: ['P0115', 'P0116', 'P0117', 'P0118', 'P0128']
   },
   P0128: {
     code: 'P0128',
@@ -2006,35 +1652,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Thermostat mecanique classique: 30-80 euros piece qualite + 50-100 euros MO + 10-20 euros liquide = 90-200 euros total garage. DIY: 40-100 euros. Thermostat pilote electronique: 80-150 euros piece + 50-100 euros MO = 130-250 euros total. Delai intervention: 1-2h. C\'est reparation courante et abordable. Attention: toujours changer joint thermostat (souvent fourni avec), ne jamais reutiliser ancien. Purger correctement air apres intervention pour eviter bulles et P0125/P0128 persistants. Budget moyen previsionnel: 120-180 euros garage.'
       }
     ],
-    relatedCodes: ['P0125', 'P0115', 'P0116', 'P0217', 'P0219'],
-    repairCosts: {
-      minimum: 20,
-      average: 110,
-      maximum: 280,
-      parts: [
-        { name: 'Thermostat (calorstat)', priceMin: 15, priceMax: 60 },
-        { name: 'Boitier thermostat complet', priceMin: 30, priceMax: 120 },
-        { name: 'Liquide de refroidissement (2L)', priceMin: 10, priceMax: 25 },
-        { name: 'Joint de boitier thermostat', priceMin: 3, priceMax: 12 },
-        { name: 'Capteur ECT (si defectueux aussi)', priceMin: 10, priceMax: 45 }
-      ],
-      laborTime: '45min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '1h - 2h',
-        tools: ['Cle a douille', 'Bac de recuperation', 'Valise OBD2', 'Thermometre infrarouge', 'Pince pour colliers']
-      },
-      tips: [
-        'Le P0128 pointe quasi-exclusivement vers le thermostat (90% des cas)',
-        'Le thermostat est une piece d\'usure peu couteuse (15-60 euros), ne pas hesiter a le remplacer',
-        'Verifier que le bon thermostat est installe (temperature d\'ouverture correcte selon constructeur)',
-        'Purger correctement le circuit de refroidissement apres remplacement (bulle d\'air = surchauffe)'
-      ],
-      warningNote: 'Le remplacement du thermostat necessite une purge correcte du circuit de refroidissement. Une bulle d\'air piegee peut provoquer une surchauffe localisee de la culasse. Suivez la procedure de purge specifique a votre vehicule (certains ont des vis de purge, d\'autres necessitent de rouler avec le chauffage a fond).'
-    }
+    relatedCodes: ['P0125', 'P0115', 'P0116', 'P0217', 'P0219']
   },
   P0130: {
     code: 'P0130',
@@ -2090,34 +1708,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Sonde lambda amont: 40-120 euros selon vehicule (origine plus cher, aftermarket acceptable). Main d\'oeuvre: 30-80 euros (30 min a 1h selon accessibilite). Total garage: 70-200 euros. DIY: 40-120 euros seulement. Achat: privilegiez marques connues (Bosch, NGK, Denso) pas premiers prix chinois. Installation: moteur chaud la sonde se devisse mieux (filetage pas grippe). Appliquez pate cuivre anti-grippage sur filetage nouveau. Attention: ne touchez jamais element ceramique sonde avec doigts gras, ca la tue. Budget previsionnel moyen: 100-150 euros garage.'
       }
     ],
-    relatedCodes: ['P0131', 'P0132', 'P0133', 'P0134', 'P0171'],
-    repairCosts: {
-      minimum: 30,
-      average: 150,
-      maximum: 350,
-      parts: [
-        { name: 'Sonde lambda amont banc 1 (universelle)', priceMin: 25, priceMax: 60 },
-        { name: 'Sonde lambda amont banc 1 (origine)', priceMin: 60, priceMax: 200 },
-        { name: 'Connecteur sonde lambda', priceMin: 10, priceMax: 30 },
-        { name: 'Degrippant haute temperature', priceMin: 8, priceMax: 15 }
-      ],
-      laborTime: '30min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '45min - 1h30',
-        tools: ['Cle a sonde lambda (22mm fendue)', 'Multimetre', 'Valise OBD2', 'Degrippant WD-40', 'Rallonge de cle']
-      },
-      tips: [
-        'Appliquer du degrippant sur le filetage de la sonde 24h avant le demontage',
-        'Demonter la sonde moteur chaud (dilatation facilite le devissage)',
-        'Les sondes universelles sont 50-60% moins cheres mais necessitent un raccord de fils',
-        'Verifier le connecteur et le cablage avant de remplacer la sonde (faux contact frequent)'
-      ],
-      warningNote: 'Une sonde lambda defaillante fait basculer l\'ECU en boucle ouverte: le melange n\'est plus optimise en temps reel. La consommation augmente de 15-25% et les emissions polluantes explosent. Ne roulez pas plus de 2-3 semaines sans reparer, surtout avant le controle technique.'
-    }
+    relatedCodes: ['P0131', 'P0132', 'P0133', 'P0134', 'P0171']
   },
   P0131: {
     code: 'P0131',
@@ -2173,33 +1764,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Si c\'est sonde lambda: 40-120 euros piece + 30-80 euros MO = 70-200 euros total. Si c\'est cablage court-circuite: 30-100 euros reparation + 50-100 euros MO = 80-200 euros total. Si c\'est fuite air admission: 20-80 euros selon piece (durite, joint) + 40-120 euros MO = 60-200 euros total. Budget previsionnel moyen: 100-180 euros. Diagnostic essentiel pour cibler cause avant remplacer pieces inutilement. Une valise OBD + tests multimetre permettent identifier rapidement si sonde, cablage ou vraie fuite air.'
       }
     ],
-    relatedCodes: ['P0130', 'P0132', 'P0133', 'P0171', 'P0174'],
-    repairCosts: {
-      minimum: 25,
-      average: 140,
-      maximum: 320,
-      parts: [
-        { name: 'Sonde lambda amont banc 1 (universelle)', priceMin: 25, priceMax: 60 },
-        { name: 'Sonde lambda amont banc 1 (origine)', priceMin: 60, priceMax: 200 },
-        { name: 'Connecteur sonde lambda', priceMin: 10, priceMax: 30 }
-      ],
-      laborTime: '30min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '45min - 1h30',
-        tools: ['Cle a sonde lambda (22mm fendue)', 'Multimetre', 'Valise OBD2', 'Degrippant haute temperature']
-      },
-      tips: [
-        'Le P0131 (signal bas) peut aussi indiquer une vraie fuite d\'air (prise d\'air echappement)',
-        'Verifier les fuites d\'echappement en amont de la sonde (joint collecteur, fissure)',
-        'Observer le signal sonde en temps reel avec la valise OBD: doit osciller 0,1-0,9V',
-        'Une sonde lente a reagir (plus de 300ms) est usee meme si elle oscille encore'
-      ],
-      warningNote: 'Un signal sonde lambda bloque bas fait enrichir massivement le melange. Le carburant imbrue dilue l\'huile moteur, encrasse les bougies et surcharge le catalyseur. Si vous sentez une forte odeur d\'essence a l\'echappement, reparez rapidement pour eviter d\'endommager le catalyseur.'
-    }
+    relatedCodes: ['P0130', 'P0132', 'P0133', 'P0171', 'P0174']
   },
   P0132: {
     code: 'P0132',
@@ -2255,33 +1820,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Si sonde lambda HS: 40-120 euros piece + 30-80 euros MO = 70-200 euros. Si cablage court-circuite: 30-100 euros + 50-100 euros MO = 80-200 euros. Si injecteurs fuyards: nettoyage 80-160 euros (4 injecteurs) ou remplacement 240-600 euros. Si regulateur pression: 50-150 euros piece + 80-150 euros MO = 130-300 euros. Budget previsionnel selon cause: 100-300 euros. Diagnostic crucial car causes tres variees. Commencez par tests simples (valeur sonde, etat bougies, pression rampe) avant remplacer pieces.'
       }
     ],
-    relatedCodes: ['P0130', 'P0131', 'P0133', 'P0172', 'P0175'],
-    repairCosts: {
-      minimum: 25,
-      average: 140,
-      maximum: 320,
-      parts: [
-        { name: 'Sonde lambda amont banc 1 (universelle)', priceMin: 25, priceMax: 60 },
-        { name: 'Sonde lambda amont banc 1 (origine)', priceMin: 60, priceMax: 200 },
-        { name: 'Connecteur sonde lambda', priceMin: 10, priceMax: 30 }
-      ],
-      laborTime: '30min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '45min - 1h30',
-        tools: ['Cle a sonde lambda (22mm fendue)', 'Multimetre', 'Valise OBD2', 'Degrippant haute temperature']
-      },
-      tips: [
-        'Le P0132 (signal haut) peut indiquer un probleme de richesse reel (injecteur qui fuit)',
-        'Verifier qu\'il n\'y a pas de fuite d\'injecteur avant de remplacer la sonde',
-        'Un signal sonde bloque a 0,9V peut aussi etre cause par une fuite d\'huile dans l\'echappement',
-        'Comparer le prix des sondes universelles vs origine: souvent 50-60% d\'economie'
-      ],
-      warningNote: 'Un signal sonde lambda bloque haut fait appauvrir le melange par l\'ECU. Un melange trop pauvre provoque des temperatures de combustion excessives, des cliquetis et peut endommager les soupapes et les pistons. Ne roulez pas longtemps avec ce code, surtout en conduite sportive.'
-    }
+    relatedCodes: ['P0130', 'P0131', 'P0133', 'P0172', 'P0175']
   },
   P0133: {
     code: 'P0133',
@@ -2337,34 +1876,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Sonde lambda amont (avant catalyseur): 40-120 euros selon vehicule et marque. Privilegiez marques serieuses (Bosch, NGK, Denso, NTK) pas premiers prix 25 euros qui durent 6 mois. Main d\'oeuvre: 30-80 euros (30 min a 1h). Total garage: 70-200 euros. DIY: 40-120 euros seulement. Duree vie sonde neuve qualite: 100 000-150 000 km. Donc sur vehicule 200 000 km vous remplacerez sonde 1-2 fois. Budget previsionnel moyen: 100-150 euros garage. Installation: moteur chaud pour devissage facile, pate cuivre anti-grippage sur filetage.'
       }
     ],
-    relatedCodes: ['P0130', 'P0131', 'P0132', 'P0134', 'P0420'],
-    repairCosts: {
-      minimum: 60,
-      average: 150,
-      maximum: 350,
-      parts: [
-        { name: 'Sonde lambda amont', priceMin: 40, priceMax: 120 },
-        { name: 'Connecteur electrique sonde', priceMin: 10, priceMax: 25 },
-        { name: 'Additif nettoyant sonde lambda', priceMin: 15, priceMax: 25 },
-        { name: 'Pate anti-grippage cuivre', priceMin: 5, priceMax: 10 }
-      ],
-      laborTime: '30min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '40-60%',
-        timeNeeded: '1h - 2h',
-        tools: ['Cle a sonde lambda 22mm', 'Multimetre', 'Valise OBD2', 'Decapeur thermique']
-      },
-      tips: [
-        'Essayer un additif nettoyant sonde lambda (15-25 euros) avant de remplacer, efficace dans 30% des cas',
-        'Toujours demonter la sonde moteur chaud pour eviter de casser le filetage grippe',
-        'Privilegier les marques Bosch, NGK ou Denso pour une duree de vie optimale',
-        'Appliquer de la pate cuivre anti-grippage sur le filetage de la nouvelle sonde'
-      ],
-      warningNote: 'Ne pas confondre reponse lente (P0133) avec sonde morte (P0134). Tester le temps de reponse avec une valise avant de remplacer la sonde pour confirmer le diagnostic.'
-    }
+    relatedCodes: ['P0130', 'P0131', 'P0132', 'P0134', 'P0420']
   },
   P0134: {
     code: 'P0134',
@@ -2420,34 +1932,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Si c\'est juste fusible grille: 2-5 euros fusible, remplacement gratuit DIY ou 20-30 euros garage. Si c\'est sonde morte: 40-120 euros piece (Bosch, NGK, Denso) + 30-80 euros MO = 70-200 euros total garage, ou 40-120 euros DIY. Si c\'est cablage coupe: 30-100 euros reparation + 50-100 euros MO = 80-200 euros. Budget previsionnel moyen: 100-150 euros garage. Conseil: testez d\'abord fusible (gratuit), puis resistance sonde (5 min multimetre), pour cibler cause avant acheter piece. Ne remplacez pas sonde sans diagnostic, 15% des cas c\'est juste fusible.'
       }
     ],
-    relatedCodes: ['P0130', 'P0131', 'P0132', 'P0133', 'P0135'],
-    repairCosts: {
-      minimum: 50,
-      average: 140,
-      maximum: 300,
-      parts: [
-        { name: 'Sonde lambda amont', priceMin: 40, priceMax: 120 },
-        { name: 'Fusible rechauffage sonde', priceMin: 2, priceMax: 5 },
-        { name: 'Connecteur electrique sonde', priceMin: 10, priceMax: 25 },
-        { name: 'Pate anti-grippage cuivre', priceMin: 5, priceMax: 10 }
-      ],
-      laborTime: '30min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '40-60%',
-        timeNeeded: '45min - 1h30',
-        tools: ['Cle a sonde lambda 22mm', 'Multimetre', 'Valise OBD2', 'Decapeur thermique']
-      },
-      tips: [
-        'Toujours verifier le fusible rechauffage sonde en premier (2-5 euros, resout 15% des cas)',
-        'Tester la resistance du rechauffage sonde avant de la remplacer (3-15 ohms = OK)',
-        'Une sonde figee a 0.45V est morte : le remplacement est inevitable',
-        'Demonter la sonde moteur chaud facilite enormement le devissage'
-      ],
-      warningNote: 'Sans sonde lambda fonctionnelle, le moteur tourne en boucle ouverte avec 15-25% de surconsommation. Reparer avant le controle technique.'
-    }
+    relatedCodes: ['P0130', 'P0131', 'P0132', 'P0133', 'P0135']
   },
   P0135: {
     code: 'P0135',
@@ -2503,34 +1988,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Si c\'est fusible: 2-5 euros piece, gratuit DIY ou 20-30 euros garage. Si c\'est connecteur corrode: nettoyage 10-15 euros bombe DIY ou 30-50 euros garage. Si c\'est relais: 15-40 euros piece + 30-50 euros MO = 45-90 euros. Si c\'est resistance sonde HS: remplacement sonde complete 40-120 euros piece + 30-80 euros MO = 70-200 euros total. Budget previsionnel: commencez par fusible (quasi gratuit), puis tests multimetre (resistance, 12V), avant acheter sonde. Dans 55% cas c\'est fusible ou connecteur (moins 50 euros), 45% cas sonde complete a remplacer (100-150 euros).'
       }
     ],
-    relatedCodes: ['P0130', 'P0134', 'P0141', 'P0155', 'P0161'],
-    repairCosts: {
-      minimum: 5,
-      average: 130,
-      maximum: 300,
-      parts: [
-        { name: 'Sonde lambda amont', priceMin: 40, priceMax: 120 },
-        { name: 'Fusible rechauffage sonde', priceMin: 2, priceMax: 5 },
-        { name: 'Relais rechauffage sonde', priceMin: 10, priceMax: 30 },
-        { name: 'Faisceau cablage reparation', priceMin: 15, priceMax: 40 }
-      ],
-      laborTime: '30min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '30min - 1h30',
-        tools: ['Multimetre', 'Cle a sonde lambda 22mm', 'Valise OBD2', 'Tournevis']
-      },
-      tips: [
-        'Verifier le fusible en premier : c est la cause dans 40% des cas (2-5 euros)',
-        'Mesurer la resistance du rechauffage sonde debranchee : infini = sonde HS',
-        'Si le fusible grille immediatement apres remplacement, chercher un court-circuit cablage',
-        'Les symptomes disparaissent une fois le moteur chaud, probleme surtout a froid'
-      ],
-      warningNote: 'Le rechauffage defaillant cause une surconsommation de 20-30% les 5 premieres minutes de chaque trajet. Impact important en usage urbain avec demarrages frequents.'
-    }
+    relatedCodes: ['P0130', 'P0134', 'P0141', 'P0155', 'P0161']
   },
   P0136: {
     code: 'P0136',
@@ -2586,34 +2044,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Sonde lambda aval: 35-100 euros piece (moins cher que amont car moins sollicitee). Main d\'oeuvre: 30-80 euros (30 min a 1h, parfois plus accessible que amont). Total garage: 65-180 euros. DIY: 35-100 euros seulement. Achat: marques connues (Bosch, NGK, Denso) recommandees. Astuce: certains vehicules ont sonde aval "universelle" compatible = moins cher. Budget previsionnel moyen: 90-130 euros garage. Moins urgent que sonde amont, mais reparation simple et abordable si CT proche.'
       }
     ],
-    relatedCodes: ['P0140', 'P0141', 'P0156', 'P0420', 'P0430'],
-    repairCosts: {
-      minimum: 45,
-      average: 120,
-      maximum: 280,
-      parts: [
-        { name: 'Sonde lambda aval', priceMin: 35, priceMax: 100 },
-        { name: 'Connecteur electrique sonde', priceMin: 10, priceMax: 25 },
-        { name: 'Nettoyant contact electrique', priceMin: 5, priceMax: 12 },
-        { name: 'Pate anti-grippage cuivre', priceMin: 5, priceMax: 10 }
-      ],
-      laborTime: '30min - 1h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '40-60%',
-        timeNeeded: '45min - 1h30',
-        tools: ['Cle a sonde lambda 22mm', 'Multimetre', 'Valise OBD2', 'Nettoyant contact']
-      },
-      tips: [
-        'La sonde aval n impacte pas le fonctionnement moteur, pas d urgence mecanique',
-        'Si vous avez P0136 ET P0420, remplacer d abord la sonde aval (20% de faux P0420)',
-        'La sonde aval est moins chere que la sonde amont car moins sollicitee',
-        'Nettoyer le connecteur peut suffire si la corrosion est legere'
-      ],
-      warningNote: 'Aucun impact sur les performances moteur. Reparation necessaire uniquement pour le controle technique et la surveillance du catalyseur.'
-    }
+    relatedCodes: ['P0140', 'P0141', 'P0156', 'P0420', 'P0430']
   },
   P0137: {
     code: 'P0137',
@@ -2669,34 +2100,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Si court-circuit cablage: 30-100 euros reparation fil + 50-100 euros MO = 80-200 euros. Si sonde aval HS: 35-100 euros piece + 30-80 euros MO = 65-180 euros. Si fuite echappement: 30-150 euros selon piece + 50-150 euros MO = 80-300 euros. Budget previsionnel moyen: 100-180 euros garage. Diagnostic important pour cibler cause. Dans 75% cas c\'est sonde ou cablage (moins 200 euros). Astuce: testez d\'abord fusible rechauffage (gratuit), puis resistance sonde (5 min), puis cherchez court-circuit cablage, avant acheter piece.'
       }
     ],
-    relatedCodes: ['P0136', 'P0138', 'P0140', 'P0131', 'P0420'],
-    repairCosts: {
-      minimum: 40,
-      average: 130,
-      maximum: 300,
-      parts: [
-        { name: 'Sonde lambda aval', priceMin: 35, priceMax: 100 },
-        { name: 'Faisceau cablage reparation', priceMin: 15, priceMax: 40 },
-        { name: 'Connecteur electrique sonde', priceMin: 10, priceMax: 25 },
-        { name: 'Gaine thermoretractable', priceMin: 3, priceMax: 8 }
-      ],
-      laborTime: '30min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '40-60%',
-        timeNeeded: '45min - 1h30',
-        tools: ['Multimetre', 'Cle a sonde lambda 22mm', 'Valise OBD2', 'Nettoyant contact']
-      },
-      tips: [
-        'Verifier le cablage en priorite : un court-circuit masse est la cause dans 45% des cas',
-        'Debrancher la sonde et mesurer : si la tension passe a 0.45V, la sonde est HS',
-        'Inspecter visuellement le faisceau pour des fils denudes touchant le chassis',
-        'Aucun impact sur la consommation ou les performances, pas d urgence'
-      ],
-      warningNote: 'Code mineur sans impact moteur. Le court-circuit masse du cablage est la cause la plus frequente : inspecter le faisceau avant de remplacer la sonde.'
-    }
+    relatedCodes: ['P0136', 'P0138', 'P0140', 'P0131', 'P0420']
   },
   P0138: {
     code: 'P0138',
@@ -2752,34 +2156,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Si court-circuit cablage vers 12V: 30-100 euros reparation + 50-100 euros MO = 80-200 euros. Si sonde aval coincee signal haut: 35-100 euros piece + 30-80 euros MO = 65-180 euros. Si connecteur infiltre eau: nettoyage 10-20 euros DIY ou 30-50 euros garage, ou remplacement connecteur 15-35 euros. Si catalyseur aussi HS (rare avec P0138 seul): 800-1500 euros. Budget previsionnel moyen: 100-180 euros garage. Procedure diagnostic: 1) Testez court-circuit cablage (gratuit multimetre), 2) Nettoyez connecteur (10 euros), 3) Si persiste, remplacez sonde (65-180 euros).'
       }
     ],
-    relatedCodes: ['P0136', 'P0137', 'P0140', 'P0132', 'P0420'],
-    repairCosts: {
-      minimum: 40,
-      average: 130,
-      maximum: 300,
-      parts: [
-        { name: 'Sonde lambda aval', priceMin: 35, priceMax: 100 },
-        { name: 'Faisceau cablage reparation', priceMin: 15, priceMax: 40 },
-        { name: 'Connecteur electrique sonde', priceMin: 10, priceMax: 25 },
-        { name: 'Gaine thermoretractable', priceMin: 3, priceMax: 8 }
-      ],
-      laborTime: '30min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '40-60%',
-        timeNeeded: '45min - 1h30',
-        tools: ['Multimetre', 'Cle a sonde lambda 22mm', 'Valise OBD2', 'Nettoyant contact']
-      },
-      tips: [
-        'Court-circuit vers 12V est la cause principale (35% des cas) : verifier le cablage',
-        'Debrancher la sonde : si la tension chute, la sonde est HS ; si elle reste haute, probleme cablage',
-        'Verifier que le fil signal ne touche pas le fil rechauffage 12V',
-        'Nettoyer le connecteur si infiltration d eau ou d huile detectee'
-      ],
-      warningNote: 'Aucun impact sur les performances moteur. Si le P0420 est aussi present, remplacer la sonde aval en premier pour eliminer un faux positif.'
-    }
+    relatedCodes: ['P0136', 'P0137', 'P0140', 'P0132', 'P0420']
   },
   P0140: {
     code: 'P0140',
@@ -2835,34 +2212,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Sonde lambda aval: 35-100 euros piece (moins cher que amont). Main d\'oeuvre: 30-80 euros (accessibilite variable). Total garage: 65-180 euros. DIY: 35-100 euros seulement. Si c\'est juste fusible: 2-5 euros. Si connecteur corrode: nettoyage 10-15 euros ou nouveau connecteur 15-30 euros. Budget previsionnel moyen garage: 90-140 euros. Conseil: diagnostic systematique avant achat. Testez: 1) Fusible (gratuit), 2) Presence 12V rechauffage (5 min), 3) Resistance rechauffage sonde (5 min multimetre). Dans 20% cas c\'est fusible (quasi gratuit), 80% cas sonde morte (65-180 euros).'
       }
     ],
-    relatedCodes: ['P0136', 'P0137', 'P0138', 'P0134', 'P0420'],
-    repairCosts: {
-      minimum: 5,
-      average: 120,
-      maximum: 280,
-      parts: [
-        { name: 'Sonde lambda aval', priceMin: 35, priceMax: 100 },
-        { name: 'Fusible rechauffage sonde', priceMin: 2, priceMax: 5 },
-        { name: 'Connecteur electrique sonde', priceMin: 10, priceMax: 25 },
-        { name: 'Pate anti-grippage cuivre', priceMin: 5, priceMax: 10 }
-      ],
-      laborTime: '30min - 1h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '40-60%',
-        timeNeeded: '30min - 1h30',
-        tools: ['Cle a sonde lambda 22mm', 'Multimetre', 'Valise OBD2', 'Tournevis']
-      },
-      tips: [
-        'Tester le fusible en premier : gratuit et resout 20% des cas',
-        'Sonde figee a 0.45V = sonde morte, remplacement obligatoire',
-        'Le moteur fonctionne parfaitement sans sonde aval, pas d urgence mecanique',
-        'Verifier si le fusible est commun avec la sonde amont avant de le remplacer'
-      ],
-      warningNote: 'Aucun impact sur les performances ou la consommation. La sonde aval sert uniquement a surveiller le catalyseur. Reparer avant le CT.'
-    }
+    relatedCodes: ['P0136', 'P0137', 'P0138', 'P0134', 'P0420']
   },
 
   // === CODES SONDES OXYGENE (O2) BANC 2 - P0150-P0161 ===
@@ -2921,34 +2271,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Prix piece identique ou similaire (40-120 euros sonde lambda universelle ou OEM). MAIS main d\'oeuvre peut varier significativement selon accessibilite banc 2. Sur certains vehicules (ex: V6 transversal), banc 2 = arriere moteur contre cloison, acces difficile necessite demonter berceau ou composants. MO peut aller 40 euros (acces facile) a 150 euros (acces complexe). Total reparation: 80-270 euros garage selon accessibilite. Sur vehicules acces facile banc 2 (berlines V8 longitudinal), cout identique banc 1 ou 2. Conseil: demander devis MO specifique banc 2 avant intervention, prix tres variable selon modele vehicule.'
       }
     ],
-    relatedCodes: ['P0130', 'P0151', 'P0152', 'P0153', 'P0430'],
-    repairCosts: {
-      minimum: 50,
-      average: 180,
-      maximum: 400,
-      parts: [
-        { name: 'Sonde lambda amont banc 2', priceMin: 40, priceMax: 120 },
-        { name: 'Connecteur electrique sonde', priceMin: 10, priceMax: 30 },
-        { name: 'Fusible rechauffage sonde', priceMin: 2, priceMax: 5 },
-        { name: 'Pate anti-grippage cuivre', priceMin: 5, priceMax: 10 }
-      ],
-      laborTime: '45min - 2h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Difficile' as const,
-        savings: '40-55%',
-        timeNeeded: '1h - 2h30',
-        tools: ['Cle a sonde lambda 22mm', 'Multimetre', 'Valise OBD2', 'Cle a pipe jeu complet']
-      },
-      tips: [
-        'L acces au banc 2 est souvent plus difficile que le banc 1 (arriere moteur sur V6 transversal)',
-        'Demander un devis specifique main d oeuvre banc 2 car les prix varient selon le modele',
-        'Reparer P0150 en premier si P0430 est present : 60% des P0430 disparaissent apres',
-        'Verifier le connecteur avant de remplacer la sonde (corrosion frequente banc 2)'
-      ],
-      warningNote: 'Surconsommation de 10-20% tant que la sonde n est pas reparee. Le catalyseur banc 2 risque d etre endommage par un melange non optimise.'
-    }
+    relatedCodes: ['P0130', 'P0151', 'P0152', 'P0153', 'P0430']
   },
 
   P0151: {
@@ -3005,34 +2328,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Urgence moderee, pas urgence absolue. Vous pouvez rouler 2-4 semaines sans danger immediat. ECU compense en enrichissant melange banc 2, donc moteur fonctionne mais: 1) Surconsommation 10-15%. 2) Emissions polluantes elevees. 3) Risque encrassement catalyseur si prolonge >1 mois. 4) Performances legerement degradees. Si controle technique imminent: reparer AVANT (echec pollution garanti). Si budget serre: reparer dans 4 semaines max. Si acces banc 2 difficile/cher: grouper avec autre entretien necessitant demontage (ex: distribution si imminente). Ne PAS rouler indefiniment: risque destruction catalyseur (remplacement catalyseur 400-1500 euros vs sonde 80-220 euros).'
       }
     ],
-    relatedCodes: ['P0150', 'P0152', 'P0171', 'P0174', 'P0430'],
-    repairCosts: {
-      minimum: 50,
-      average: 180,
-      maximum: 400,
-      parts: [
-        { name: 'Sonde lambda amont banc 2', priceMin: 40, priceMax: 120 },
-        { name: 'Faisceau cablage reparation', priceMin: 15, priceMax: 40 },
-        { name: 'Connecteur electrique sonde', priceMin: 10, priceMax: 25 },
-        { name: 'Joint collecteur admission', priceMin: 10, priceMax: 30 }
-      ],
-      laborTime: '45min - 2h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Difficile' as const,
-        savings: '35-55%',
-        timeNeeded: '1h - 2h30',
-        tools: ['Multimetre', 'Cle a sonde lambda 22mm', 'Valise OBD2', 'Spray detecteur fuite']
-      },
-      tips: [
-        'Un court-circuit masse du fil signal est la cause dans 35% des cas',
-        'Provoquer un melange riche (spray demarrage) : si la tension monte, la sonde est OK',
-        'Verifier qu il n y a pas de fuite d air sur l admission banc 2 (spray eau savonneuse)',
-        'Si le probleme est un vrai melange pauvre, chercher la cause cote alimentation carburant'
-      ],
-      warningNote: 'L ECU enrichit le melange banc 2 par securite, causant surconsommation et risque d encrassement catalyseur. Diagnostic sous 2-4 semaines.'
-    }
+    relatedCodes: ['P0150', 'P0152', 'P0171', 'P0174', 'P0430']
   },
 
   P0152: {
@@ -3089,34 +2385,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Diagnostic garage: 40-80 euros (30-60 min technicien + valise pro). Sonde O2 amont banc 2: 40-120 euros piece (universelle 40-70 euros, OEM constructeur 80-120 euros). Main d\'oeuvre remplacement: 40-100 euros (variable accessibilite banc 2). Total garage complet (diagnostic + piece + MO): 120-300 euros. DIY si acces facile: 40-120 euros piece seulement (economie 80-180 euros). Outil special recommande: cle sonde lambda 22 ou 27mm (15-25 euros, reutilisable). Budget moyen previsionnel garage: 150-200 euros. Si accessibilite banc 2 difficile (moteur transversal V6): MO peut grimper 120-150 euros (necessitant demonter composants), total 200-350 euros.'
       }
     ],
-    relatedCodes: ['P0150', 'P0151', 'P0172', 'P0175', 'P0430'],
-    repairCosts: {
-      minimum: 50,
-      average: 190,
-      maximum: 420,
-      parts: [
-        { name: 'Sonde lambda amont banc 2', priceMin: 40, priceMax: 120 },
-        { name: 'Faisceau cablage reparation', priceMin: 15, priceMax: 40 },
-        { name: 'Connecteur electrique sonde', priceMin: 10, priceMax: 25 },
-        { name: 'Regulateur pression carburant', priceMin: 40, priceMax: 120 }
-      ],
-      laborTime: '45min - 2h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Difficile' as const,
-        savings: '35-55%',
-        timeNeeded: '1h - 2h30',
-        tools: ['Multimetre', 'Cle a sonde lambda 22mm', 'Valise OBD2', 'Manometre pression carburant']
-      },
-      tips: [
-        'Debrancher la sonde : si la tension chute, le probleme vient de la sonde ou du cablage',
-        'Verifier la pression carburant (2.5-4 bars) : une pression excessive cause un melange riche reel',
-        'Un court-circuit vers 12V est la cause la plus frequente (30% des cas)',
-        'Si le P0175 est aussi present, chercher un injecteur qui fuit sur le banc 2'
-      ],
-      warningNote: 'L ECU appauvrit le melange banc 2 pour compenser. Risque de surchauffe et de rates d allumage si le melange devient trop pauvre. Diagnostic urgent sous 1-2 semaines.'
-    }
+    relatedCodes: ['P0150', 'P0151', 'P0172', 'P0175', 'P0430']
   },
 
   P0153: {
@@ -3173,34 +2442,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'OUI certains additifs dangereux pour sondes O2. Additifs a EVITER: 1) Additifs anti-friction contenant silicone (RTV) - silicone brule se depose sur sonde, l\'isole thermiquement, ralentit reponse. 2) Additifs nettoyant huile contenant phosphore - phosphore contamine element ceramique, degradation irreversible. 3) Octane boosters contenant MMT (manganese) - depots manganese isolent sonde. 4) Essences additionnees excessivement (supermarche discount) - additifs inconnus risque contamination. Additifs SAFE pour sondes: nettoyants injection type Techron (polyether amine), additifs cetane diesel sans metal. Si P0153 apparait peu apres utilisation additif, contamination possible cause. Remplacement sonde inevitable, dommage irreversible. Conseil: eviter additifs moteur non specifie compatible sondes O2.'
       }
     ],
-    relatedCodes: ['P0150', 'P0151', 'P0152', 'P0133', 'P0430'],
-    repairCosts: {
-      minimum: 55,
-      average: 170,
-      maximum: 380,
-      parts: [
-        { name: 'Sonde lambda amont banc 2', priceMin: 40, priceMax: 120 },
-        { name: 'Connecteur electrique sonde', priceMin: 10, priceMax: 25 },
-        { name: 'Additif nettoyant sonde lambda', priceMin: 15, priceMax: 25 },
-        { name: 'Pate anti-grippage cuivre', priceMin: 5, priceMax: 10 }
-      ],
-      laborTime: '45min - 2h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Difficile' as const,
-        savings: '35-55%',
-        timeNeeded: '1h - 2h30',
-        tools: ['Cle a sonde lambda 22mm', 'Multimetre', 'Valise OBD2', 'Decapeur thermique']
-      },
-      tips: [
-        'Si le vehicule a plus de 150 000 km, le remplacement de la sonde est la solution logique',
-        'Essayer un additif nettoyant (15-25 euros) avant le remplacement si la sonde a moins de 120 000 km',
-        'Remplacer les deux sondes amont (banc 1 et 2) simultanement economise sur la main d oeuvre',
-        'La degradation est progressive : la sonde finira par mourir completement (P0154)'
-      ],
-      warningNote: 'Surconsommation de 5-15% et emissions polluantes elevees. Remplacer dans les 2-3 mois ou avant le controle technique.'
-    }
+    relatedCodes: ['P0150', 'P0151', 'P0152', 'P0133', 'P0430']
   },
 
   P0154: {
@@ -3257,34 +2499,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Trois options: 1) Sonde OEM constructeur (80-150 euros): qualite garantie, duree vie maximale (150 000-200 000 km), connecteur plug-and-play. Recommande si vehicule <8 ans ou budget permet. 2) Sonde aftermarket marque reputee Bosch/Denso/NTK (50-100 euros): qualite correcte, duree vie bonne (120 000-180 000 km), connecteur compatible souvent. Bon compromis qualite/prix. 3) Sonde universelle generique (30-60 euros): necessite parfois epissure fils (pas plug-and-play), qualite variable, duree vie reduite (80 000-150 000 km). Economique mais risque. Conseil: banc 2 acces souvent difficile, privilegier qualite (OEM ou Bosch) eviter rappel garage 5 ans plus tard. Economiser 40 euros piece pour repayer 80 euros MO banc 2 plus tard = mauvais calcul. Si acces banc 2 facile DIY, universelle acceptable.'
       }
     ],
-    relatedCodes: ['P0150', 'P0153', 'P0134', 'P0155', 'P0430'],
-    repairCosts: {
-      minimum: 50,
-      average: 180,
-      maximum: 400,
-      parts: [
-        { name: 'Sonde lambda amont banc 2', priceMin: 40, priceMax: 120 },
-        { name: 'Fusible rechauffage sonde', priceMin: 2, priceMax: 5 },
-        { name: 'Connecteur electrique sonde', priceMin: 10, priceMax: 25 },
-        { name: 'Pate anti-grippage cuivre', priceMin: 5, priceMax: 10 }
-      ],
-      laborTime: '45min - 2h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Difficile' as const,
-        savings: '35-55%',
-        timeNeeded: '1h - 2h30',
-        tools: ['Cle a sonde lambda 22mm', 'Multimetre', 'Valise OBD2', 'Decapeur thermique']
-      },
-      tips: [
-        'Verifier le fusible rechauffage sonde en premier (gratuit, resout 20% des cas)',
-        'Si la sonde est figee a 0.45V meme en accelerant, elle est morte',
-        'Privilegier une sonde OEM ou marque reputee (Bosch, Denso) pour le banc 2 difficile d acces',
-        'Profiter de l intervention pour verifier aussi la sonde aval banc 2'
-      ],
-      warningNote: 'Le moteur tourne en boucle ouverte sur le banc 2 avec 10-20% de surconsommation. Risque d endommager le catalyseur banc 2 si non repare.'
-    }
+    relatedCodes: ['P0150', 'P0153', 'P0134', 'P0155', 'P0430']
   },
 
   P0155: {
@@ -3341,34 +2556,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Rechauffage resistance INTEGREE sonde O2, impossible remplacer separement. Si resistance rechauffage coupee (mesure infinie ohmmetre), sonde entiere doit etre remplacee. Seules reparations possibles P0155 SANS remplacer sonde: 1) Fusible grille (remplacer fusible 2-5 euros). 2) Cablage coupe entre fusible et sonde (reparer/remplacer section cablage 20-80 euros). 3) Connecteur corrode (nettoyer ou remplacer connecteur 10-30 euros). Si tests montrent resistance rechauffage sonde infinie ou court-circuitee, remplacement sonde complete inevitable (40-120 euros piece + 40-100 MO). Aucune possibilite reparer rechauffage sonde en place (element scelle ceramique). Budget prevoir: tests diagnostic gratuit-20 euros. Si sonde HS: 80-220 euros total garage.'
       }
     ],
-    relatedCodes: ['P0135', 'P0150', 'P0154', 'P0141', 'P0161'],
-    repairCosts: {
-      minimum: 5,
-      average: 150,
-      maximum: 350,
-      parts: [
-        { name: 'Sonde lambda amont banc 2', priceMin: 40, priceMax: 120 },
-        { name: 'Fusible rechauffage sonde', priceMin: 2, priceMax: 5 },
-        { name: 'Relais rechauffage sonde', priceMin: 10, priceMax: 30 },
-        { name: 'Faisceau cablage reparation', priceMin: 15, priceMax: 40 }
-      ],
-      laborTime: '45min - 2h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Difficile' as const,
-        savings: '35-55%',
-        timeNeeded: '1h - 2h30',
-        tools: ['Multimetre', 'Cle a sonde lambda 22mm', 'Valise OBD2', 'Tournevis']
-      },
-      tips: [
-        'Fusible grille = cause dans 40% des cas, verifier en premier (2-5 euros)',
-        'Mesurer la resistance du rechauffage : 2-14 ohms = OK, infini = sonde HS',
-        'Les symptomes ne se manifestent qu a froid (5-10 min) puis tout redevient normal',
-        'Impact important en usage urbain avec beaucoup de demarrages courts'
-      ],
-      warningNote: 'Surconsommation de 20-30% les 5-10 premieres minutes apres chaque demarrage a froid. Sur usage urbain, cela represente 10-15% de surconsommation globale.'
-    }
+    relatedCodes: ['P0135', 'P0150', 'P0154', 'P0141', 'P0161']
   },
 
   P0156: {
@@ -3425,34 +2613,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Sonde aval banc 2: 35-100 euros piece (moins cher que amont car conditions moins severes). Main oeuvre: 30-80 euros (accessibilite variable banc 2). Total garage: 65-180 euros. DIY: 35-100 euros piece seulement. Si juste fusible: 2-5 euros. Si connecteur corrode: nettoyage 5-10 euros gratuit DIY. Budget previsionnel moyen garage: 90-150 euros. Accessibilite banc 2 variable: facile moteurs V8 longitudinal RWD (DIY possible), difficile V6 transversal FWD (banc 2 arriere moteur, acces bloque). Outil special: cle sonde lambda 22mm (15-25 euros reutilisable). Economie DIY vs garage: 30-80 euros. Si acces difficile ou inexperience mecanique, garage recommande (eviter casser sonde bloquee rouille, arrondir ecrous, endommager filetage echappement).'
       }
     ],
-    relatedCodes: ['P0136', 'P0150', 'P0157', 'P0158', 'P0430'],
-    repairCosts: {
-      minimum: 40,
-      average: 120,
-      maximum: 280,
-      parts: [
-        { name: 'Sonde lambda aval banc 2', priceMin: 35, priceMax: 100 },
-        { name: 'Fusible rechauffage sonde', priceMin: 2, priceMax: 5 },
-        { name: 'Connecteur electrique sonde', priceMin: 10, priceMax: 25 },
-        { name: 'Nettoyant contact electrique', priceMin: 5, priceMax: 12 }
-      ],
-      laborTime: '30min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '40-60%',
-        timeNeeded: '45min - 1h30',
-        tools: ['Cle a sonde lambda 22mm', 'Multimetre', 'Valise OBD2', 'Nettoyant contact']
-      },
-      tips: [
-        'La sonde aval ne regule pas le melange : zero impact sur les performances',
-        'Verifier le fusible en premier : resout 25% des cas pour quelques euros',
-        'La sonde aval banc 2 est souvent plus accessible que la sonde amont',
-        'Reparer seulement si le CT approche ou si le voyant moteur vous gene'
-      ],
-      warningNote: 'Aucun impact sur le fonctionnement moteur ni la consommation. Reparation utile pour le controle technique et la surveillance du catalyseur banc 2.'
-    }
+    relatedCodes: ['P0136', 'P0150', 'P0157', 'P0158', 'P0430']
   },
 
   P0157: {
@@ -3509,34 +2670,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Cout MINIMUM absolu: 0-15 euros si cause simple. Scenarios economiques: 1) Court-circuit cablage localise accessible = reparation DIY gratuit (gaine thermoretractable 5 euros, fil 3 euros). 2) Connecteur oxyde = nettoyage DIY gratuit (spray contact 8 euros). 3) Faux contact = resserrer connexion gratuit. 4) Masse defectueuse = nettoyer point masse gratuit. Si vraiment sonde HS: sonde universelle low-cost 35-50 euros + DIY installation gratuit = 35-50 euros total. Garage economique: diagnostic 30 euros + sonde aftermarket 45 euros + MO 40 euros = 115 euros. Garage premium: diagnostic 60 euros + sonde OEM 85 euros + MO 70 euros = 215 euros. Strategie budget minimum: 1) Tester fusible (gratuit). 2) Nettoyer connecteur (8 euros). 3) Verifier cablage court-circuit (gratuit). 4) Si tout OK, remplacer sonde universelle DIY (35-50 euros). Total max budget serre: 35-60 euros.'
       }
     ],
-    relatedCodes: ['P0137', 'P0151', 'P0156', 'P0158', 'P0430'],
-    repairCosts: {
-      minimum: 40,
-      average: 120,
-      maximum: 280,
-      parts: [
-        { name: 'Sonde lambda aval banc 2', priceMin: 35, priceMax: 100 },
-        { name: 'Faisceau cablage reparation', priceMin: 15, priceMax: 40 },
-        { name: 'Connecteur electrique sonde', priceMin: 10, priceMax: 25 },
-        { name: 'Gaine thermoretractable', priceMin: 3, priceMax: 8 }
-      ],
-      laborTime: '30min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '40-60%',
-        timeNeeded: '45min - 1h30',
-        tools: ['Multimetre', 'Cle a sonde lambda 22mm', 'Valise OBD2', 'Nettoyant contact']
-      },
-      tips: [
-        'Court-circuit masse du fil signal = 40% des cas, inspecter le cablage sous le vehicule',
-        'Zero impact sur les performances moteur, pas d urgence mecanique',
-        'Si reparation cablage, bien isoler avec gaine thermoretractable et eloigner de l echappement',
-        'La sonde aval dure plus longtemps que l amont : si HS sous 120 000 km, suspecter le cablage'
-      ],
-      warningNote: 'Code mineur sans impact moteur. La cause la plus frequente est un fil denude touchant le chassis ou l echappement. Inspecter le faisceau en premier.'
-    }
+    relatedCodes: ['P0137', 'P0151', 'P0156', 'P0158', 'P0430']
   },
 
   P0158: {
@@ -3593,34 +2727,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Indefiniment sans AUCUN dommage mecanique. P0158 = sonde aval HS, aucun role regulation moteur. Vehicule fonctionne parfait sans elle des annees. Pas surconsommation, pas usure prematuree, pas casse moteur. Seule limite: 1) Controle technique (echec si requis par reglementation pays). 2) Masquage futurs codes (voyant deja allume cache nouveaux problemes). 3) Impossibilite detecter degradation catalyseur banc 2 (rouleriez catalyseur mort sans savoir = pollution illegale). Donc: pas URGENCE reparer mais RECOMMANDE reparer sous 2-3 mois pour: 1) Retrouver surveillance catalyseur fonctionnelle. 2) Eteindre voyant liberer diagnostic futurs problemes. 3) Passer controle technique. 4) Tranquillite esprit. Budget 65-180 euros reparation vs economie nulle reporter indefiniment (aucun gain attendre). Autant reparer rapidement.'
       }
     ],
-    relatedCodes: ['P0138', 'P0152', 'P0156', 'P0157', 'P0430'],
-    repairCosts: {
-      minimum: 40,
-      average: 120,
-      maximum: 280,
-      parts: [
-        { name: 'Sonde lambda aval banc 2', priceMin: 35, priceMax: 100 },
-        { name: 'Faisceau cablage reparation', priceMin: 15, priceMax: 40 },
-        { name: 'Connecteur electrique sonde', priceMin: 10, priceMax: 25 },
-        { name: 'Gaine thermoretractable', priceMin: 3, priceMax: 8 }
-      ],
-      laborTime: '30min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '40-60%',
-        timeNeeded: '45min - 1h30',
-        tools: ['Multimetre', 'Cle a sonde lambda 22mm', 'Valise OBD2', 'Nettoyant contact']
-      },
-      tips: [
-        'Court-circuit vers 12V = cause principale (35%), verifier l isolation du cablage',
-        'Debrancher la sonde moteur tournant : si la tension chute, la sonde ou le cablage est HS',
-        'Verifier que le fil signal ne touche pas le fil de rechauffage 12V',
-        'Si P0430 present aussi, remplacer la sonde aval en premier (elimine 10% de faux positifs)'
-      ],
-      warningNote: 'Aucun impact mecanique. Si le catalyseur est reellement defaillant (10% des cas), un test emissions en garage confirmera.'
-    }
+    relatedCodes: ['P0138', 'P0152', 'P0156', 'P0157', 'P0430']
   },
 
   P0160: {
@@ -3677,34 +2784,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Trois options qualite/prix: 1) Sonde OEM constructeur (70-120 euros): qualite maximale, duree vie 180 000-250 000 km, connecteur plug-and-play exact, garantie compatibilite. Recommande si vehicule recent <8 ans ou budget permet. 2) Sonde aftermarket marque Bosch/Denso/NTK (45-80 euros): qualite bonne, duree vie 150 000-200 000 km, connecteur souvent compatible, bon compromis. Recommande usage general. 3) Sonde universelle generique (30-55 euros): necessite parfois epissure fils, qualite variable, duree vie 100 000-180 000 km. Economique mais risque. Conseil: sonde AVAL travaille conditions douces (vs amont), qualite moins critique. Aftermarket Bosch acceptable banc 2 aval (economie 25-40 euros vs OEM). Si budget tres serre et competence epissure fils, universelle acceptable (economie max). Si acces difficile banc 2 (V6 transversal), privilegier qualite eviter rappel garage 5 ans plus tard.'
       }
     ],
-    relatedCodes: ['P0140', 'P0154', 'P0156', 'P0157', 'P0430'],
-    repairCosts: {
-      minimum: 5,
-      average: 110,
-      maximum: 260,
-      parts: [
-        { name: 'Sonde lambda aval banc 2', priceMin: 35, priceMax: 100 },
-        { name: 'Fusible rechauffage sonde', priceMin: 2, priceMax: 5 },
-        { name: 'Connecteur electrique sonde', priceMin: 10, priceMax: 25 },
-        { name: 'Pate anti-grippage cuivre', priceMin: 5, priceMax: 10 }
-      ],
-      laborTime: '30min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '40-60%',
-        timeNeeded: '45min - 1h30',
-        tools: ['Cle a sonde lambda 22mm', 'Multimetre', 'Valise OBD2', 'Tournevis']
-      },
-      tips: [
-        'Fusible grille = 25% des cas, verifier en premier (2-5 euros)',
-        'Sonde figee a 0.45V = sonde morte, pas de solution autre que le remplacement',
-        'Zero impact moteur : vous pouvez rouler indefiniment mais le voyant restera allume',
-        'Privilegier une sonde aftermarket de qualite (Bosch, NGK) pour economiser 30-40%'
-      ],
-      warningNote: 'Aucun impact sur le fonctionnement moteur. Reparation necessaire pour le CT et pour retrouver la surveillance du catalyseur banc 2.'
-    }
+    relatedCodes: ['P0140', 'P0154', 'P0156', 'P0157', 'P0430']
   },
 
   P0161: {
@@ -3761,34 +2841,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
         answer: 'Cout MINIMUM: 2-80 euros selon cause. Scenarios economiques: 1) Fusible grille = 2-5 euros fusible (solution 40% cas, DIY 5 min). 2) Connecteur oxyde = nettoyage gratuit spray contact 8 euros (solution 10% cas). 3) Cablage coupe accessible = reparation DIY 10-20 euros materiel (gaine, fil). 4) Masse corrode = nettoyer point masse gratuit. Si sonde HS inevitable (47% cas): sonde universelle low-cost 35-55 euros + installation DIY gratuit = 35-55 euros. Garage economique: diagnostic 25 euros + sonde aftermarket 50 euros + MO 35 euros = 110 euros. Garage standard: diagnostic 40 euros + sonde OEM 75 euros + MO 55 euros = 170 euros. Strategie budget minimum: 1) Tester fusible gratuit. 2) Nettoyer connecteur (8 euros). 3) Mesurer resistance rechauffage gratuit (multimetre). 4) Si sonde HS, acheter universelle + DIY (35-55 euros). Budget minimum absolu: 2-60 euros. Budget realiste garage: 110-180 euros.'
       }
     ],
-    relatedCodes: ['P0141', 'P0155', 'P0156', 'P0160', 'P0135'],
-    repairCosts: {
-      minimum: 5,
-      average: 110,
-      maximum: 260,
-      parts: [
-        { name: 'Sonde lambda aval banc 2', priceMin: 35, priceMax: 100 },
-        { name: 'Fusible rechauffage sonde', priceMin: 2, priceMax: 5 },
-        { name: 'Relais rechauffage sonde', priceMin: 10, priceMax: 30 },
-        { name: 'Faisceau cablage reparation', priceMin: 15, priceMax: 40 }
-      ],
-      laborTime: '30min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '30min - 1h30',
-        tools: ['Multimetre', 'Cle a sonde lambda 22mm', 'Valise OBD2', 'Tournevis']
-      },
-      tips: [
-        'Fusible grille = cause dans 40% des cas, verification gratuite en 5 minutes',
-        'Tester la resistance du rechauffage : 2-14 ohms = OK, infini = sonde HS',
-        'Impact pratiquement nul car la sonde aval ne regule pas le melange',
-        'Reparation la moins urgente de tous les codes sonde lambda'
-      ],
-      warningNote: 'Impact quasi nul sur le fonctionnement. Le rechauffage retarde seulement le monitoring catalyseur de quelques minutes apres chaque demarrage.'
-    }
+    relatedCodes: ['P0141', 'P0155', 'P0156', 'P0160', 'P0135']
   },
 
   // Groupe ajouté: Codes injecteurs P0200-P0208 (9 codes)
@@ -3804,34 +2857,7 @@ export const popularCodesData: Record<string, PopularCodeData> = {
       {question: 'Difference P0200 vs P0201-P0208?', answer: 'P0200 = probleme GLOBAL tous injecteurs (alimentation, ECU, masse). P0201-P0208 = injecteur SPECIFIQUE cylindre identifie. P0200 necessite diagnostic systeme complet, pas remplacement injecteur individuel.'},
       {question: 'Cout reparation P0200?', answer: 'Variable 50-600 euros: fusible 5 euros, masse 0 euros (nettoyage), cablage 50-200 euros, ECU 300-600 euros. Diagnostic pro 40-80 euros indispensable identifier cause exacte.'}
     ],
-    relatedCodes: ['P0201', 'P0202', 'P0300', 'P0100'],
-    repairCosts: {
-      minimum: 5,
-      average: 200,
-      maximum: 600,
-      parts: [
-        { name: 'Fusible/relais injection', priceMin: 5, priceMax: 30 },
-        { name: 'Faisceau cablage injecteurs', priceMin: 50, priceMax: 200 },
-        { name: 'Connecteur rampe injection', priceMin: 15, priceMax: 40 },
-        { name: 'Masse electrique (nettoyage)', priceMin: 0, priceMax: 10 }
-      ],
-      laborTime: '1h - 3h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Difficile' as const,
-        savings: '40-60%',
-        timeNeeded: '1h - 3h',
-        tools: ['Multimetre', 'Valise OBD2', 'Cle a pipe jeu complet', 'Nettoyant contact electrique', 'Schema electrique']
-      },
-      tips: [
-        'Verifier le fusible et le relais d injection en premier (5-30 euros, rapide)',
-        'Nettoyer les masses electriques du moteur (gratuit, resout 20% des cas)',
-        'Un faisceau cablage injecteurs peut etre repare localement sans le remplacer entierement',
-        'Si le probleme vient de l ECU, faire diagnostiquer par un specialiste avant tout remplacement'
-      ],
-      warningNote: 'P0200 compromet l injection complete. Calages possibles et rates severes. Diagnostic urgent sous 24-48h pour eviter d endommager le catalyseur.'
-    }
+    relatedCodes: ['P0201', 'P0202', 'P0300', 'P0100']
   },
 
   P0201: {
@@ -3846,226 +2872,16 @@ export const popularCodesData: Record<string, PopularCodeData> = {
       {question: 'Comment identifier injecteur HS vs cablage?', answer: 'Test resistance: debrancher injecteur cyl 1, mesurer resistance. 12-16 ohms = injecteur OK, chercher cablage. Infini ou 0 ohm = injecteur HS. Permuter avec autre cylindre: si code suit injecteur = injecteur HS. Si code reste cyl 1 = cablage/ECU.'},
       {question: 'Cout reparer P0201?', answer: 'Injecteur neuf OEM: 45-120 euros. Aftermarket: 25-60 euros. MO: 30-80 euros. Nettoyage connecteur: gratuit. Cablage reparation: 20-60 euros. Total 25-200 euros selon cause.'}
     ],
-    relatedCodes: ['P0200', 'P0301', 'P0202'],
-    repairCosts: {
-      minimum: 25,
-      average: 130,
-      maximum: 300,
-      parts: [
-        { name: 'Injecteur cylindre 1', priceMin: 25, priceMax: 120 },
-        { name: 'Connecteur injecteur', priceMin: 5, priceMax: 15 },
-        { name: 'Joint injecteur (O-ring)', priceMin: 3, priceMax: 8 },
-        { name: 'Nettoyant injecteurs', priceMin: 10, priceMax: 20 }
-      ],
-      laborTime: '30min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '45min - 1h30',
-        tools: ['Multimetre', 'Cle a pipe', 'Tournevis', 'Valise OBD2']
-      },
-      tips: [
-        'Tester la resistance de l injecteur (12-16 ohms) avant de le remplacer',
-        'Permuter l injecteur cyl 1 avec un autre cylindre : si le code suit, l injecteur est HS',
-        'Nettoyer le connecteur avec un spray contact resout 25% des cas',
-        'Les injecteurs aftermarket de qualite sont souvent 40% moins chers que l origine'
-      ],
-      warningNote: 'Un cylindre non alimente provoque des vibrations et des imbrules vers le catalyseur. Reparation sous 1-2 semaines.'
-    }
+    relatedCodes: ['P0200', 'P0301', 'P0202']
   },
 
-  P0202: { code: 'P0202', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Defaut circuit injecteur cylindre 2 - logique identique P0201 mais cylindre 2.", symptoms: ['Rate cylindre 2', 'Ralenti instable', 'Perte puissance'], causes: ['Injecteur cyl 2 HS (40%)', 'Connecteur oxyde (25%)', 'Cablage coupe (20%)'], solutions: ['Test resistance injecteur 2', 'Permuter injecteur', 'Remplacer si HS'], riskExplanation: "Meme risques P0201: vibrations, surconsommation, catalyseur menace.", faq: [{question: 'Reparation identique P0201?', answer: 'OUI procedures identiques, cout similaire 25-200 euros'}], relatedCodes: ['P0200', 'P0302', 'P0201'],
-    repairCosts: {
-      minimum: 25,
-      average: 130,
-      maximum: 300,
-      parts: [
-        { name: 'Injecteur cylindre 2', priceMin: 25, priceMax: 120 },
-        { name: 'Connecteur injecteur', priceMin: 5, priceMax: 15 },
-        { name: 'Joint injecteur (O-ring)', priceMin: 3, priceMax: 8 },
-        { name: 'Nettoyant injecteurs', priceMin: 10, priceMax: 20 }
-      ],
-      laborTime: '30min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '45min - 1h30',
-        tools: ['Multimetre', 'Cle a pipe', 'Tournevis', 'Valise OBD2']
-      },
-      tips: [
-        'Procedure identique au P0201 mais sur le cylindre 2',
-        'Permuter avec un autre injecteur pour confirmer que c est bien la piece defaillante',
-        'Mesurer la resistance : 12-16 ohms = OK, infini ou 0 = injecteur HS',
-        'Toujours remplacer le joint O-ring lors du remontage de l injecteur'
-      ],
-      warningNote: 'Vibrations et surconsommation tant que l injecteur n est pas repare. Le catalyseur risque des dommages par imbrules non brules.'
-    } },
-  P0203: { code: 'P0203', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Defaut injecteur cylindre 3.", symptoms: ['Rate cyl 3', 'Ralenti irregulier'], causes: ['Injecteur 3 HS (40%)', 'Connecteur (25%)', 'Cablage (20%)'], solutions: ['Test resistance', 'Permutation', 'Remplacement'], riskExplanation: "Vibrations, surconsommation.", faq: [{question: 'Identique P0201?', answer: 'OUI'}], relatedCodes: ['P0200', 'P0303'],
-    repairCosts: {
-      minimum: 25,
-      average: 130,
-      maximum: 300,
-      parts: [
-        { name: 'Injecteur cylindre 3', priceMin: 25, priceMax: 120 },
-        { name: 'Connecteur injecteur', priceMin: 5, priceMax: 15 },
-        { name: 'Joint injecteur (O-ring)', priceMin: 3, priceMax: 8 }
-      ],
-      laborTime: '30min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '45min - 1h30',
-        tools: ['Multimetre', 'Cle a pipe', 'Tournevis', 'Valise OBD2']
-      },
-      tips: [
-        'Procedure identique aux autres codes injecteurs (P0201-P0208)',
-        'Tester la resistance et permuter avant de remplacer',
-        'Le connecteur oxyde est la cause dans 25% des cas',
-        'Un nettoyage ultrason des injecteurs (80-150 euros les 4) peut eviter un remplacement'
-      ],
-      warningNote: 'Rate cylindre 3 avec vibrations et surconsommation. Reparation sous 1-2 semaines pour proteger le catalyseur.'
-    } },
-  P0204: { code: 'P0204', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Defaut injecteur cylindre 4.", symptoms: ['Rate cyl 4'], causes: ['Injecteur 4 HS (40%)'], solutions: ['Test', 'Remplacement'], riskExplanation: "Vibrations.", faq: [{question: 'Procedure?', answer: 'Identique P0201'}], relatedCodes: ['P0200', 'P0304'],
-    repairCosts: {
-      minimum: 25,
-      average: 130,
-      maximum: 300,
-      parts: [
-        { name: 'Injecteur cylindre 4', priceMin: 25, priceMax: 120 },
-        { name: 'Connecteur injecteur', priceMin: 5, priceMax: 15 },
-        { name: 'Joint injecteur (O-ring)', priceMin: 3, priceMax: 8 }
-      ],
-      laborTime: '30min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '45min - 1h30',
-        tools: ['Multimetre', 'Cle a pipe', 'Tournevis', 'Valise OBD2']
-      },
-      tips: [
-        'Meme procedure que P0201 : resistance, permutation, remplacement',
-        'L injecteur 4 est souvent plus accessible que les autres sur les 4 cylindres',
-        'Verifier le connecteur et le cablage avant d acheter un injecteur neuf',
-        'Un injecteur aftermarket de qualite coute 25-60 euros contre 45-120 euros en origine'
-      ],
-      warningNote: 'Vibrations et rates d allumage cylindre 4. Reparer sous 1-2 semaines pour eviter d endommager le catalyseur.'
-    } },
-  P0205: { code: 'P0205', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Defaut injecteur cylindre 5.", symptoms: ['Rate cyl 5'], causes: ['Injecteur 5 HS'], solutions: ['Test resistance', 'Remplacement'], riskExplanation: "Vibrations.", faq: [{question: 'Cout?', answer: '25-200 euros'}], relatedCodes: ['P0200', 'P0305'],
-    repairCosts: {
-      minimum: 30,
-      average: 150,
-      maximum: 350,
-      parts: [
-        { name: 'Injecteur cylindre 5', priceMin: 30, priceMax: 140 },
-        { name: 'Connecteur injecteur', priceMin: 5, priceMax: 15 },
-        { name: 'Joint injecteur (O-ring)', priceMin: 3, priceMax: 8 }
-      ],
-      laborTime: '30min - 2h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Difficile' as const,
-        savings: '40-60%',
-        timeNeeded: '1h - 2h',
-        tools: ['Multimetre', 'Cle a pipe jeu complet', 'Tournevis', 'Valise OBD2']
-      },
-      tips: [
-        'Concerne les moteurs V6/V8 : l acces peut etre plus complexe',
-        'Tester la resistance de l injecteur et permuter avec un autre cylindre pour confirmer',
-        'Les injecteurs de moteurs V6/V8 sont parfois plus chers que ceux des 4 cylindres',
-        'Profiter de l intervention pour controler les autres injecteurs du meme banc'
-      ],
-      warningNote: 'Vibrations sur moteur V6/V8. Le cylindre 5 non alimente cause un desequilibre moteur. Reparation sous 1-2 semaines.'
-    } },
-  P0206: { code: 'P0206', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Defaut injecteur cylindre 6.", symptoms: ['Rate cyl 6'], causes: ['Injecteur 6 HS'], solutions: ['Test', 'Remplacement'], riskExplanation: "Vibrations.", faq: [{question: 'Procedure?', answer: 'Identique autres'}], relatedCodes: ['P0200', 'P0306'],
-    repairCosts: {
-      minimum: 30,
-      average: 150,
-      maximum: 350,
-      parts: [
-        { name: 'Injecteur cylindre 6', priceMin: 30, priceMax: 140 },
-        { name: 'Connecteur injecteur', priceMin: 5, priceMax: 15 },
-        { name: 'Joint injecteur (O-ring)', priceMin: 3, priceMax: 8 }
-      ],
-      laborTime: '30min - 2h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Difficile' as const,
-        savings: '40-60%',
-        timeNeeded: '1h - 2h',
-        tools: ['Multimetre', 'Cle a pipe jeu complet', 'Tournevis', 'Valise OBD2']
-      },
-      tips: [
-        'Procedure identique aux autres codes injecteurs sur moteur V6/V8',
-        'L acces au cylindre 6 depend de la configuration moteur (V6, ligne 6)',
-        'Permuter avec un injecteur adjacent pour confirmer le diagnostic',
-        'Un nettoyage professionnel aux ultrasons peut sauver un injecteur partiellement bouche'
-      ],
-      warningNote: 'Rate allumage cylindre 6. Vibrations et surconsommation. Reparation sous 1-2 semaines.'
-    } },
-  P0207: { code: 'P0207', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Defaut injecteur cylindre 7 (moteurs V8).", symptoms: ['Rate cyl 7'], causes: ['Injecteur 7 HS'], solutions: ['Test', 'Remplacement'], riskExplanation: "Vibrations.", faq: [{question: 'Moteur V8 uniquement?', answer: 'OUI V8/V10'}], relatedCodes: ['P0200', 'P0307'],
-    repairCosts: {
-      minimum: 35,
-      average: 170,
-      maximum: 400,
-      parts: [
-        { name: 'Injecteur cylindre 7', priceMin: 35, priceMax: 160 },
-        { name: 'Connecteur injecteur', priceMin: 5, priceMax: 20 },
-        { name: 'Joint injecteur (O-ring)', priceMin: 3, priceMax: 10 }
-      ],
-      laborTime: '45min - 2h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Difficile' as const,
-        savings: '35-55%',
-        timeNeeded: '1h - 2h30',
-        tools: ['Multimetre', 'Cle a pipe jeu complet', 'Tournevis long', 'Valise OBD2']
-      },
-      tips: [
-        'Concerne uniquement les moteurs V8/V10 : accessibilite parfois complexe',
-        'Les injecteurs V8 sont generalement plus chers que ceux des 4 cylindres',
-        'Tester la resistance et permuter avant remplacement pour confirmer',
-        'Demander un devis specifique pour l acces au cylindre 7 selon votre modele'
-      ],
-      warningNote: 'Moteur V8/V10 uniquement. Le cylindre 7 non alimente cause vibrations et desequilibre. Reparation sous 1-2 semaines.'
-    } },
-  P0208: { code: 'P0208', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Defaut injecteur cylindre 8 (moteurs V8).", symptoms: ['Rate cyl 8'], causes: ['Injecteur 8 HS'], solutions: ['Test', 'Remplacement'], riskExplanation: "Vibrations.", faq: [{question: 'V8?', answer: 'OUI'}], relatedCodes: ['P0200', 'P0308'],
-    repairCosts: {
-      minimum: 35,
-      average: 170,
-      maximum: 400,
-      parts: [
-        { name: 'Injecteur cylindre 8', priceMin: 35, priceMax: 160 },
-        { name: 'Connecteur injecteur', priceMin: 5, priceMax: 20 },
-        { name: 'Joint injecteur (O-ring)', priceMin: 3, priceMax: 10 }
-      ],
-      laborTime: '45min - 2h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Difficile' as const,
-        savings: '35-55%',
-        timeNeeded: '1h - 2h30',
-        tools: ['Multimetre', 'Cle a pipe jeu complet', 'Tournevis long', 'Valise OBD2']
-      },
-      tips: [
-        'Dernier cylindre du V8 : l acces peut etre difficile selon la configuration',
-        'Meme procedure de diagnostic que les autres codes injecteurs',
-        'Les injecteurs de V8 sont parfois specifiques au banc (gauche/droite)',
-        'Profiter de l intervention pour inspecter tous les injecteurs du banc 2'
-      ],
-      warningNote: 'Moteur V8 uniquement. Vibrations et rates d allumage. Reparation sous 1-2 semaines pour proteger le catalyseur.'
-    } },
+  P0202: { code: 'P0202', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Defaut circuit injecteur cylindre 2 - logique identique P0201 mais cylindre 2.", symptoms: ['Rate cylindre 2', 'Ralenti instable', 'Perte puissance'], causes: ['Injecteur cyl 2 HS (40%)', 'Connecteur oxyde (25%)', 'Cablage coupe (20%)'], solutions: ['Test resistance injecteur 2', 'Permuter injecteur', 'Remplacer si HS'], riskExplanation: "Meme risques P0201: vibrations, surconsommation, catalyseur menace.", faq: [{question: 'Reparation identique P0201?', answer: 'OUI procedures identiques, cout similaire 25-200 euros'}], relatedCodes: ['P0200', 'P0302', 'P0201'] },
+  P0203: { code: 'P0203', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Defaut injecteur cylindre 3.", symptoms: ['Rate cyl 3', 'Ralenti irregulier'], causes: ['Injecteur 3 HS (40%)', 'Connecteur (25%)', 'Cablage (20%)'], solutions: ['Test resistance', 'Permutation', 'Remplacement'], riskExplanation: "Vibrations, surconsommation.", faq: [{question: 'Identique P0201?', answer: 'OUI'}], relatedCodes: ['P0200', 'P0303'] },
+  P0204: { code: 'P0204', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Defaut injecteur cylindre 4.", symptoms: ['Rate cyl 4'], causes: ['Injecteur 4 HS (40%)'], solutions: ['Test', 'Remplacement'], riskExplanation: "Vibrations.", faq: [{question: 'Procedure?', answer: 'Identique P0201'}], relatedCodes: ['P0200', 'P0304'] },
+  P0205: { code: 'P0205', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Defaut injecteur cylindre 5.", symptoms: ['Rate cyl 5'], causes: ['Injecteur 5 HS'], solutions: ['Test resistance', 'Remplacement'], riskExplanation: "Vibrations.", faq: [{question: 'Cout?', answer: '25-200 euros'}], relatedCodes: ['P0200', 'P0305'] },
+  P0206: { code: 'P0206', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Defaut injecteur cylindre 6.", symptoms: ['Rate cyl 6'], causes: ['Injecteur 6 HS'], solutions: ['Test', 'Remplacement'], riskExplanation: "Vibrations.", faq: [{question: 'Procedure?', answer: 'Identique autres'}], relatedCodes: ['P0200', 'P0306'] },
+  P0207: { code: 'P0207', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Defaut injecteur cylindre 7 (moteurs V8).", symptoms: ['Rate cyl 7'], causes: ['Injecteur 7 HS'], solutions: ['Test', 'Remplacement'], riskExplanation: "Vibrations.", faq: [{question: 'Moteur V8 uniquement?', answer: 'OUI V8/V10'}], relatedCodes: ['P0200', 'P0307'] },
+  P0208: { code: 'P0208', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Defaut injecteur cylindre 8 (moteurs V8).", symptoms: ['Rate cyl 8'], causes: ['Injecteur 8 HS'], solutions: ['Test', 'Remplacement'], riskExplanation: "Vibrations.", faq: [{question: 'V8?', answer: 'OUI'}], relatedCodes: ['P0200', 'P0308'] },
 
   // Groupe: Ratés allumage P0301-P0308 (8 codes)
   P0301: { code: 'P0301', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Rate allumage detecte cylindre 1. ECU compte combustions ratees cyl 1 via regime vilebrequin. Causes: bougie HS, bobine defectueuse, injecteur, compression faible, soupape.", symptoms: ['Voyant moteur clignotant si rate severe', 'Vibrations ralenti', 'Perte puissance', 'Consommation elevee', 'Fumee'], causes: ['Bougie cyl 1 usee/encrassee (35%)', 'Bobine allumage cyl 1 HS (25%)', 'Injecteur cyl 1 defaillant (15%)', 'Compression faible cyl 1 (15%)', 'Soupape/segment (10%)'], solutions: ['Remplacer bougie cyl 1 (5-15 euros)', 'Tester bobine allumage cyl 1', 'Verifier compression cyl 1 (compressiometre)', 'Permuter bobine avec autre cylindre (test)', 'Controler injecteur cyl 1'], riskExplanation: "Rate allumage = imbrules vers catalyseur. Voyant CLIGNOTANT = URGENCE (catalyseur destruction rapide). Arreter conduite si clignotant. Fixe: reparer sous 1 semaine.", faq: [{question: 'Voyant clignotant vs fixe?', answer: 'CLIGNOTANT = rates SEVERES >10%, ARRETER moteur immediatement (catalyseur destruction <30 min conduite). FIXE = rates legers <5%, reparer sous 1 semaine. Ne JAMAIS ignorer clignotant.'}, {question: 'Cout P0301?', answer: 'Bougie: 5-15 euros. Bobine: 40-120 euros. Compression faible: 500-2000 euros (segments, soupapes). Diagnostic 40 euros. 80% cas: bougie ou bobine = 45-135 euros total.'}], relatedCodes: ['P0300', 'P0201', 'P0420'], repairCosts: { minimum: 15, average: 90, maximum: 600, parts: [{ name: 'Bougie d\'allumage cylindre 1', priceMin: 5, priceMax: 15 }, { name: 'Bobine d\'allumage individuelle', priceMin: 30, priceMax: 120 }, { name: 'Injecteur cylindre 1', priceMin: 60, priceMax: 200 }, { name: 'Joint de culasse (si compression faible)', priceMin: 80, priceMax: 250 }], laborTime: '30min - 1h30', laborRate: '50-90 euros/h selon garage', diy: { possible: true, difficulty: 'Facile' as const, savings: '60-80%', timeNeeded: '30min - 1h', tools: ['Cle a bougie (16 ou 21mm)', 'Multimetre', 'Valise OBD2', 'Compressiometre', 'Cle a cliquet'] }, tips: ['Permuter la bobine du cylindre 1 avec un autre cylindre pour identifier si la bobine est en cause (gratuit)', 'Remplacer la bougie en premier (5-15 euros, resolution dans 35% des cas)', 'Verifier l\'ecartement de la bougie avec une jauge (souvent neglige)', 'Acheter les bougies en lot de 4 pour un meilleur prix unitaire'], warningNote: 'Si le voyant moteur clignote, ne roulez pas. Les rates d\'allumage severes detruisent le catalyseur en moins de 30 minutes de conduite. Le cout du remorquage (80-150 euros) est derisoire face au remplacement du catalyseur (400-1500 euros).' } },
@@ -4078,1120 +2894,59 @@ export const popularCodesData: Record<string, PopularCodeData> = {
   P0308: { code: 'P0308', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Rate cylindre 8 (V8).", symptoms: ['Vibrations'], causes: ['Bougie 8'], solutions: ['Remplacement'], riskExplanation: "Catalyseur.", faq: [{question: 'V8?', answer: 'OUI'}], relatedCodes: ['P0300', 'P0208'], repairCosts: { minimum: 20, average: 120, maximum: 800, parts: [{ name: 'Bougie d\'allumage cylindre 8', priceMin: 8, priceMax: 25 }, { name: 'Bobine d\'allumage individuelle V8', priceMin: 40, priceMax: 160 }, { name: 'Injecteur cylindre 8', priceMin: 80, priceMax: 280 }], laborTime: '30min - 2h', laborRate: '50-90 euros/h selon garage', diy: { possible: true, difficulty: 'Moyen' as const, savings: '50-70%', timeNeeded: '1h - 2h30', tools: ['Cle a bougie longue', 'Multimetre', 'Valise OBD2', 'Rallonge flexible', 'Lampe frontale'] }, tips: ['Le cylindre 8 est le dernier du banc, souvent le plus difficile d\'acces', 'Sur certains V8 americains, prevoir la depose du collecteur d\'admission', 'Les bougies iridium durent plus longtemps et sont recommandees pour les V8', 'Faire un diagnostic complet des 8 cylindres si le rate est intermittent'], warningNote: 'Le cylindre 8 est souvent le moins accessible du moteur V8. Sur certains modeles, la main d\'oeuvre peut etre significativement plus elevee. Demander un devis detaille avant intervention en garage.' } },
 
   // Groupe: EGR P0400-P0410 (7 codes)
-  P0400: { code: 'P0400', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Debit vanne EGR insuffisant. ECU detecte recyclage gaz echappement inadequat. EGR reduit NOx en reintroduisant gaz echappement admission. P0400 = vanne bloquee, tuyaux obstrues, ou capteur position EGR HS.", symptoms: ['Voyant moteur', 'Ralenti instable', 'Detonations acceleration', 'Surconsommation legere', 'Echec controle technique (NOx eleves)'], causes: ['Vanne EGR encrassee bloquee (45%)', 'Tuyaux EGR obstrues calamine (25%)', 'Capteur position EGR defaillant (15%)', 'Fuite circuit EGR (10%)', 'Electrovanne pilotage EGR HS (5%)'], solutions: ['Nettoyer vanne EGR (30-80 euros garage ou DIY spray 15 euros)', 'Deboucher tuyaux EGR (spray/mecanique)', 'Tester capteur position EGR (resistance)', 'Verifier electrovanne pilotage', 'Remplacer vanne si bloquee irreversible (120-350 euros)'], riskExplanation: "P0400 = NOx eleves (pollution). Controle technique: echec garanti. Moteur: detonations possibles (usure). Reparation non urgente mecanique mais obligatoire CT. Delai: 1-3 mois avant CT.", faq: [{question: 'Peut-on rouler sans EGR?', answer: 'OUI techniquement moteur fonctionne. MAIS: 1) Controle technique echec (NOx hors normes). 2) Detonations possibles degradent moteur long terme. 3) ILLEGAL supprimer EGR (amende selon pays). 4) Surconsommation possible 3-8%. Reparer EGR recommande fortement.'}, {question: 'Nettoyer EGR soi-meme?', answer: 'OUI possible DIY. Procedure: 1) Localiser vanne EGR (manuel vehicule). 2) Demonter vanne (2-4 vis generalement). 3) Spray nettoyant EGR (15 euros Wurth, CRC) pulveriser clapet, laisser tremper 15-30 min. 4) Brosser calamine brosse laiton. 5) Rincer spray, secher, remonter joint neuf (5-10 euros). Temps: 1-2h. Taux succes: 60-70% si pas trop encrassee. Economie: 30-80 euros MO garage.'}], relatedCodes: ['P0401', 'P0402', 'P0403', 'P0404'],
-    repairCosts: {
-      minimum: 15,
-      average: 150,
-      maximum: 500,
-      parts: [
-        { name: 'Vanne EGR', priceMin: 120, priceMax: 350 },
-        { name: 'Joint vanne EGR', priceMin: 5, priceMax: 15 },
-        { name: 'Spray nettoyant EGR', priceMin: 10, priceMax: 20 },
-        { name: 'Capteur position EGR', priceMin: 30, priceMax: 90 },
-        { name: 'Electrovanne pilotage EGR', priceMin: 25, priceMax: 80 }
-      ],
-      laborTime: '1h - 2h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '1h - 3h',
-        tools: ['Cle a pipe jeu complet', 'Spray nettoyant EGR', 'Brosse laiton', 'Valise OBD2']
-      },
-      tips: [
-        'Tenter le nettoyage de la vanne EGR en premier : resout 60-70% des cas pour moins de 20 euros',
-        'Demonter la vanne et la tremper dans du nettoyant frein pendant 1-2h puis brosser',
-        'Utiliser regulierement un additif decalaminant pour prevenir l encrassement futur',
-        'Ne jamais supprimer l EGR : echec CT garanti et amende possible'
-      ],
-      warningNote: 'Pas d urgence mecanique mais echec controle technique assure pour emissions NOx elevees. Reparer avant le CT.'
-    } },
-  P0402: { code: 'P0402', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Debit EGR EXCESSIF (oppose P0400/P0401 insuffisant). Vanne bloquee ouverte ou electrovanne HS.", symptoms: ['Ralenti tres instable', 'Calage frequents', 'Fumee noire', 'Perte puissance'], causes: ['Vanne EGR bloquee ouverte (50%)', 'Electrovanne EGR HS (30%)', 'Capteur position faux signal (15%)'], solutions: ['Verifier fermeture complete vanne EGR ralenti', 'Tester electrovanne pilotage', 'Remplacer vanne si bloquee ouverte'], riskExplanation: "P0402 = gaz echappement permanents admission. Melange pauvre, calages, impossible rouler normalement. Reparation URGENTE 1-7 jours.", faq: [{question: 'Difference P0400 vs P0402?', answer: 'P0400/P0401 = debit INSUFFISANT (vanne fermee/bloquee). P0402 = debit EXCESSIF (vanne ouverte bloquee). Symptomes opposes: P0400 = detonations. P0402 = calages. Reparation: P0400 = nettoyage souvent suffit. P0402 = remplacement vanne necessaire (bloquee ouverte).'}], relatedCodes: ['P0400', 'P0401', 'P0404'],
-    repairCosts: {
-      minimum: 80,
-      average: 250,
-      maximum: 500,
-      parts: [
-        { name: 'Vanne EGR', priceMin: 120, priceMax: 350 },
-        { name: 'Electrovanne pilotage EGR', priceMin: 25, priceMax: 80 },
-        { name: 'Joint vanne EGR', priceMin: 5, priceMax: 15 },
-        { name: 'Capteur position EGR', priceMin: 30, priceMax: 90 }
-      ],
-      laborTime: '1h - 2h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '40-60%',
-        timeNeeded: '1h30 - 3h',
-        tools: ['Cle a pipe jeu complet', 'Spray nettoyant EGR', 'Multimetre', 'Valise OBD2']
-      },
-      tips: [
-        'Contrairement au P0400/P0401, le nettoyage seul suffit rarement car la vanne est bloquee ouverte',
-        'Verifier si l electrovanne de pilotage n est pas HS avant de remplacer la vanne EGR',
-        'Un remplacement est souvent necessaire car une vanne bloquee ouverte est mecaniquement HS',
-        'Le calage au ralenti est le symptome principal : reparer en urgence si conduite difficile'
-      ],
-      warningNote: 'Debit EGR excessif provoque calages frequents et ralenti tres instable. Reparation URGENTE sous 1-7 jours si conduite impossible.'
-    } },
-  P0403: { code: 'P0403', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "Circuit electrovanne EGR defaillant (electrique, pas mecanique).", symptoms: ['Voyant moteur', 'Fonctionnement moteur normal'], causes: ['Electrovanne EGR bobine coupee (40%)', 'Connecteur electrovanne oxyde (30%)', 'Cablage commande coupe (25%)'], solutions: ['Tester resistance electrovanne (20-50 ohms typique)', 'Verifier connecteur', 'Controler cablage'], riskExplanation: "P0403 = electrique, vanne peut fonctionner mecaniquement. Impact faible court terme. CT: echec possible. Reparation sous 1-2 mois.", faq: [{question: 'P0403 urgent?', answer: 'NON. Electrovanne HS mais vanne peut rester fonctionnelle partiellement (vacuum residu). Reparation recommandee avant CT.'}], relatedCodes: ['P0400', 'P0404'],
-    repairCosts: {
-      minimum: 25,
-      average: 100,
-      maximum: 250,
-      parts: [
-        { name: 'Electrovanne EGR', priceMin: 25, priceMax: 80 },
-        { name: 'Connecteur electrovanne', priceMin: 5, priceMax: 15 },
-        { name: 'Faisceau cablage reparation', priceMin: 10, priceMax: 30 },
-        { name: 'Nettoyant contact electrique', priceMin: 5, priceMax: 12 }
-      ],
-      laborTime: '30min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Facile' as const,
-        savings: '60-80%',
-        timeNeeded: '30min - 1h',
-        tools: ['Multimetre', 'Cle a pipe', 'Nettoyant contact electrique', 'Valise OBD2']
-      },
-      tips: [
-        'Tester la resistance de l electrovanne au multimetre (20-50 ohms typique)',
-        'Nettoyer le connecteur avec du spray contact en premier (gratuit ou 8 euros)',
-        'L electrovanne EGR est generalement une piece peu couteuse et facile a remplacer',
-        'La vanne peut fonctionner partiellement malgre l electrovanne HS (vacuum residuel)'
-      ],
-      warningNote: 'Defaut electrique avec impact faible a court terme. Reparation recommandee avant le controle technique. La vanne EGR peut rester partiellement fonctionnelle.'
-    } },
-  P0404: { code: 'P0404', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Capteur position vanne EGR hors plage/erratique.", symptoms: ['Voyant moteur', 'Ralenti irregulier parfois'], causes: ['Capteur position EGR HS (50%)', 'Connecteur capteur oxyde (25%)', 'Vanne EGR grippee position intermediaire (20%)'], solutions: ['Tester capteur position (resistance variable)', 'Nettoyer vanne EGR verifier mobilite', 'Remplacer capteur si defaillant (40-100 euros)'], riskExplanation: "P0404 = ECU pilotage EGR aveugle. Fonctionnement degrade mais roulable. CT echec. Reparation 1-2 mois.", faq: [{question: 'Capteur EGR vs vanne EGR?', answer: 'Capteur position (40-100 euros) integre ou separe vanne (120-350 euros complete). Verifier si capteur remplaçable seul avant acheter vanne complete.'}], relatedCodes: ['P0400', 'P0401', 'P0403'],
-    repairCosts: {
-      minimum: 40,
-      average: 130,
-      maximum: 400,
-      parts: [
-        { name: 'Capteur position EGR', priceMin: 30, priceMax: 90 },
-        { name: 'Vanne EGR complete (si capteur integre)', priceMin: 120, priceMax: 350 },
-        { name: 'Connecteur capteur', priceMin: 5, priceMax: 15 },
-        { name: 'Nettoyant contact electrique', priceMin: 5, priceMax: 12 }
-      ],
-      laborTime: '30min - 2h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '45min - 2h',
-        tools: ['Multimetre', 'Cle a pipe', 'Tournevis', 'Valise OBD2']
-      },
-      tips: [
-        'Verifier si le capteur est remplacable separement ou integre a la vanne EGR',
-        'Nettoyer la vanne EGR : une vanne grippee peut fausser le signal du capteur',
-        'Un capteur seul coute 30-90 euros vs 120-350 euros pour la vanne complete',
-        'Tester la resistance variable du capteur pour confirmer le diagnostic'
-      ],
-      warningNote: 'L ECU ne peut plus piloter la vanne EGR correctement. Fonctionnement degrade mais roulable. Echec CT probable. Reparation sous 1-2 mois.'
-    } },
-  P0405: { code: 'P0405', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Capteur position EGR circuit bas (court-circuit masse).", symptoms: ['Voyant', 'EGR inoperante'], causes: ['Capteur HS (50%)', 'Cablage court-circuit (40%)'], solutions: ['Test cablage isolement', 'Remplacement capteur'], riskExplanation: "Court-circuit. Reparation electrique 1-2 semaines.", faq: [{question: 'Cout?', answer: '40-150 euros'}], relatedCodes: ['P0404', 'P0406'],
-
-    repairCosts: {
-      minimum: 40,
-      average: 120,
-      maximum: 250,
-      parts: [
-        { name: 'Capteur position EGR', priceMin: 30, priceMax: 90 },
-        { name: 'Connecteur electrique EGR', priceMin: 5, priceMax: 15 },
-        { name: 'Faisceau cablage reparation', priceMin: 10, priceMax: 30 }
-      ],
-      laborTime: '30min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '30min - 1h',
-        tools: ['Multimetre', 'Cle a pipe', 'Nettoyant contact electrique', 'Valise OBD2']
-      },
-      tips: [
-        'Verifier le connecteur et le cablage avant de remplacer le capteur',
-        'Un court-circuit masse est souvent cause par un fil denude frottant sur le bloc moteur',
-        'Les capteurs EGR generiques sont fiables et moitie prix de l\'origine',
-        'Nettoyer le connecteur avec du spray contact peut resoudre le probleme'
-      ],
-      warningNote: 'Un court-circuit peut endommager le calculateur si laisse sans reparation. Verifier l\'isolement du cablage en priorite.'
-    }
-  },
-  P0406: { code: 'P0406', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Capteur position EGR circuit haut (court-circuit +12V).", symptoms: ['Voyant', 'EGR inoperante'], causes: ['Capteur HS', 'Cablage court-circuit +12V'], solutions: ['Test cablage', 'Remplacer capteur'], riskExplanation: "Court-circuit. Reparation 1-2 semaines.", faq: [{question: 'P0405 vs P0406?', answer: 'P0405 = court-circuit MASSE. P0406 = court-circuit +12V. Diagnostic differentiel teste cablage.'}], relatedCodes: ['P0404', 'P0405'],
-
-    repairCosts: {
-      minimum: 40,
-      average: 130,
-      maximum: 260,
-      parts: [
-        { name: 'Capteur position EGR', priceMin: 30, priceMax: 90 },
-        { name: 'Connecteur electrique', priceMin: 5, priceMax: 15 },
-        { name: 'Faisceau cablage reparation', priceMin: 10, priceMax: 30 }
-      ],
-      laborTime: '30min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '30min - 1h',
-        tools: ['Multimetre', 'Cle a pipe', 'Nettoyant contact electrique', 'Valise OBD2']
-      },
-      tips: [
-        'Verifier d\'abord si le cablage ne touche pas une source +12V (alternateur, demarreur)',
-        'Un court-circuit +12V est souvent plus facile a localiser qu\'un court-circuit masse',
-        'Comparer la tension du capteur moteur eteint vs allume pour isoler le defaut',
-        'Demander plusieurs devis car la main d\'oeuvre varie fortement selon les garages'
-      ],
-      warningNote: 'Un court-circuit +12V peut griller le capteur et endommager le calculateur. Reparer le cablage avant de remplacer le capteur.'
-    }
-  },
-  P0410: { code: 'P0410', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Systeme air secondaire dysfonctionnel. Pompe air injecte air echappement catalyseur accelerer rechauffage (reduit emissions demarrage froid).", symptoms: ['Voyant', 'Emissions elevees demarrage froid', 'CT echec possible'], causes: ['Pompe air secondaire HS (40%)', 'Electrovanne air secondaire bloquee (30%)', 'Tuyaux air secondaire fissures (20%)'], solutions: ['Tester pompe air (bruit fonctionnement demarrage)', 'Verifier electrovalves', 'Inspecter tuyauterie fuites'], riskExplanation: "P0410 = emissions demarrage froid hors normes. CT echec probable. Fonctionnement moteur normal. Reparation avant CT.", faq: [{question: 'Rouler sans air secondaire?', answer: 'OUI moteur fonctionne normal. Pompe air active uniquement 1-3 min apres demarrage froid. Impact: emissions elevees, CT echec. Reparation recommandee avant CT. Cout: pompe 150-400 euros.'}], relatedCodes: ['P0411', 'P0412', 'P0420'],
-
-    repairCosts: {
-      minimum: 80,
-      average: 350,
-      maximum: 650,
-      parts: [
-        { name: 'Pompe air secondaire', priceMin: 150, priceMax: 400 },
-        { name: 'Electrovanne air secondaire', priceMin: 40, priceMax: 120 },
-        { name: 'Tuyaux air secondaire', priceMin: 15, priceMax: 45 },
-        { name: 'Clapet anti-retour', priceMin: 20, priceMax: 60 }
-      ],
-      laborTime: '1h - 2h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '40-60%',
-        timeNeeded: '1h - 2h',
-        tools: ['Cle a pipe jeu complet', 'Tournevis plat et cruciforme', 'Multimetre', 'Valise OBD2']
-      },
-      tips: [
-        'Ecouter si la pompe tourne au demarrage a froid (bruit soufflerie 1-3 min)',
-        'Si la pompe ne tourne pas, verifier d\'abord le fusible et le relais avant de la remplacer',
-        'Les tuyaux en caoutchouc se degradent avec la chaleur, inspecter visuellement',
-        'La pompe generique est souvent 50% moins chere que l\'origine constructeur'
-      ],
-      warningNote: 'Ne pas supprimer le systeme air secondaire : echec CT assure et pollution accrue. Remplacer les pieces defectueuses.'
-    }
-  },
+  P0400: { code: 'P0400', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Debit vanne EGR insuffisant. ECU detecte recyclage gaz echappement inadequat. EGR reduit NOx en reintroduisant gaz echappement admission. P0400 = vanne bloquee, tuyaux obstrues, ou capteur position EGR HS.", symptoms: ['Voyant moteur', 'Ralenti instable', 'Detonations acceleration', 'Surconsommation legere', 'Echec controle technique (NOx eleves)'], causes: ['Vanne EGR encrassee bloquee (45%)', 'Tuyaux EGR obstrues calamine (25%)', 'Capteur position EGR defaillant (15%)', 'Fuite circuit EGR (10%)', 'Electrovanne pilotage EGR HS (5%)'], solutions: ['Nettoyer vanne EGR (30-80 euros garage ou DIY spray 15 euros)', 'Deboucher tuyaux EGR (spray/mecanique)', 'Tester capteur position EGR (resistance)', 'Verifier electrovanne pilotage', 'Remplacer vanne si bloquee irreversible (120-350 euros)'], riskExplanation: "P0400 = NOx eleves (pollution). Controle technique: echec garanti. Moteur: detonations possibles (usure). Reparation non urgente mecanique mais obligatoire CT. Delai: 1-3 mois avant CT.", faq: [{question: 'Peut-on rouler sans EGR?', answer: 'OUI techniquement moteur fonctionne. MAIS: 1) Controle technique echec (NOx hors normes). 2) Detonations possibles degradent moteur long terme. 3) ILLEGAL supprimer EGR (amende selon pays). 4) Surconsommation possible 3-8%. Reparer EGR recommande fortement.'}, {question: 'Nettoyer EGR soi-meme?', answer: 'OUI possible DIY. Procedure: 1) Localiser vanne EGR (manuel vehicule). 2) Demonter vanne (2-4 vis generalement). 3) Spray nettoyant EGR (15 euros Wurth, CRC) pulveriser clapet, laisser tremper 15-30 min. 4) Brosser calamine brosse laiton. 5) Rincer spray, secher, remonter joint neuf (5-10 euros). Temps: 1-2h. Taux succes: 60-70% si pas trop encrassee. Economie: 30-80 euros MO garage.'}], relatedCodes: ['P0401', 'P0402', 'P0403', 'P0404'] },
+  P0402: { code: 'P0402', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Debit EGR EXCESSIF (oppose P0400/P0401 insuffisant). Vanne bloquee ouverte ou electrovanne HS.", symptoms: ['Ralenti tres instable', 'Calage frequents', 'Fumee noire', 'Perte puissance'], causes: ['Vanne EGR bloquee ouverte (50%)', 'Electrovanne EGR HS (30%)', 'Capteur position faux signal (15%)'], solutions: ['Verifier fermeture complete vanne EGR ralenti', 'Tester electrovanne pilotage', 'Remplacer vanne si bloquee ouverte'], riskExplanation: "P0402 = gaz echappement permanents admission. Melange pauvre, calages, impossible rouler normalement. Reparation URGENTE 1-7 jours.", faq: [{question: 'Difference P0400 vs P0402?', answer: 'P0400/P0401 = debit INSUFFISANT (vanne fermee/bloquee). P0402 = debit EXCESSIF (vanne ouverte bloquee). Symptomes opposes: P0400 = detonations. P0402 = calages. Reparation: P0400 = nettoyage souvent suffit. P0402 = remplacement vanne necessaire (bloquee ouverte).'}], relatedCodes: ['P0400', 'P0401', 'P0404'] },
+  P0403: { code: 'P0403', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "Circuit electrovanne EGR defaillant (electrique, pas mecanique).", symptoms: ['Voyant moteur', 'Fonctionnement moteur normal'], causes: ['Electrovanne EGR bobine coupee (40%)', 'Connecteur electrovanne oxyde (30%)', 'Cablage commande coupe (25%)'], solutions: ['Tester resistance electrovanne (20-50 ohms typique)', 'Verifier connecteur', 'Controler cablage'], riskExplanation: "P0403 = electrique, vanne peut fonctionner mecaniquement. Impact faible court terme. CT: echec possible. Reparation sous 1-2 mois.", faq: [{question: 'P0403 urgent?', answer: 'NON. Electrovanne HS mais vanne peut rester fonctionnelle partiellement (vacuum residu). Reparation recommandee avant CT.'}], relatedCodes: ['P0400', 'P0404'] },
+  P0404: { code: 'P0404', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Capteur position vanne EGR hors plage/erratique.", symptoms: ['Voyant moteur', 'Ralenti irregulier parfois'], causes: ['Capteur position EGR HS (50%)', 'Connecteur capteur oxyde (25%)', 'Vanne EGR grippee position intermediaire (20%)'], solutions: ['Tester capteur position (resistance variable)', 'Nettoyer vanne EGR verifier mobilite', 'Remplacer capteur si defaillant (40-100 euros)'], riskExplanation: "P0404 = ECU pilotage EGR aveugle. Fonctionnement degrade mais roulable. CT echec. Reparation 1-2 mois.", faq: [{question: 'Capteur EGR vs vanne EGR?', answer: 'Capteur position (40-100 euros) integre ou separe vanne (120-350 euros complete). Verifier si capteur remplaçable seul avant acheter vanne complete.'}], relatedCodes: ['P0400', 'P0401', 'P0403'] },
+  P0405: { code: 'P0405', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Capteur position EGR circuit bas (court-circuit masse).", symptoms: ['Voyant', 'EGR inoperante'], causes: ['Capteur HS (50%)', 'Cablage court-circuit (40%)'], solutions: ['Test cablage isolement', 'Remplacement capteur'], riskExplanation: "Court-circuit. Reparation electrique 1-2 semaines.", faq: [{question: 'Cout?', answer: '40-150 euros'}], relatedCodes: ['P0404', 'P0406'] },
+  P0406: { code: 'P0406', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Capteur position EGR circuit haut (court-circuit +12V).", symptoms: ['Voyant', 'EGR inoperante'], causes: ['Capteur HS', 'Cablage court-circuit +12V'], solutions: ['Test cablage', 'Remplacer capteur'], riskExplanation: "Court-circuit. Reparation 1-2 semaines.", faq: [{question: 'P0405 vs P0406?', answer: 'P0405 = court-circuit MASSE. P0406 = court-circuit +12V. Diagnostic differentiel teste cablage.'}], relatedCodes: ['P0404', 'P0405'] },
+  P0410: { code: 'P0410', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Systeme air secondaire dysfonctionnel. Pompe air injecte air echappement catalyseur accelerer rechauffage (reduit emissions demarrage froid).", symptoms: ['Voyant', 'Emissions elevees demarrage froid', 'CT echec possible'], causes: ['Pompe air secondaire HS (40%)', 'Electrovanne air secondaire bloquee (30%)', 'Tuyaux air secondaire fissures (20%)'], solutions: ['Tester pompe air (bruit fonctionnement demarrage)', 'Verifier electrovalves', 'Inspecter tuyauterie fuites'], riskExplanation: "P0410 = emissions demarrage froid hors normes. CT echec probable. Fonctionnement moteur normal. Reparation avant CT.", faq: [{question: 'Rouler sans air secondaire?', answer: 'OUI moteur fonctionne normal. Pompe air active uniquement 1-3 min apres demarrage froid. Impact: emissions elevees, CT echec. Reparation recommandee avant CT. Cout: pompe 150-400 euros.'}], relatedCodes: ['P0411', 'P0412', 'P0420'] },
 
   // Groupe: EVAP P0440-P0456 (17 codes)
-  P0440: { code: 'P0440', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟡' }, introduction: "Fuite systeme EVAP (Evaporative Emission Control). Systeme EVAP capture vapeurs essence reservoir empêche pollution atmosphere. P0440 = fuite detectee sans localisation precise (vs P0442 petite fuite, P0455 grosse fuite).", symptoms: ['Voyant moteur', 'Odeur essence parfois', 'ZERO impact performances moteur', 'Fonctionnement totalement normal'], causes: ['Bouchon reservoir mal serre/joint HS (45%)', 'Tuyaux EVAP fissures/perces (25%)', 'Valve purge canister bloquee (15%)', 'Canister sature (10%)', 'Capteur pression EVAP HS (5%)'], solutions: ['Verifier bouchon reservoir: serrer correctement, remplacer joint si abime (5-15 euros bouchon neuf)', 'Inspecter visuellement tuyaux EVAP (sous vehicule, moteur) chercher fissures', 'Test fumee pro localiser fuite (garage 40-80 euros)', 'Verifier valve purge canister (electrovanne)', 'Remplacer piece fuyarde identifiee'], riskExplanation: "P0440 = ZERO danger mecanique. Impact: pollution (vapeurs essence atmosphere), echec controle technique certains pays (France: NON bloquant 2024, certains pays: bloquant). Pas urgence rouler. Reparer avant CT si requis. Delai: 1-6 mois.", faq: [{question: 'P0440 urgent reparer?', answer: 'NON urgence mecanique ZERO. Moteur fonctionne parfaitement. Urgence UNIQUEMENT si: 1) CT proche (echec possible selon pays). 2) Odeur essence forte cabine (inhalation toxique long terme). 3) Consommation excessive evaporation (rare). Sinon: reparer sous 1-6 mois tranquillement.'}, {question: 'Bouchon reservoir cause vraiment P0440?', answer: 'OUI 45% cas P0440. Bouchon reservoir integre valve pression EVAP. Joint bouchon abime ou bouchon mal serre = fuite air/vapeurs. Test GRATUIT: acheter bouchon neuf OEM (5-15 euros), serrer correctement, effacer code, rouler 50-100 km. Si code revient PAS = bouchon etait cause (resolution 5-15 euros). Si code revient = autre fuite (diagnostic suite necessaire). Toujours tester bouchon AVANT investir diagnostic couteux.'}], relatedCodes: ['P0442', 'P0455', 'P0446', 'P0456'],
-
-    repairCosts: {
-      minimum: 5,
-      average: 80,
-      maximum: 350,
-      parts: [
-        { name: 'Bouchon reservoir essence', priceMin: 5, priceMax: 25 },
-        { name: 'Valve purge canister', priceMin: 25, priceMax: 80 },
-        { name: 'Tuyau EVAP', priceMin: 10, priceMax: 35 },
-        { name: 'Canister charbon actif', priceMin: 60, priceMax: 180 }
-      ],
-      laborTime: '30min - 2h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Facile' as const,
-        savings: '60-80%',
-        timeNeeded: '30min - 1h30',
-        tools: ['Valise OBD2', 'Tournevis', 'Lampe torche', 'Cle a pipe']
-      },
-      tips: [
-        'Commencer par remplacer le bouchon reservoir (5-15 euros) : resout 45% des cas',
-        'Inspecter visuellement tous les tuyaux EVAP sous le vehicule avant de payer un diagnostic',
-        'Le test fumee en garage (40-80 euros) localise precisement la fuite',
-        'Effacer le code apres changement bouchon et rouler 50-100 km pour verifier'
-      ],
-      warningNote: 'Pas de danger mecanique mais odeur essence possible dans l\'habitacle. Si forte odeur, reparer rapidement (inhalation toxique).'
-    }
-  },
-  P0441: { code: 'P0441', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "Debit purge canister incorrect. Valve purge bloquee ou debit anormal.", symptoms: ['Voyant', 'Fonctionnement normal'], causes: ['Valve purge bloquee (50%)', 'Tuyaux purge obstrues (30%)'], solutions: ['Tester valve purge (electrovanne)', 'Deboucher tuyaux'], riskExplanation: "Impact faible. CT echec possible. Reparation sous 1-3 mois.", faq: [{question: 'Valve purge cout?', answer: '25-80 euros piece'}], relatedCodes: ['P0440', 'P0446'],
-
-    repairCosts: {
-      minimum: 25,
-      average: 100,
-      maximum: 250,
-      parts: [
-        { name: 'Valve purge canister', priceMin: 25, priceMax: 80 },
-        { name: 'Tuyaux purge EVAP', priceMin: 10, priceMax: 30 },
-        { name: 'Joint valve purge', priceMin: 3, priceMax: 10 }
-      ],
-      laborTime: '30min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Facile' as const,
-        savings: '60-80%',
-        timeNeeded: '30min - 1h',
-        tools: ['Valise OBD2', 'Cle a pipe', 'Tournevis', 'Pince pour colliers']
-      },
-      tips: [
-        'Tester la valve purge avec une pompe a vide manuelle (15 euros) avant de la remplacer',
-        'Verifier que les tuyaux ne sont pas plies ou ecrases sous le vehicule',
-        'La valve purge generique est souvent aussi fiable que l\'originale',
-        'Effacer le code et rouler 50 km pour confirmer la reparation'
-      ],
-      warningNote: 'Impact mecanique nul mais echec CT possible. Reparer avant le controle technique.'
-    }
-  },
-  P0442: { code: 'P0442', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "PETITE fuite EVAP detectee (oppose P0455 grosse fuite). Fuite <0.5mm diametre equivalent.", symptoms: ['Voyant', 'Odeur essence legere possible', 'Fonctionnement normal'], causes: ['Bouchon reservoir (40%)', 'Tuyau EVAP micro-fissure (35%)', 'Joint valve purge (15%)'], solutions: ['Bouchon reservoir neuf (5-15 euros)', 'Test fumee localiser fuite', 'Remplacer tuyau/joint fuyant'], riskExplanation: "Petite fuite. Impact minime. CT echec possible. Reparation sous 1-6 mois.", faq: [{question: 'P0442 vs P0455 difference?', answer: 'P0442 = PETITE fuite (<0.5mm, difficile localiser). P0455 = GROSSE fuite (>1mm, facile trouver). P0442 necessite test fumee pro souvent. P0455 = inspection visuelle suffit souvent.'}], relatedCodes: ['P0440', 'P0455', 'P0456'],
-
-    repairCosts: {
-      minimum: 5,
-      average: 100,
-      maximum: 300,
-      parts: [
-        { name: 'Bouchon reservoir', priceMin: 5, priceMax: 25 },
-        { name: 'Tuyau EVAP', priceMin: 10, priceMax: 35 },
-        { name: 'Joint valve purge', priceMin: 3, priceMax: 10 },
-        { name: 'Valve purge canister', priceMin: 25, priceMax: 80 }
-      ],
-      laborTime: '30min - 2h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Facile' as const,
-        savings: '60-80%',
-        timeNeeded: '30min - 1h',
-        tools: ['Valise OBD2', 'Lampe torche', 'Tournevis', 'Cle a pipe']
-      },
-      tips: [
-        'Tester le bouchon reservoir en premier : gratuit et resout 40% des cas',
-        'Les petites fuites necessitent souvent un test fumee professionnel (40-80 euros)',
-        'Inspecter les raccords de tuyaux EVAP : les colliers se desserrent avec le temps',
-        'Ne pas confondre avec P0455 (grosse fuite) qui est plus facile a localiser'
-      ],
-      warningNote: 'Petite fuite difficile a localiser visuellement. Le test fumee en garage est souvent indispensable.'
-    }
-  },
-  P0443: { code: 'P0443', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "Circuit electrovanne purge EVAP defaillant (electrique).", symptoms: ['Voyant', 'Fonctionnement normal'], causes: ['Electrovanne purge HS (45%)', 'Connecteur oxyde (30%)', 'Cablage coupe (20%)'], solutions: ['Tester resistance electrovanne', 'Controler connecteur', 'Remplacer electrovanne (25-80 euros)'], riskExplanation: "Electrique. Impact faible. Reparation sous 1-2 mois.", faq: [{question: 'Cout?', answer: '25-80 euros'}], relatedCodes: ['P0440', 'P0441'],
-
-    repairCosts: {
-      minimum: 25,
-      average: 100,
-      maximum: 200,
-      parts: [
-        { name: 'Electrovanne purge EVAP', priceMin: 25, priceMax: 80 },
-        { name: 'Connecteur electrique', priceMin: 5, priceMax: 15 },
-        { name: 'Faisceau cablage reparation', priceMin: 10, priceMax: 25 }
-      ],
-      laborTime: '30min - 1h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Facile' as const,
-        savings: '60-80%',
-        timeNeeded: '20min - 45min',
-        tools: ['Multimetre', 'Cle a pipe', 'Nettoyant contact electrique', 'Valise OBD2']
-      },
-      tips: [
-        'Tester la resistance de l\'electrovanne au multimetre avant de la remplacer',
-        'Nettoyer le connecteur oxyde avec un spray contact resout souvent le probleme',
-        'L\'electrovanne purge est generalement accessible facilement sur le moteur',
-        'Verifier le fusible du circuit EVAP en premier (gratuit)'
-      ],
-      warningNote: 'Defaut electrique sans danger mecanique. Reparer avant le CT pour eviter l\'echec.'
-    }
-  },
-  P0444: { code: 'P0444', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "Circuit valve purge EVAP ouvert/court-circuit.", symptoms: ['Voyant'], causes: ['Valve purge court-circuit (50%)', 'Cablage endommage (40%)'], solutions: ['Test cablage isolement', 'Remplacer valve'], riskExplanation: "Court-circuit. Reparation sous 1-2 mois.", faq: [{question: 'Urgent?', answer: 'NON'}], relatedCodes: ['P0443', 'P0445'],
-
-    repairCosts: {
-      minimum: 25,
-      average: 100,
-      maximum: 200,
-      parts: [
-        { name: 'Valve purge EVAP', priceMin: 25, priceMax: 80 },
-        { name: 'Connecteur electrique', priceMin: 5, priceMax: 15 },
-        { name: 'Faisceau cablage reparation', priceMin: 10, priceMax: 25 }
-      ],
-      laborTime: '30min - 1h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Facile' as const,
-        savings: '60-80%',
-        timeNeeded: '20min - 45min',
-        tools: ['Multimetre', 'Cle a pipe', 'Nettoyant contact', 'Valise OBD2']
-      },
-      tips: [
-        'Verifier le circuit ouvert avec un multimetre en mode continuite',
-        'Un fil coupe ou un connecteur debranche est la cause la plus frequente',
-        'Inspecter le faisceau electrique le long du parcours moteur-reservoir',
-        'Demander un devis gratuit dans un centre auto avant d\'aller en concession'
-      ],
-      warningNote: 'Circuit ouvert = valve purge inactive. Pas de danger mecanique mais emissions non controlees.'
-    }
-  },
-  P0445: { code: 'P0445', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "Circuit valve purge court-circuit (oppose P0444).", symptoms: ['Voyant'], causes: ['Valve HS', 'Cablage'], solutions: ['Test', 'Remplacement'], riskExplanation: "Court-circuit. Reparation 1-2 mois.", faq: [{question: 'P0444 vs P0445?', answer: 'Codes similaires diagnostic electrique'}], relatedCodes: ['P0443', 'P0444'],
-
-    repairCosts: {
-      minimum: 25,
-      average: 100,
-      maximum: 200,
-      parts: [
-        { name: 'Valve purge EVAP', priceMin: 25, priceMax: 80 },
-        { name: 'Connecteur electrique', priceMin: 5, priceMax: 15 },
-        { name: 'Faisceau cablage', priceMin: 10, priceMax: 25 }
-      ],
-      laborTime: '30min - 1h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Facile' as const,
-        savings: '60-80%',
-        timeNeeded: '20min - 45min',
-        tools: ['Multimetre', 'Cle a pipe', 'Nettoyant contact', 'Valise OBD2']
-      },
-      tips: [
-        'Diagnostic similaire au P0444 : tester cablage et connecteur en priorite',
-        'Verifier l\'isolement des fils avec un multimetre en mode resistance',
-        'Un fil qui touche la carrosserie peut causer un court-circuit intermittent',
-        'Comparer les prix entre pieces d\'origine et adaptables (economie 30-50%)'
-      ],
-      warningNote: 'Court-circuit electrique a reparer pour eviter surconsommation du fusible ou dommage au calculateur.'
-    }
-  },
-  P0446: { code: 'P0446', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "Circuit event/valve vent EVAP bloque ou obstruee.", symptoms: ['Voyant', 'Bouchon reservoir difficile ouvrir parfois (pression)'], causes: ['Valve vent EVAP bloquee (45%)', 'Filtre canister obstrue (30%)', 'Tuyau vent bouche (20%)'], solutions: ['Localiser valve vent (sous vehicule pres reservoir)', 'Verifier mobilite valve', 'Nettoyer/remplacer filtre canister', 'Deboucher tuyau vent'], riskExplanation: "Valve vent bloquee = pression reservoir. Bouchon dur ouvrir. CT echec. Reparation sous 1-3 mois.", faq: [{question: 'Valve vent EVAP role?', answer: 'Valve vent permet air entrer canister lors purge (remplace vapeurs purgees). Bloquee = pression negative reservoir, bouchon dur ouvrir, purge inefficace.'}], relatedCodes: ['P0440', 'P0441', 'P0447'],
-
-    repairCosts: {
-      minimum: 30,
-      average: 120,
-      maximum: 280,
-      parts: [
-        { name: 'Valve vent EVAP', priceMin: 30, priceMax: 90 },
-        { name: 'Filtre canister', priceMin: 15, priceMax: 40 },
-        { name: 'Tuyau vent EVAP', priceMin: 8, priceMax: 25 },
-        { name: 'Connecteur electrique', priceMin: 5, priceMax: 15 }
-      ],
-      laborTime: '30min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '30min - 1h',
-        tools: ['Cle a pipe', 'Tournevis', 'Multimetre', 'Valise OBD2', 'Lampe torche']
-      },
-      tips: [
-        'La valve vent est souvent sous le vehicule pres du reservoir : proteger les yeux',
-        'Nettoyer le filtre canister avec de l\'air comprime peut suffire',
-        'Verifier que le tuyau vent n\'est pas bouche par de la boue ou des debris',
-        'Si le bouchon reservoir est dur a ouvrir, c\'est un signe de valve vent bloquee'
-      ],
-      warningNote: 'Une valve vent bloquee cree une pression dans le reservoir. Ouvrir le bouchon lentement pour eviter les projections.'
-    }
-  },
-  P0447: { code: 'P0447', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "Circuit valve vent EVAP ouvert.", symptoms: ['Voyant'], causes: ['Valve vent HS', 'Cablage'], solutions: ['Test electrique', 'Remplacement'], riskExplanation: "Impact faible. CT echec. Reparation 1-3 mois.", faq: [{question: 'Cout?', answer: '30-90 euros'}], relatedCodes: ['P0446', 'P0448'],
-
-    repairCosts: {
-      minimum: 30,
-      average: 100,
-      maximum: 200,
-      parts: [
-        { name: 'Valve vent EVAP', priceMin: 30, priceMax: 90 },
-        { name: 'Connecteur electrique', priceMin: 5, priceMax: 15 },
-        { name: 'Faisceau cablage', priceMin: 10, priceMax: 25 }
-      ],
-      laborTime: '30min - 1h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '30min - 1h',
-        tools: ['Multimetre', 'Cle a pipe', 'Tournevis', 'Valise OBD2']
-      },
-      tips: [
-        'Tester le circuit electrique de la valve vent au multimetre avant remplacement',
-        'Verifier le connecteur sous le vehicule : exposition aux intemperies frequente',
-        'La valve vent est souvent accessible sans lever le vehicule',
-        'Piece generique fiable et 40% moins chere que l\'origine'
-      ],
-      warningNote: 'Circuit ouvert = valve vent inactive. Pas de danger immediat mais purge EVAP inefficace.'
-    }
-  },
-  P0448: { code: 'P0448', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "Circuit valve vent EVAP court-circuit.", symptoms: ['Voyant'], causes: ['Valve vent court-circuit', 'Cablage'], solutions: ['Test isolement', 'Remplacement'], riskExplanation: "Court-circuit. Reparation 1-3 mois.", faq: [{question: 'Diagnostic?', answer: 'Test cablage multimetre'}], relatedCodes: ['P0446', 'P0447'],
-
-    repairCosts: {
-      minimum: 30,
-      average: 110,
-      maximum: 220,
-      parts: [
-        { name: 'Valve vent EVAP', priceMin: 30, priceMax: 90 },
-        { name: 'Connecteur electrique', priceMin: 5, priceMax: 15 },
-        { name: 'Faisceau cablage reparation', priceMin: 10, priceMax: 30 }
-      ],
-      laborTime: '30min - 1h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '30min - 1h',
-        tools: ['Multimetre', 'Cle a pipe', 'Nettoyant contact', 'Valise OBD2']
-      },
-      tips: [
-        'Un court-circuit est souvent cause par un fil endommage sous le vehicule',
-        'Inspecter le faisceau electrique pres du reservoir pour des traces de frottement',
-        'Tester l\'isolement du cablage avec le multimetre en mode resistance',
-        'Proteger le faisceau repare avec de la gaine thermoretractable'
-      ],
-      warningNote: 'Court-circuit a reparer rapidement pour proteger le fusible et le calculateur moteur.'
-    }
-  },
-  P0449: { code: 'P0449', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "Circuit valve vent EVAP electrique defaillant (GM/Chevy frequent).", symptoms: ['Voyant'], causes: ['Valve vent electrovanne HS (50%)'], solutions: ['Remplacer electrovanne vent'], riskExplanation: "Impact faible. Reparation 1-3 mois.", faq: [{question: 'Marque?', answer: 'GM principalement'}], relatedCodes: ['P0446', 'P0447'],
-
-    repairCosts: {
-      minimum: 30,
-      average: 100,
-      maximum: 200,
-      parts: [
-        { name: 'Electrovanne vent EVAP', priceMin: 25, priceMax: 80 },
-        { name: 'Connecteur electrique', priceMin: 5, priceMax: 15 },
-        { name: 'Faisceau cablage', priceMin: 10, priceMax: 25 }
-      ],
-      laborTime: '30min - 1h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Facile' as const,
-        savings: '60-80%',
-        timeNeeded: '20min - 45min',
-        tools: ['Multimetre', 'Cle a pipe', 'Tournevis', 'Valise OBD2']
-      },
-      tips: [
-        'Code frequent sur vehicules GM/Chevrolet : pieces specifiques disponibles en ligne',
-        'L\'electrovanne vent est generalement facile d\'acces pres du canister',
-        'Tester la resistance de l\'electrovanne avant de commander la piece',
-        'Verifier le connecteur pour corrosion avant de remplacer l\'electrovanne'
-      ],
-      warningNote: 'Defaut electrique mineur. Pas de danger mecanique mais reparer avant le controle technique.'
-    }
-  },
-  P0450: { code: 'P0450', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "Capteur pression systeme EVAP dysfonctionnel.", symptoms: ['Voyant', 'Fonctionnement normal'], causes: ['Capteur pression EVAP HS (50%)', 'Connecteur capteur oxyde (25%)', 'Cablage (20%)'], solutions: ['Localiser capteur pression (reservoir ou canister)', 'Tester connecteur', 'Remplacer capteur (40-120 euros)'], riskExplanation: "Capteur pression. ECU ne detecte fuites. CT echec. Reparation 1-3 mois.", faq: [{question: 'Capteur pression role?', answer: 'Mesure pression systeme EVAP pour detecter fuites. HS = tests fuites impossibles, codes EVAP multiples possibles.'}], relatedCodes: ['P0440', 'P0451', 'P0452'],
-
-    repairCosts: {
-      minimum: 40,
-      average: 120,
-      maximum: 250,
-      parts: [
-        { name: 'Capteur pression EVAP', priceMin: 40, priceMax: 120 },
-        { name: 'Connecteur electrique', priceMin: 5, priceMax: 15 },
-        { name: 'Joint capteur', priceMin: 3, priceMax: 8 }
-      ],
-      laborTime: '30min - 1h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '30min - 1h',
-        tools: ['Multimetre', 'Cle a pipe', 'Tournevis', 'Valise OBD2']
-      },
-      tips: [
-        'Le capteur pression est souvent situe pres du canister ou sur le reservoir',
-        'Verifier le connecteur avant de remplacer le capteur (oxydation frequente)',
-        'Un capteur HS peut generer plusieurs codes EVAP simultanement',
-        'Commander la piece en ligne : 30-50% moins cher qu\'en concession'
-      ],
-      warningNote: 'Sans capteur pression fonctionnel, l\'ECU ne detecte plus les fuites EVAP. Risque de codes multiples.'
-    }
-  },
-  P0451: { code: 'P0451', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "Capteur pression EVAP hors plage.", symptoms: ['Voyant'], causes: ['Capteur HS (55%)', 'Fuite pression (30%)'], solutions: ['Test capteur', 'Verifier fuites'], riskExplanation: "Capteur. Reparation 1-3 mois.", faq: [{question: 'Cout?', answer: '40-120 euros capteur'}], relatedCodes: ['P0450', 'P0452'],
-
-    repairCosts: {
-      minimum: 40,
-      average: 110,
-      maximum: 220,
-      parts: [
-        { name: 'Capteur pression EVAP', priceMin: 40, priceMax: 120 },
-        { name: 'Connecteur electrique', priceMin: 5, priceMax: 15 },
-        { name: 'Tuyau pression EVAP', priceMin: 8, priceMax: 20 }
-      ],
-      laborTime: '30min - 1h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '30min - 1h',
-        tools: ['Multimetre', 'Cle a pipe', 'Valise OBD2', 'Pompe a vide manuelle']
-      },
-      tips: [
-        'Verifier qu\'il n\'y a pas de fuite sur le tuyau de pression avant de remplacer le capteur',
-        'Tester le capteur avec une pompe a vide manuelle pour verifier sa reponse',
-        'Le capteur generique est souvent aussi fiable que l\'original',
-        'Effacer le code et rouler 50 km pour confirmer la reparation'
-      ],
-      warningNote: 'Capteur hors plage : verifier aussi les fuites de pression qui peuvent fausser la lecture.'
-    }
-  },
-  P0452: { code: 'P0452', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "Capteur pression EVAP signal bas.", symptoms: ['Voyant'], causes: ['Capteur HS', 'Court-circuit masse'], solutions: ['Test cablage', 'Remplacer capteur'], riskExplanation: "Signal bas. Reparation 1-3 mois.", faq: [{question: 'Diagnostic?', answer: 'Test electrique'}], relatedCodes: ['P0450', 'P0451', 'P0453'],
-
-    repairCosts: {
-      minimum: 40,
-      average: 110,
-      maximum: 220,
-      parts: [
-        { name: 'Capteur pression EVAP', priceMin: 40, priceMax: 120 },
-        { name: 'Connecteur electrique', priceMin: 5, priceMax: 15 },
-        { name: 'Faisceau cablage reparation', priceMin: 10, priceMax: 25 }
-      ],
-      laborTime: '30min - 1h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '30min - 1h',
-        tools: ['Multimetre', 'Cle a pipe', 'Nettoyant contact', 'Valise OBD2']
-      },
-      tips: [
-        'Signal bas = court-circuit masse probable, verifier le cablage en priorite',
-        'Mesurer la tension du capteur au multimetre : doit varier avec la pression',
-        'Un fil denude touchant la carrosserie cause souvent ce code',
-        'Proteger le cablage repare avec une gaine isolante'
-      ],
-      warningNote: 'Court-circuit masse sur le capteur pression. Verifier l\'isolement du cablage avant de remplacer le capteur.'
-    }
-  },
-  P0453: { code: 'P0453', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "Capteur pression EVAP signal haut.", symptoms: ['Voyant'], causes: ['Capteur HS', 'Court-circuit +12V'], solutions: ['Test cablage', 'Remplacer'], riskExplanation: "Signal haut. Reparation 1-3 mois.", faq: [{question: 'P0452 vs P0453?', answer: 'P0452 = bas. P0453 = haut'}], relatedCodes: ['P0450', 'P0452'],
-
-    repairCosts: {
-      minimum: 40,
-      average: 110,
-      maximum: 220,
-      parts: [
-        { name: 'Capteur pression EVAP', priceMin: 40, priceMax: 120 },
-        { name: 'Connecteur electrique', priceMin: 5, priceMax: 15 },
-        { name: 'Faisceau cablage reparation', priceMin: 10, priceMax: 25 }
-      ],
-      laborTime: '30min - 1h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '30min - 1h',
-        tools: ['Multimetre', 'Cle a pipe', 'Nettoyant contact', 'Valise OBD2']
-      },
-      tips: [
-        'Signal haut = court-circuit +12V ou capteur HS, tester le cablage d\'abord',
-        'Deconnecter le capteur et mesurer la tension du faisceau pour isoler le defaut',
-        'Comparer avec le code P0452 (signal bas) pour affiner le diagnostic',
-        'Un capteur pression generique coute 30-50% moins cher que l\'origine'
-      ],
-      warningNote: 'Signal haut permanent : verifier si le cablage ne touche pas une source +12V avant de remplacer le capteur.'
-    }
-  },
-  P0455: { code: 'P0455', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "GROSSE fuite EVAP detectee (oppose P0442 petite). Fuite >1mm facile localiser.", symptoms: ['Voyant', 'Odeur essence FORTE', 'Bouchon reservoir manquant possible'], causes: ['Bouchon reservoir manquant/casse (50%)', 'Tuyau EVAP deconnecte/perce gros trou (30%)', 'Canister fissure (15%)'], solutions: ['Verifier bouchon reservoir present et serre', 'Inspection visuelle tuyaux EVAP (gros trous visibles)', 'Remplacer piece cassee/manquante'], riskExplanation: "Grosse fuite. Odeur essence. CT echec. Reparation sous 1-2 mois (odeur toxique).", faq: [{question: 'P0455 localisation fuite facile?', answer: 'OUI grosse fuite souvent visible: bouchon manquant, tuyau debranche, fissure canister. Inspection visuelle 70% cas suffit. P0442 petite fuite necessite test fumee pro.'}], relatedCodes: ['P0440', 'P0442', 'P0456'],
-
-    repairCosts: {
-      minimum: 5,
-      average: 60,
-      maximum: 250,
-      parts: [
-        { name: 'Bouchon reservoir essence', priceMin: 5, priceMax: 25 },
-        { name: 'Tuyau EVAP', priceMin: 10, priceMax: 35 },
-        { name: 'Canister charbon actif', priceMin: 60, priceMax: 180 },
-        { name: 'Colliers de serrage', priceMin: 3, priceMax: 8 }
-      ],
-      laborTime: '15min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Facile' as const,
-        savings: '70-90%',
-        timeNeeded: '15min - 1h',
-        tools: ['Lampe torche', 'Tournevis', 'Valise OBD2', 'Cle a pipe']
-      },
-      tips: [
-        'Verifier en premier si le bouchon reservoir est present et bien serre (50% des cas)',
-        'Grosse fuite = souvent visible a l\'oeil nu, inspecter sous le vehicule',
-        'Un tuyau debranche ou casse se voit sans test fumee dans 70% des cas',
-        'Cout de reparation souvent tres faible si bouchon ou tuyau (5-35 euros)'
-      ],
-      warningNote: 'Grosse fuite = odeur essence possible. Eviter de fumer pres du vehicule et reparer rapidement.'
-    }
-  },
-  P0456: { code: 'P0456', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "TRES petite fuite EVAP (oppose P0455). Fuite <0.02 inch (0.5mm). Difficile localiser.", symptoms: ['Voyant', 'Odeur faible/nulle', 'Fonctionnement normal'], causes: ['Bouchon reservoir joint micro-fuite (40%)', 'Tuyau EVAP micro-fissure invisible (40%)', 'Joint valve purge (15%)'], solutions: ['Remplacer bouchon reservoir (test 5-15 euros)', 'Test fumee pro obligatoire (40-80 euros)', 'Remplacer piece identifiee'], riskExplanation: "Micro-fuite. Impact minimal. CT echec possible. Reparation sous 1-6 mois. Test fumee souvent necessaire localisation.", faq: [{question: 'P0456 worth reparer?', answer: 'Depends: CT proche = OUI (echec). CT lointain + pas odeur = attendre. Micro-fuite difficile/couteux localiser vs impact minime. Cout localisation (40-80 euros test fumee) + piece parfois > avantage reparation immediate. Reparer avant CT si requis, sinon peut attendre.'}], relatedCodes: ['P0440', 'P0442', 'P0455'],
-
-    repairCosts: {
-      minimum: 5,
-      average: 100,
-      maximum: 300,
-      parts: [
-        { name: 'Bouchon reservoir essence', priceMin: 5, priceMax: 25 },
-        { name: 'Tuyau EVAP', priceMin: 10, priceMax: 35 },
-        { name: 'Joint valve purge', priceMin: 3, priceMax: 10 },
-        { name: 'Valve purge canister', priceMin: 25, priceMax: 80 }
-      ],
-      laborTime: '30min - 2h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '30min - 1h30',
-        tools: ['Valise OBD2', 'Lampe torche', 'Tournevis', 'Cle a pipe']
-      },
-      tips: [
-        'Essayer un bouchon reservoir neuf en premier (5-15 euros) : resout 40% des cas',
-        'Micro-fuite presque impossible a trouver sans test fumee professionnel',
-        'Budget test fumee : 40-80 euros en garage, investissement rentable',
-        'Si le CT est lointain et pas d\'odeur, la reparation peut attendre'
-      ],
-      warningNote: 'Micro-fuite tres difficile a localiser sans equipement professionnel. Prevoir un test fumee en garage.'
-    }
-  },
+  P0440: { code: 'P0440', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟡' }, introduction: "Fuite systeme EVAP (Evaporative Emission Control). Systeme EVAP capture vapeurs essence reservoir empêche pollution atmosphere. P0440 = fuite detectee sans localisation precise (vs P0442 petite fuite, P0455 grosse fuite).", symptoms: ['Voyant moteur', 'Odeur essence parfois', 'ZERO impact performances moteur', 'Fonctionnement totalement normal'], causes: ['Bouchon reservoir mal serre/joint HS (45%)', 'Tuyaux EVAP fissures/perces (25%)', 'Valve purge canister bloquee (15%)', 'Canister sature (10%)', 'Capteur pression EVAP HS (5%)'], solutions: ['Verifier bouchon reservoir: serrer correctement, remplacer joint si abime (5-15 euros bouchon neuf)', 'Inspecter visuellement tuyaux EVAP (sous vehicule, moteur) chercher fissures', 'Test fumee pro localiser fuite (garage 40-80 euros)', 'Verifier valve purge canister (electrovanne)', 'Remplacer piece fuyarde identifiee'], riskExplanation: "P0440 = ZERO danger mecanique. Impact: pollution (vapeurs essence atmosphere), echec controle technique certains pays (France: NON bloquant 2024, certains pays: bloquant). Pas urgence rouler. Reparer avant CT si requis. Delai: 1-6 mois.", faq: [{question: 'P0440 urgent reparer?', answer: 'NON urgence mecanique ZERO. Moteur fonctionne parfaitement. Urgence UNIQUEMENT si: 1) CT proche (echec possible selon pays). 2) Odeur essence forte cabine (inhalation toxique long terme). 3) Consommation excessive evaporation (rare). Sinon: reparer sous 1-6 mois tranquillement.'}, {question: 'Bouchon reservoir cause vraiment P0440?', answer: 'OUI 45% cas P0440. Bouchon reservoir integre valve pression EVAP. Joint bouchon abime ou bouchon mal serre = fuite air/vapeurs. Test GRATUIT: acheter bouchon neuf OEM (5-15 euros), serrer correctement, effacer code, rouler 50-100 km. Si code revient PAS = bouchon etait cause (resolution 5-15 euros). Si code revient = autre fuite (diagnostic suite necessaire). Toujours tester bouchon AVANT investir diagnostic couteux.'}], relatedCodes: ['P0442', 'P0455', 'P0446', 'P0456'] },
+  P0441: { code: 'P0441', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "Debit purge canister incorrect. Valve purge bloquee ou debit anormal.", symptoms: ['Voyant', 'Fonctionnement normal'], causes: ['Valve purge bloquee (50%)', 'Tuyaux purge obstrues (30%)'], solutions: ['Tester valve purge (electrovanne)', 'Deboucher tuyaux'], riskExplanation: "Impact faible. CT echec possible. Reparation sous 1-3 mois.", faq: [{question: 'Valve purge cout?', answer: '25-80 euros piece'}], relatedCodes: ['P0440', 'P0446'] },
+  P0442: { code: 'P0442', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "PETITE fuite EVAP detectee (oppose P0455 grosse fuite). Fuite <0.5mm diametre equivalent.", symptoms: ['Voyant', 'Odeur essence legere possible', 'Fonctionnement normal'], causes: ['Bouchon reservoir (40%)', 'Tuyau EVAP micro-fissure (35%)', 'Joint valve purge (15%)'], solutions: ['Bouchon reservoir neuf (5-15 euros)', 'Test fumee localiser fuite', 'Remplacer tuyau/joint fuyant'], riskExplanation: "Petite fuite. Impact minime. CT echec possible. Reparation sous 1-6 mois.", faq: [{question: 'P0442 vs P0455 difference?', answer: 'P0442 = PETITE fuite (<0.5mm, difficile localiser). P0455 = GROSSE fuite (>1mm, facile trouver). P0442 necessite test fumee pro souvent. P0455 = inspection visuelle suffit souvent.'}], relatedCodes: ['P0440', 'P0455', 'P0456'] },
+  P0443: { code: 'P0443', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "Circuit electrovanne purge EVAP defaillant (electrique).", symptoms: ['Voyant', 'Fonctionnement normal'], causes: ['Electrovanne purge HS (45%)', 'Connecteur oxyde (30%)', 'Cablage coupe (20%)'], solutions: ['Tester resistance electrovanne', 'Controler connecteur', 'Remplacer electrovanne (25-80 euros)'], riskExplanation: "Electrique. Impact faible. Reparation sous 1-2 mois.", faq: [{question: 'Cout?', answer: '25-80 euros'}], relatedCodes: ['P0440', 'P0441'] },
+  P0444: { code: 'P0444', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "Circuit valve purge EVAP ouvert/court-circuit.", symptoms: ['Voyant'], causes: ['Valve purge court-circuit (50%)', 'Cablage endommage (40%)'], solutions: ['Test cablage isolement', 'Remplacer valve'], riskExplanation: "Court-circuit. Reparation sous 1-2 mois.", faq: [{question: 'Urgent?', answer: 'NON'}], relatedCodes: ['P0443', 'P0445'] },
+  P0445: { code: 'P0445', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "Circuit valve purge court-circuit (oppose P0444).", symptoms: ['Voyant'], causes: ['Valve HS', 'Cablage'], solutions: ['Test', 'Remplacement'], riskExplanation: "Court-circuit. Reparation 1-2 mois.", faq: [{question: 'P0444 vs P0445?', answer: 'Codes similaires diagnostic electrique'}], relatedCodes: ['P0443', 'P0444'] },
+  P0446: { code: 'P0446', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "Circuit event/valve vent EVAP bloque ou obstruee.", symptoms: ['Voyant', 'Bouchon reservoir difficile ouvrir parfois (pression)'], causes: ['Valve vent EVAP bloquee (45%)', 'Filtre canister obstrue (30%)', 'Tuyau vent bouche (20%)'], solutions: ['Localiser valve vent (sous vehicule pres reservoir)', 'Verifier mobilite valve', 'Nettoyer/remplacer filtre canister', 'Deboucher tuyau vent'], riskExplanation: "Valve vent bloquee = pression reservoir. Bouchon dur ouvrir. CT echec. Reparation sous 1-3 mois.", faq: [{question: 'Valve vent EVAP role?', answer: 'Valve vent permet air entrer canister lors purge (remplace vapeurs purgees). Bloquee = pression negative reservoir, bouchon dur ouvrir, purge inefficace.'}], relatedCodes: ['P0440', 'P0441', 'P0447'] },
+  P0447: { code: 'P0447', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "Circuit valve vent EVAP ouvert.", symptoms: ['Voyant'], causes: ['Valve vent HS', 'Cablage'], solutions: ['Test electrique', 'Remplacement'], riskExplanation: "Impact faible. CT echec. Reparation 1-3 mois.", faq: [{question: 'Cout?', answer: '30-90 euros'}], relatedCodes: ['P0446', 'P0448'] },
+  P0448: { code: 'P0448', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "Circuit valve vent EVAP court-circuit.", symptoms: ['Voyant'], causes: ['Valve vent court-circuit', 'Cablage'], solutions: ['Test isolement', 'Remplacement'], riskExplanation: "Court-circuit. Reparation 1-3 mois.", faq: [{question: 'Diagnostic?', answer: 'Test cablage multimetre'}], relatedCodes: ['P0446', 'P0447'] },
+  P0449: { code: 'P0449', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "Circuit valve vent EVAP electrique defaillant (GM/Chevy frequent).", symptoms: ['Voyant'], causes: ['Valve vent electrovanne HS (50%)'], solutions: ['Remplacer electrovanne vent'], riskExplanation: "Impact faible. Reparation 1-3 mois.", faq: [{question: 'Marque?', answer: 'GM principalement'}], relatedCodes: ['P0446', 'P0447'] },
+  P0450: { code: 'P0450', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "Capteur pression systeme EVAP dysfonctionnel.", symptoms: ['Voyant', 'Fonctionnement normal'], causes: ['Capteur pression EVAP HS (50%)', 'Connecteur capteur oxyde (25%)', 'Cablage (20%)'], solutions: ['Localiser capteur pression (reservoir ou canister)', 'Tester connecteur', 'Remplacer capteur (40-120 euros)'], riskExplanation: "Capteur pression. ECU ne detecte fuites. CT echec. Reparation 1-3 mois.", faq: [{question: 'Capteur pression role?', answer: 'Mesure pression systeme EVAP pour detecter fuites. HS = tests fuites impossibles, codes EVAP multiples possibles.'}], relatedCodes: ['P0440', 'P0451', 'P0452'] },
+  P0451: { code: 'P0451', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "Capteur pression EVAP hors plage.", symptoms: ['Voyant'], causes: ['Capteur HS (55%)', 'Fuite pression (30%)'], solutions: ['Test capteur', 'Verifier fuites'], riskExplanation: "Capteur. Reparation 1-3 mois.", faq: [{question: 'Cout?', answer: '40-120 euros capteur'}], relatedCodes: ['P0450', 'P0452'] },
+  P0452: { code: 'P0452', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "Capteur pression EVAP signal bas.", symptoms: ['Voyant'], causes: ['Capteur HS', 'Court-circuit masse'], solutions: ['Test cablage', 'Remplacer capteur'], riskExplanation: "Signal bas. Reparation 1-3 mois.", faq: [{question: 'Diagnostic?', answer: 'Test electrique'}], relatedCodes: ['P0450', 'P0451', 'P0453'] },
+  P0453: { code: 'P0453', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "Capteur pression EVAP signal haut.", symptoms: ['Voyant'], causes: ['Capteur HS', 'Court-circuit +12V'], solutions: ['Test cablage', 'Remplacer'], riskExplanation: "Signal haut. Reparation 1-3 mois.", faq: [{question: 'P0452 vs P0453?', answer: 'P0452 = bas. P0453 = haut'}], relatedCodes: ['P0450', 'P0452'] },
+  P0455: { code: 'P0455', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "GROSSE fuite EVAP detectee (oppose P0442 petite). Fuite >1mm facile localiser.", symptoms: ['Voyant', 'Odeur essence FORTE', 'Bouchon reservoir manquant possible'], causes: ['Bouchon reservoir manquant/casse (50%)', 'Tuyau EVAP deconnecte/perce gros trou (30%)', 'Canister fissure (15%)'], solutions: ['Verifier bouchon reservoir present et serre', 'Inspection visuelle tuyaux EVAP (gros trous visibles)', 'Remplacer piece cassee/manquante'], riskExplanation: "Grosse fuite. Odeur essence. CT echec. Reparation sous 1-2 mois (odeur toxique).", faq: [{question: 'P0455 localisation fuite facile?', answer: 'OUI grosse fuite souvent visible: bouchon manquant, tuyau debranche, fissure canister. Inspection visuelle 70% cas suffit. P0442 petite fuite necessite test fumee pro.'}], relatedCodes: ['P0440', 'P0442', 'P0456'] },
+  P0456: { code: 'P0456', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "TRES petite fuite EVAP (oppose P0455). Fuite <0.02 inch (0.5mm). Difficile localiser.", symptoms: ['Voyant', 'Odeur faible/nulle', 'Fonctionnement normal'], causes: ['Bouchon reservoir joint micro-fuite (40%)', 'Tuyau EVAP micro-fissure invisible (40%)', 'Joint valve purge (15%)'], solutions: ['Remplacer bouchon reservoir (test 5-15 euros)', 'Test fumee pro obligatoire (40-80 euros)', 'Remplacer piece identifiee'], riskExplanation: "Micro-fuite. Impact minimal. CT echec possible. Reparation sous 1-6 mois. Test fumee souvent necessaire localisation.", faq: [{question: 'P0456 worth reparer?', answer: 'Depends: CT proche = OUI (echec). CT lointain + pas odeur = attendre. Micro-fuite difficile/couteux localiser vs impact minime. Cout localisation (40-80 euros test fumee) + piece parfois > avantage reparation immediate. Reparer avant CT si requis, sinon peut attendre.'}], relatedCodes: ['P0440', 'P0442', 'P0455'] },
 
   // Groupe: Vitesse/capteurs P0500-P0506 (7 codes)
-  P0500: { code: 'P0500', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Capteur vitesse vehicule (VSS) defaillant. VSS informe ECU vitesse pour gestion transmission, ABS, compteur.", symptoms: ['Compteur vitesse inoperant (bloque 0)', 'Voyant moteur + ABS possibles', 'Transmission passages vitesses erratiques auto', 'Regulateur vitesse inoperant'], causes: ['Capteur VSS HS (45%)', 'Connecteur VSS corrode (25%)', 'Cablage VSS coupe (20%)', 'Pignon entrainement VSS casse (8%)'], solutions: ['Localiser VSS (transmission ou differentiel)', 'Tester connecteur VSS', 'Remplacer VSS (25-80 euros piece)', 'Verifier pignon entrainement VSS'], riskExplanation: "P0500 = pas vitesse vehicule. Compteur HS, transmission auto degrade, ABS compromis. Reparation URGENTE 1-7 jours (securite).", faq: [{question: 'Rouler sans VSS?', answer: 'DECONSEILLE fortement: 1) Compteur inoperant (vitesse inconnue, radar risque). 2) ABS inoperant (securite). 3) Transmission auto passages brutaux (usure). 4) Illegal rouler compteur HS certains pays. Reparation urgente recommandee.'}, {question: 'Cout VSS?', answer: 'Capteur VSS: 25-80 euros piece. MO: 30-80 euros garage (acces variable). DIY possible si accessible (15-30 min). Total: 25-160 euros.'}], relatedCodes: ['P0501', 'P0502', 'P0503'],
-
-    repairCosts: {
-      minimum: 25,
-      average: 90,
-      maximum: 200,
-      parts: [
-        { name: 'Capteur vitesse vehicule VSS', priceMin: 25, priceMax: 80 },
-        { name: 'Connecteur electrique VSS', priceMin: 5, priceMax: 15 },
-        { name: 'Pignon entrainement VSS', priceMin: 15, priceMax: 40 }
-      ],
-      laborTime: '30min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '15min - 45min',
-        tools: ['Cle a pipe', 'Multimetre', 'Valise OBD2', 'Nettoyant contact']
-      },
-      tips: [
-        'Le capteur VSS est souvent accessible sur la boite de vitesses sans lever le vehicule',
-        'Verifier le connecteur avant de remplacer le capteur (corrosion frequente)',
-        'Les capteurs VSS generiques sont souvent aussi fiables que l\'origine',
-        'Reparation urgente : compteur HS = risque radar et ABS inoperant'
-      ],
-      warningNote: 'Compteur vitesse inoperant et ABS compromis. Reparation urgente pour la securite routiere.'
-    }
-  },
-  P0501: { code: 'P0501', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Signal capteur vitesse hors plage.", symptoms: ['Compteur erratique', 'Transmission perturbee'], causes: ['VSS signal faible (50%)', 'Cablage resistance elevee (30%)'], solutions: ['Verifier cablage VSS', 'Remplacer VSS'], riskExplanation: "Signal vitesse incorrect. Transmission/ABS perturbes. Reparation urgente 1 semaine.", faq: [{question: 'P0500 vs P0501?', answer: 'P0500 = signal ABSENT. P0501 = signal present mais INCORRECT (hors plage).'}], relatedCodes: ['P0500', 'P0502'],
-
-    repairCosts: {
-      minimum: 25,
-      average: 95,
-      maximum: 200,
-      parts: [
-        { name: 'Capteur vitesse vehicule VSS', priceMin: 25, priceMax: 80 },
-        { name: 'Connecteur electrique', priceMin: 5, priceMax: 15 },
-        { name: 'Faisceau cablage reparation', priceMin: 10, priceMax: 25 }
-      ],
-      laborTime: '30min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '15min - 45min',
-        tools: ['Cle a pipe', 'Multimetre', 'Valise OBD2', 'Nettoyant contact']
-      },
-      tips: [
-        'Signal hors plage = souvent un probleme de cablage plutot que de capteur',
-        'Mesurer la resistance du cablage entre le capteur et le calculateur',
-        'Nettoyer le capteur VSS magnetique avec un chiffon peut ameliorer le signal',
-        'Verifier que le pignon d\'entrainement n\'est pas use ou casse'
-      ],
-      warningNote: 'Signal vitesse incorrect : transmission auto et ABS perturbes. Reparer sous une semaine maximum.'
-    }
-  },
-  P0502: { code: 'P0502', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Signal VSS bas (basse vitesse incorrect).", symptoms: ['Compteur sous-estime vitesse', 'Transmission'], causes: ['VSS encrassé (40%)', 'Pignon VSS use (35%)'], solutions: ['Nettoyer VSS', 'Verifier pignon', 'Remplacer VSS'], riskExplanation: "Signal bas. Compteur inexact. Reparation 1-2 semaines.", faq: [{question: 'Impact?', answer: 'Compteur faux, transmission perturbee'}], relatedCodes: ['P0500', 'P0501', 'P0503'],
-
-    repairCosts: {
-      minimum: 25,
-      average: 85,
-      maximum: 180,
-      parts: [
-        { name: 'Capteur vitesse vehicule VSS', priceMin: 25, priceMax: 80 },
-        { name: 'Pignon entrainement VSS', priceMin: 15, priceMax: 40 },
-        { name: 'Nettoyant contact electrique', priceMin: 5, priceMax: 12 }
-      ],
-      laborTime: '30min - 1h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Facile' as const,
-        savings: '60-80%',
-        timeNeeded: '15min - 30min',
-        tools: ['Cle a pipe', 'Chiffon propre', 'Nettoyant contact', 'Valise OBD2']
-      },
-      tips: [
-        'Demonter et nettoyer le capteur VSS magnetique : la limaille de fer reduit le signal',
-        'Verifier l\'entrefer entre le capteur et la roue phonique',
-        'Un pignon d\'entrainement use donne un signal faible : verifier les dents',
-        'Souvent resolu par un simple nettoyage du capteur (cout zero)'
-      ],
-      warningNote: 'Compteur vitesse sous-estime la vitesse reelle. Risque d\'exces de vitesse involontaire.'
-    }
-  },
-  P0503: { code: 'P0503', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Signal VSS erratique/intermittent.", symptoms: ['Compteur fluctue anormalement', 'Transmission saccades'], causes: ['Connecteur VSS mauvais contact (45%)', 'Cablage intermittent (30%)', 'VSS defaillant (20%)'], solutions: ['Nettoyer connecteur VSS', 'Verifier cablage continuité', 'Remplacer VSS si necessaire'], riskExplanation: "Signal intermittent. Transmission erratique. Reparation 1-2 semaines.", faq: [{question: 'Connecteur cause frequente?', answer: 'OUI 45% cas. Nettoyer connecteur VSS spray contact souvent resout (8 euros).'}], relatedCodes: ['P0500', 'P0501', 'P0502'],
-
-    repairCosts: {
-      minimum: 8,
-      average: 80,
-      maximum: 180,
-      parts: [
-        { name: 'Capteur vitesse vehicule VSS', priceMin: 25, priceMax: 80 },
-        { name: 'Connecteur electrique VSS', priceMin: 5, priceMax: 15 },
-        { name: 'Nettoyant contact electrique', priceMin: 5, priceMax: 12 }
-      ],
-      laborTime: '30min - 1h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Facile' as const,
-        savings: '60-80%',
-        timeNeeded: '15min - 30min',
-        tools: ['Nettoyant contact', 'Cle a pipe', 'Multimetre', 'Valise OBD2']
-      },
-      tips: [
-        'Signal erratique = souvent un mauvais contact, nettoyer le connecteur en premier',
-        'Spray contact electrique (8 euros) resout 45% des cas de signal intermittent',
-        'Verifier que le connecteur est bien clipse et que les broches ne sont pas ecartees',
-        'Si le probleme persiste apres nettoyage, remplacer le capteur VSS'
-      ],
-      warningNote: 'Signal intermittent = transmission peut changer de rapport de facon imprevisible. Prudence en conduite.'
-    }
-  },
-  P0504: { code: 'P0504', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "Correlation capteur position pedale frein A/B incorrecte.", symptoms: ['Voyant', 'Feux stop possiblement inoperants', 'Regulateur vitesse desactive'], causes: ['Contacteur frein A ou B HS (50%)', 'Contacteurs desalignes (30%)'], solutions: ['Tester contacteurs pedale frein', 'Ajuster position contacteurs', 'Remplacer contacteur defectueux (15-40 euros)'], riskExplanation: "Contacteur frein. Feux stop risque. Reparation sous 1-2 semaines (securite).", faq: [{question: 'Feux stop fonctionnent-ils?', answer: 'Parfois OUI (contacteur redondant), parfois NON. Tester feux stop URGENT (securite collision arriere).'}], relatedCodes: ['P0571', 'P0572'],
-
-    repairCosts: {
-      minimum: 15,
-      average: 60,
-      maximum: 150,
-      parts: [
-        { name: 'Contacteur pedale frein', priceMin: 15, priceMax: 40 },
-        { name: 'Clip fixation contacteur', priceMin: 2, priceMax: 5 },
-        { name: 'Connecteur electrique', priceMin: 5, priceMax: 12 }
-      ],
-      laborTime: '15min - 45min',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Facile' as const,
-        savings: '70-90%',
-        timeNeeded: '15min - 30min',
-        tools: ['Tournevis plat', 'Multimetre', 'Lampe torche', 'Valise OBD2']
-      },
-      tips: [
-        'Le contacteur frein est accessible sous le tableau de bord cote conducteur',
-        'Verifier immediatement si les feux stop fonctionnent (securite)',
-        'Le clip de fixation casse souvent : remplacer en meme temps que le contacteur',
-        'Piece peu couteuse (15-40 euros), remplacement rapide sans outils speciaux'
-      ],
-      warningNote: 'SECURITE : verifier les feux stop immediatement. Feux stop inoperants = risque de collision arriere.'
-    }
-  },
-  P0505: { code: 'P0505', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Systeme controle ralenti (IAC) dysfonctionnel. Valve IAC regule air admission ralenti stabiliser regime.", symptoms: ['Ralenti instable (variations 100-300 rpm)', 'Calage ralenti feux rouges', 'Ralenti trop haut ou trop bas', 'Demarrage difficile'], causes: ['Valve IAC encrassee (45%)', 'Valve IAC HS (25%)', 'Fuite admission perturbant IAC (20%)', 'Capteur position papillon HS (8%)'], solutions: ['Nettoyer valve IAC spray (12 euros, amelioration 60% cas)', 'Tester valve IAC (resistance 10-14 ohms typique)', 'Verifier fuites admission', 'Remplacer valve IAC (40-120 euros)'], riskExplanation: "P0505 = ralenti instable. Calages frequents desagreable mais pas danger immediat. Reparation sous 2-4 semaines.", faq: [{question: 'Nettoyer IAC efficace?', answer: 'OUI 60% cas. Valve IAC s encresse calamine/huile. Spray throttle body cleaner (12 euros), pulveriser valve IAC demontee, secher, remonter. 15-30 min DIY. Si persiste apres nettoyage = valve HS (remplacer 40-120 euros).'}, {question: 'Calages ralenti dangereux?', answer: 'Desagreable mais danger faible. Calage feu rouge: redemarrer. Precaution: anticiper calage, pied frein ferme. Danger si calage circulation dense (embouteillage). Reparation recommandee rapidement confort + securite.'}], relatedCodes: ['P0506', 'P0507', 'P0171'],
-
-    repairCosts: {
-      minimum: 12,
-      average: 100,
-      maximum: 250,
-      parts: [
-        { name: 'Valve IAC (controle ralenti)', priceMin: 40, priceMax: 120 },
-        { name: 'Nettoyant corps papillon', priceMin: 8, priceMax: 15 },
-        { name: 'Joint valve IAC', priceMin: 5, priceMax: 12 },
-        { name: 'Capteur position papillon TPS', priceMin: 20, priceMax: 60 }
-      ],
-      laborTime: '30min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '30min - 1h',
-        tools: ['Nettoyant corps papillon', 'Cle a pipe', 'Tournevis', 'Valise OBD2']
-      },
-      tips: [
-        'Commencer par nettoyer la valve IAC au spray nettoyant (12 euros) : resout 60% des cas',
-        'Demonter la valve IAC, pulveriser le nettoyant, laisser secher, remonter',
-        'Verifier les fuites d\'air a l\'admission avec un spray (sifflement = fuite)',
-        'Si le nettoyage ne suffit pas, la valve IAC est a remplacer (40-120 euros)'
-      ],
-      warningNote: 'Calages possibles aux feux rouges. Garder le pied sur le frein et anticiper le redemarrage.'
-    }
-  },
-  P0506: { code: 'P0506', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Ralenti trop BAS (oppose P0507 trop haut). ECU detecte regime inferieur cible.", symptoms: ['Ralenti bas <600 rpm', 'Calages frequents', 'Vibrations ralenti'], causes: ['Valve IAC grippee fermee (40%)', 'Fuite admission (30%)', 'Papillon encrasse (20%)'], solutions: ['Nettoyer valve IAC et papillon', 'Verifier fuites admission', 'Ajuster ralenti si reglable'], riskExplanation: "Ralenti bas. Calages. Reparation 1-3 semaines.", faq: [{question: 'Regler ralenti manuellement?', answer: 'Moteurs modernes: ralenti gere electroniquement (pas reglage vis). Moteurs anciens: vis reglage existe parfois. Consulter manuel.'}], relatedCodes: ['P0505', 'P0507'],
-
-    repairCosts: {
-      minimum: 12,
-      average: 95,
-      maximum: 230,
-      parts: [
-        { name: 'Valve IAC (controle ralenti)', priceMin: 40, priceMax: 120 },
-        { name: 'Nettoyant corps papillon', priceMin: 8, priceMax: 15 },
-        { name: 'Joint collecteur admission', priceMin: 10, priceMax: 30 },
-        { name: 'Durite admission', priceMin: 15, priceMax: 40 }
-      ],
-      laborTime: '30min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '30min - 1h',
-        tools: ['Nettoyant corps papillon', 'Cle a pipe', 'Spray detecteur fuite', 'Valise OBD2']
-      },
-      tips: [
-        'Ralenti bas = souvent fuite admission, pulveriser un spray autour des joints',
-        'Nettoyer le corps papillon et la valve IAC avant de les remplacer',
-        'Verifier les durites d\'admission pour fissures ou debranchements',
-        'Un ralenti bas peut aussi etre cause par un filtre a air tres encrasse'
-      ],
-      warningNote: 'Calages frequents en circulation. Eviter de rouler dans un trafic dense tant que le probleme n\'est pas resolu.'
-    }
-  },
+  P0500: { code: 'P0500', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Capteur vitesse vehicule (VSS) defaillant. VSS informe ECU vitesse pour gestion transmission, ABS, compteur.", symptoms: ['Compteur vitesse inoperant (bloque 0)', 'Voyant moteur + ABS possibles', 'Transmission passages vitesses erratiques auto', 'Regulateur vitesse inoperant'], causes: ['Capteur VSS HS (45%)', 'Connecteur VSS corrode (25%)', 'Cablage VSS coupe (20%)', 'Pignon entrainement VSS casse (8%)'], solutions: ['Localiser VSS (transmission ou differentiel)', 'Tester connecteur VSS', 'Remplacer VSS (25-80 euros piece)', 'Verifier pignon entrainement VSS'], riskExplanation: "P0500 = pas vitesse vehicule. Compteur HS, transmission auto degrade, ABS compromis. Reparation URGENTE 1-7 jours (securite).", faq: [{question: 'Rouler sans VSS?', answer: 'DECONSEILLE fortement: 1) Compteur inoperant (vitesse inconnue, radar risque). 2) ABS inoperant (securite). 3) Transmission auto passages brutaux (usure). 4) Illegal rouler compteur HS certains pays. Reparation urgente recommandee.'}, {question: 'Cout VSS?', answer: 'Capteur VSS: 25-80 euros piece. MO: 30-80 euros garage (acces variable). DIY possible si accessible (15-30 min). Total: 25-160 euros.'}], relatedCodes: ['P0501', 'P0502', 'P0503'] },
+  P0501: { code: 'P0501', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Signal capteur vitesse hors plage.", symptoms: ['Compteur erratique', 'Transmission perturbee'], causes: ['VSS signal faible (50%)', 'Cablage resistance elevee (30%)'], solutions: ['Verifier cablage VSS', 'Remplacer VSS'], riskExplanation: "Signal vitesse incorrect. Transmission/ABS perturbes. Reparation urgente 1 semaine.", faq: [{question: 'P0500 vs P0501?', answer: 'P0500 = signal ABSENT. P0501 = signal present mais INCORRECT (hors plage).'}], relatedCodes: ['P0500', 'P0502'] },
+  P0502: { code: 'P0502', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Signal VSS bas (basse vitesse incorrect).", symptoms: ['Compteur sous-estime vitesse', 'Transmission'], causes: ['VSS encrassé (40%)', 'Pignon VSS use (35%)'], solutions: ['Nettoyer VSS', 'Verifier pignon', 'Remplacer VSS'], riskExplanation: "Signal bas. Compteur inexact. Reparation 1-2 semaines.", faq: [{question: 'Impact?', answer: 'Compteur faux, transmission perturbee'}], relatedCodes: ['P0500', 'P0501', 'P0503'] },
+  P0503: { code: 'P0503', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Signal VSS erratique/intermittent.", symptoms: ['Compteur fluctue anormalement', 'Transmission saccades'], causes: ['Connecteur VSS mauvais contact (45%)', 'Cablage intermittent (30%)', 'VSS defaillant (20%)'], solutions: ['Nettoyer connecteur VSS', 'Verifier cablage continuité', 'Remplacer VSS si necessaire'], riskExplanation: "Signal intermittent. Transmission erratique. Reparation 1-2 semaines.", faq: [{question: 'Connecteur cause frequente?', answer: 'OUI 45% cas. Nettoyer connecteur VSS spray contact souvent resout (8 euros).'}], relatedCodes: ['P0500', 'P0501', 'P0502'] },
+  P0504: { code: 'P0504', severity: { level: 1, label: 'Mineur', color: 'success', icon: '🟢' }, introduction: "Correlation capteur position pedale frein A/B incorrecte.", symptoms: ['Voyant', 'Feux stop possiblement inoperants', 'Regulateur vitesse desactive'], causes: ['Contacteur frein A ou B HS (50%)', 'Contacteurs desalignes (30%)'], solutions: ['Tester contacteurs pedale frein', 'Ajuster position contacteurs', 'Remplacer contacteur defectueux (15-40 euros)'], riskExplanation: "Contacteur frein. Feux stop risque. Reparation sous 1-2 semaines (securite).", faq: [{question: 'Feux stop fonctionnent-ils?', answer: 'Parfois OUI (contacteur redondant), parfois NON. Tester feux stop URGENT (securite collision arriere).'}], relatedCodes: ['P0571', 'P0572'] },
+  P0505: { code: 'P0505', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Systeme controle ralenti (IAC) dysfonctionnel. Valve IAC regule air admission ralenti stabiliser regime.", symptoms: ['Ralenti instable (variations 100-300 rpm)', 'Calage ralenti feux rouges', 'Ralenti trop haut ou trop bas', 'Demarrage difficile'], causes: ['Valve IAC encrassee (45%)', 'Valve IAC HS (25%)', 'Fuite admission perturbant IAC (20%)', 'Capteur position papillon HS (8%)'], solutions: ['Nettoyer valve IAC spray (12 euros, amelioration 60% cas)', 'Tester valve IAC (resistance 10-14 ohms typique)', 'Verifier fuites admission', 'Remplacer valve IAC (40-120 euros)'], riskExplanation: "P0505 = ralenti instable. Calages frequents desagreable mais pas danger immediat. Reparation sous 2-4 semaines.", faq: [{question: 'Nettoyer IAC efficace?', answer: 'OUI 60% cas. Valve IAC s encresse calamine/huile. Spray throttle body cleaner (12 euros), pulveriser valve IAC demontee, secher, remonter. 15-30 min DIY. Si persiste apres nettoyage = valve HS (remplacer 40-120 euros).'}, {question: 'Calages ralenti dangereux?', answer: 'Desagreable mais danger faible. Calage feu rouge: redemarrer. Precaution: anticiper calage, pied frein ferme. Danger si calage circulation dense (embouteillage). Reparation recommandee rapidement confort + securite.'}], relatedCodes: ['P0506', 'P0507', 'P0171'] },
+  P0506: { code: 'P0506', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Ralenti trop BAS (oppose P0507 trop haut). ECU detecte regime inferieur cible.", symptoms: ['Ralenti bas <600 rpm', 'Calages frequents', 'Vibrations ralenti'], causes: ['Valve IAC grippee fermee (40%)', 'Fuite admission (30%)', 'Papillon encrasse (20%)'], solutions: ['Nettoyer valve IAC et papillon', 'Verifier fuites admission', 'Ajuster ralenti si reglable'], riskExplanation: "Ralenti bas. Calages. Reparation 1-3 semaines.", faq: [{question: 'Regler ralenti manuellement?', answer: 'Moteurs modernes: ralenti gere electroniquement (pas reglage vis). Moteurs anciens: vis reglage existe parfois. Consulter manuel.'}], relatedCodes: ['P0505', 'P0507'] },
 
   // Groupe final: Codes transmission P0700-P0735 (7 codes)
-  P0507: { code: 'P0507', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Ralenti trop HAUT (oppose P0506). ECU detecte regime superieur cible.", symptoms: ['Ralenti eleve >1000 rpm', 'Surconsommation ralenti', 'Embrayage difficile (manuel)'], causes: ['Valve IAC grippee ouverte (40%)', 'Fuite admission apres papillon (30%)', 'Cable accelerateur coince (15%)'], solutions: ['Nettoyer valve IAC', 'Verifier fuites admission', 'Verifier cable accelerateur/papillon motorise'], riskExplanation: "Ralenti haut. Surconsommation. Reparation 1-3 semaines.", faq: [{question: 'Ralenti haut dangereux?', answer: 'NON danger mecanique immediat. Desagreable: surconsommation, embrayage brutal. Verifier fuite admission priorite.'}], relatedCodes: ['P0505', 'P0506'],
+  P0507: { code: 'P0507', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Ralenti trop HAUT (oppose P0506). ECU detecte regime superieur cible.", symptoms: ['Ralenti eleve >1000 rpm', 'Surconsommation ralenti', 'Embrayage difficile (manuel)'], causes: ['Valve IAC grippee ouverte (40%)', 'Fuite admission apres papillon (30%)', 'Cable accelerateur coince (15%)'], solutions: ['Nettoyer valve IAC', 'Verifier fuites admission', 'Verifier cable accelerateur/papillon motorise'], riskExplanation: "Ralenti haut. Surconsommation. Reparation 1-3 semaines.", faq: [{question: 'Ralenti haut dangereux?', answer: 'NON danger mecanique immediat. Desagreable: surconsommation, embrayage brutal. Verifier fuite admission priorite.'}], relatedCodes: ['P0505', 'P0506'] },
 
-    repairCosts: {
-      minimum: 12,
-      average: 95,
-      maximum: 230,
-      parts: [
-        { name: 'Valve IAC (controle ralenti)', priceMin: 40, priceMax: 120 },
-        { name: 'Nettoyant corps papillon', priceMin: 8, priceMax: 15 },
-        { name: 'Cable accelerateur', priceMin: 15, priceMax: 40 },
-        { name: 'Joint collecteur admission', priceMin: 10, priceMax: 30 }
-      ],
-      laborTime: '30min - 1h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Moyen' as const,
-        savings: '50-70%',
-        timeNeeded: '30min - 1h',
-        tools: ['Nettoyant corps papillon', 'Cle a pipe', 'Spray detecteur fuite', 'Valise OBD2']
-      },
-      tips: [
-        'Verifier que le cable accelerateur ou le papillon motorise ne reste pas coince',
-        'Chercher les fuites admission apres le papillon avec un spray',
-        'Nettoyer la valve IAC et le corps papillon : souvent suffisant',
-        'Un ralenti trop haut use l\'embrayage sur boite manuelle'
-      ],
-      warningNote: 'Ralenti eleve = surconsommation et embrayage sollicite sur boite manuelle. Reparer sous 2-3 semaines.'
-    }
-  },
+  P0700: { code: 'P0700', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Dysfonctionnement systeme controle transmission (TCM). Code generique indiquant probleme transmission automatique. P0700 declenche souvent codes transmission specifiques additionnels (P0701-P0799). Necessite lecture codes TCM (module transmission separe ECU moteur).", symptoms: ['Voyant moteur + transmission', 'Passages vitesses brutaux/erratiques', 'Transmission bloquee mode degrade (3e vitesse uniquement)', 'Patinage embrayage auto', 'Surconsommation'], causes: ['Capteur vitesse transmission HS (25%)', 'Electrovanne transmission defaillante (20%)', 'Niveau huile transmission bas/contaminee (18%)', 'Faisceau electrique transmission endommage (15%)', 'TCM (module transmission) HS (12%)', 'Embrayages transmission uses (10%)'], solutions: ['Lire codes defaut TCM (valise compatible transmission)', 'Verifier niveau/etat huile transmission (jauge si equipee)', 'Tester capteurs vitesse transmission (entree/sortie)', 'Verifier connecteurs electriques TCM', 'Diagnostic pro transmission recommande (complexite)'], riskExplanation: "P0700 = transmission mode degrade possible. Rouler court terme possible mais: passages vitesses limites (souvent bloque 3e), surconsommation 15-25%, usure transmission acceleree. Diagnostic URGENT sous 1-7 jours eviter casse transmission (reparation 1500-4000 euros).", faq: [{question: 'Mode degrade transmission cest quoi?', answer: 'Mode securite transmission: TCM detecte probleme, bloque transmission vitesse fixe (generalement 3e) proteger mecanique. Permet rouler atelier mais: pas vitesses <3 (demarrage dur), pas vitesses >3 (vitesse max 80-90 km/h), surconsommation. Mode degrade = signal URGENT diagnostic transmission.'}, {question: 'P0700 reparation cout?', answer: 'VARIABLE 100-4000 euros: 1) Capteur vitesse transmission: 40-150 euros piece + MO 50-100 euros = 90-250 euros. 2) Electrovanne: 80-250 euros + MO 100-200 euros = 180-450 euros. 3) Huile transmission: 80-200 euros vidange complete. 4) TCM: 300-800 euros reconditionne, 600-1500 euros neuf + programmation. 5) Transmission complete: 1500-4000 euros reconstruite/echange standard. Diagnostic pro 80-150 euros obligatoire identifier cause.'}], relatedCodes: ['P0715', 'P0720', 'P0730', 'P0500'] },
 
-  P0700: { code: 'P0700', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Dysfonctionnement systeme controle transmission (TCM). Code generique indiquant probleme transmission automatique. P0700 declenche souvent codes transmission specifiques additionnels (P0701-P0799). Necessite lecture codes TCM (module transmission separe ECU moteur).", symptoms: ['Voyant moteur + transmission', 'Passages vitesses brutaux/erratiques', 'Transmission bloquee mode degrade (3e vitesse uniquement)', 'Patinage embrayage auto', 'Surconsommation'], causes: ['Capteur vitesse transmission HS (25%)', 'Electrovanne transmission defaillante (20%)', 'Niveau huile transmission bas/contaminee (18%)', 'Faisceau electrique transmission endommage (15%)', 'TCM (module transmission) HS (12%)', 'Embrayages transmission uses (10%)'], solutions: ['Lire codes defaut TCM (valise compatible transmission)', 'Verifier niveau/etat huile transmission (jauge si equipee)', 'Tester capteurs vitesse transmission (entree/sortie)', 'Verifier connecteurs electriques TCM', 'Diagnostic pro transmission recommande (complexite)'], riskExplanation: "P0700 = transmission mode degrade possible. Rouler court terme possible mais: passages vitesses limites (souvent bloque 3e), surconsommation 15-25%, usure transmission acceleree. Diagnostic URGENT sous 1-7 jours eviter casse transmission (reparation 1500-4000 euros).", faq: [{question: 'Mode degrade transmission cest quoi?', answer: 'Mode securite transmission: TCM detecte probleme, bloque transmission vitesse fixe (generalement 3e) proteger mecanique. Permet rouler atelier mais: pas vitesses <3 (demarrage dur), pas vitesses >3 (vitesse max 80-90 km/h), surconsommation. Mode degrade = signal URGENT diagnostic transmission.'}, {question: 'P0700 reparation cout?', answer: 'VARIABLE 100-4000 euros: 1) Capteur vitesse transmission: 40-150 euros piece + MO 50-100 euros = 90-250 euros. 2) Electrovanne: 80-250 euros + MO 100-200 euros = 180-450 euros. 3) Huile transmission: 80-200 euros vidange complete. 4) TCM: 300-800 euros reconditionne, 600-1500 euros neuf + programmation. 5) Transmission complete: 1500-4000 euros reconstruite/echange standard. Diagnostic pro 80-150 euros obligatoire identifier cause.'}], relatedCodes: ['P0715', 'P0720', 'P0730', 'P0500'],
+  P0715: { code: 'P0715', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Capteur vitesse turbine transmission (entree) defaillant. Turbine = cote moteur convertisseur couple.", symptoms: ['Voyant transmission', 'Passages vitesses retardes/brutaux', 'Compteur vitesse erratique possible', 'Mode degrade transmission'], causes: ['Capteur vitesse turbine HS (50%)', 'Connecteur capteur corrode (25%)', 'Cablage coupe (15%)', 'Roue phonique turbine endommagee (8%)'], solutions: ['Localiser capteur turbine (cote convertisseur)', 'Tester resistance capteur (800-1400 ohms typique)', 'Verifier connecteur', 'Remplacer capteur (60-180 euros piece)'], riskExplanation: "Capteur turbine. TCM aveugle vitesse entree. Mode degrade probable. Reparation urgente 1 semaine.", faq: [{question: 'Turbine vs arbre sortie transmission?', answer: 'Turbine (P0715) = vitesse ENTREE transmission (cote moteur). Arbre sortie (P0720) = vitesse SORTIE transmission (cote roues). TCM compare 2 vitesses calculer rapport engage et patinage embrayages. Les 2 capteurs essentiels fonctionnement transmission.'}], relatedCodes: ['P0700', 'P0720', 'P0500'] },
 
-    repairCosts: {
-      minimum: 80,
-      average: 500,
-      maximum: 4000,
-      parts: [
-        { name: 'Capteur vitesse transmission', priceMin: 40, priceMax: 150 },
-        { name: 'Electrovanne transmission', priceMin: 80, priceMax: 250 },
-        { name: 'Huile transmission ATF (vidange complete)', priceMin: 40, priceMax: 120 },
-        { name: 'Module TCM (reconditionne)', priceMin: 300, priceMax: 800 },
-        { name: 'Kit reconstruction transmission', priceMin: 500, priceMax: 1500 }
-      ],
-      laborTime: '1h - 8h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: false,
-        difficulty: 'Expert' as const,
-        savings: '20-40%',
-        timeNeeded: '2h - 2 jours',
-        tools: ['Valise diagnostic transmission', 'Cle dynamometrique', 'Cric et chandelles', 'Jeu cles a pipe complet', 'Pompe vidange huile']
-      },
-      tips: [
-        'Faire diagnostiquer par un specialiste transmission avant toute reparation',
-        'Verifier le niveau et l\'etat de l\'huile transmission en premier (gratuit)',
-        'Lire les codes TCM specifiques : P0700 seul ne localise pas la panne',
-        'Comparer les devis entre garages generalistes et specialistes transmission'
-      ],
-      warningNote: 'Code generique transmission : diagnostic professionnel obligatoire. Ne pas ignorer sous peine de casse transmission (1500-4000 euros).'
-    }
-  },
+  P0720: { code: 'P0720', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Capteur vitesse arbre sortie transmission defaillant. Arbre sortie = cote roues, vitesse vehicule.", symptoms: ['Compteur vitesse inoperant', 'Voyant transmission + ABS', 'Passages vitesses erratiques', 'Mode degrade'], causes: ['Capteur vitesse sortie HS (50%)', 'Connecteur corrode (25%)', 'Roue phonique endommagee (15%)', 'Cablage coupe (8%)'], solutions: ['Localiser capteur sortie transmission', 'Tester resistance capteur', 'Verifier connecteur', 'Remplacer capteur (50-150 euros)'], riskExplanation: "Capteur sortie. Compteur HS, transmission mode degrade, ABS inoperant. Reparation urgente 1 semaine securite.", faq: [{question: 'P0720 vs P0500 difference?', answer: 'P0720 = capteur vitesse TRANSMISSION (arbre sortie boite). P0500 = capteur vitesse VEHICULE (differentiel ou ABS). Parfois meme capteur vehicules anciens, capteurs separes vehicules recents. P0720 priorite transmission. P0500 priorite compteur/ABS.'}], relatedCodes: ['P0700', 'P0715', 'P0500'] },
 
-  P0715: { code: 'P0715', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Capteur vitesse turbine transmission (entree) defaillant. Turbine = cote moteur convertisseur couple.", symptoms: ['Voyant transmission', 'Passages vitesses retardes/brutaux', 'Compteur vitesse erratique possible', 'Mode degrade transmission'], causes: ['Capteur vitesse turbine HS (50%)', 'Connecteur capteur corrode (25%)', 'Cablage coupe (15%)', 'Roue phonique turbine endommagee (8%)'], solutions: ['Localiser capteur turbine (cote convertisseur)', 'Tester resistance capteur (800-1400 ohms typique)', 'Verifier connecteur', 'Remplacer capteur (60-180 euros piece)'], riskExplanation: "Capteur turbine. TCM aveugle vitesse entree. Mode degrade probable. Reparation urgente 1 semaine.", faq: [{question: 'Turbine vs arbre sortie transmission?', answer: 'Turbine (P0715) = vitesse ENTREE transmission (cote moteur). Arbre sortie (P0720) = vitesse SORTIE transmission (cote roues). TCM compare 2 vitesses calculer rapport engage et patinage embrayages. Les 2 capteurs essentiels fonctionnement transmission.'}], relatedCodes: ['P0700', 'P0720', 'P0500'],
+  P0730: { code: 'P0730', severity: { level: 3, label: 'Sérieux', color: 'danger', icon: '🔴' }, introduction: "Rapport vitesse incorrect transmission. TCM detecte rapport engage different rapport commande. Probleme mecanique transmission interne (embrayages, synchroniseurs).", symptoms: ['Voyant transmission', 'Patinage embrayages (regime moteur monte sans acceleration)', 'Passages vitesses impossibles certains rapports', 'Mode degrade transmission', 'Bruit transmission (grincement, choc)'], causes: ['Embrayages transmission uses/brules (45%)', 'Niveau huile transmission bas (20%)', 'Huile transmission degradee/brulee (15%)', 'Electrovanne pression hydraulique HS (12%)', 'Pompe huile transmission faible (5%)', 'TCM defaillant (3%)'], solutions: ['Verifier niveau huile transmission URGENT', 'Vidanger huile transmission (huile brulee = marron/noir, odeur)', 'Test pression hydraulique transmission (garage specialise)', 'Diagnostic transmission pro (demontage possible)', 'Reconstruction transmission si embrayages uses (1500-3500 euros)'], riskExplanation: "P0730 = probleme MECANIQUE transmission. Patinage embrayages = usure rapide. Continuer rouler = casse transmission complete inevitable (2000-4000 euros). ARRETER conduite si patinage severe (regime moteur 3000+ rpm sans acceleration). Diagnostic URGENT 24-48h. Si embrayages uses: reconstruction transmission necessaire (pas reparation simple).", faq: [{question: 'Patinage transmission signes?', answer: 'Regime moteur MONTE (2000-4000 rpm) mais vitesse vehicule augmente PAS proportionnellement. Sensation: moteur semballe, acceleration molle. Odeur huile brulee possible. Bruit anormal transmission (grincement). Test confirmatoire: acceleration franche -> si regime monte rapidement sans acceleration correspondante = patinage embrayages. ARRETER conduite immediatement si severe.'}, {question: 'Huile transmission peut resoudre P0730?', answer: 'PARFOIS si niveau BAS ou huile TRES degradee. Verifier niveau URGENT (jauge transmission ou orifice controle). Niveau bas <50% = remplir huile correcte (ATF type specifique vehicule). Huile noire/brulee odeur = vidange complete peut ameliorer temporairement MAIS embrayages probablement uses (vidange retarde inevitable seulement). Huile OK niveau OK = probleme mecanique interne (reconstruction necessaire). Cout vidange: 80-200 euros. Cout reconstruction: 1500-3500 euros.'}], relatedCodes: ['P0700', 'P0731', 'P0732', 'P0733'] },
 
-    repairCosts: {
-      minimum: 60,
-      average: 250,
-      maximum: 600,
-      parts: [
-        { name: 'Capteur vitesse turbine transmission', priceMin: 60, priceMax: 180 },
-        { name: 'Connecteur electrique', priceMin: 5, priceMax: 20 },
-        { name: 'Joint capteur', priceMin: 3, priceMax: 10 },
-        { name: 'Huile transmission (appoint)', priceMin: 15, priceMax: 40 }
-      ],
-      laborTime: '1h - 2h30',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Difficile' as const,
-        savings: '40-60%',
-        timeNeeded: '1h - 2h',
-        tools: ['Cle a pipe jeu complet', 'Multimetre', 'Cric et chandelles', 'Valise OBD2', 'Bac recuperation huile']
-      },
-      tips: [
-        'Tester la resistance du capteur au multimetre (800-1400 ohms typique)',
-        'Prevoir un appoint d\'huile transmission car le capteur peut fuir au demontage',
-        'Le capteur est situe sur la cloche de boite cote convertisseur',
-        'Comparer avec le capteur sortie P0720 pour un diagnostic complet'
-      ],
-      warningNote: 'Capteur vitesse entree transmission : mode degrade probable. Reparation urgente sous une semaine.'
-    }
-  },
+  P0731: { code: 'P0731', severity: { level: 3, label: 'Sérieux', color: 'danger', icon: '🔴' }, introduction: "Rapport 1 incorrect (patinage embrayage 1ere vitesse).", symptoms: ['Patinage 1ere vitesse', 'Demarrage difficile (regime moteur eleve sans mouvement)'], causes: ['Embrayage 1ere use (50%)', 'Huile transmission bas/degradee (30%)', 'Electrovanne 1ere HS (15%)'], solutions: ['Verifier huile', 'Test pression hydraulique 1ere', 'Reconstruction transmission si embrayage use'], riskExplanation: "Embrayage 1ere patine. Demarrage impossible si severe. Reconstruction transmission probable. Arreter si patinage severe.", faq: [{question: 'Cout?', answer: 'Reconstruction: 1500-3500 euros'}], relatedCodes: ['P0730', 'P0700'] },
 
-  P0720: { code: 'P0720', severity: { level: 2, label: 'Modéré', color: 'warning', icon: '🟡' }, introduction: "Capteur vitesse arbre sortie transmission defaillant. Arbre sortie = cote roues, vitesse vehicule.", symptoms: ['Compteur vitesse inoperant', 'Voyant transmission + ABS', 'Passages vitesses erratiques', 'Mode degrade'], causes: ['Capteur vitesse sortie HS (50%)', 'Connecteur corrode (25%)', 'Roue phonique endommagee (15%)', 'Cablage coupe (8%)'], solutions: ['Localiser capteur sortie transmission', 'Tester resistance capteur', 'Verifier connecteur', 'Remplacer capteur (50-150 euros)'], riskExplanation: "Capteur sortie. Compteur HS, transmission mode degrade, ABS inoperant. Reparation urgente 1 semaine securite.", faq: [{question: 'P0720 vs P0500 difference?', answer: 'P0720 = capteur vitesse TRANSMISSION (arbre sortie boite). P0500 = capteur vitesse VEHICULE (differentiel ou ABS). Parfois meme capteur vehicules anciens, capteurs separes vehicules recents. P0720 priorite transmission. P0500 priorite compteur/ABS.'}], relatedCodes: ['P0700', 'P0715', 'P0500'],
-
-    repairCosts: {
-      minimum: 50,
-      average: 220,
-      maximum: 500,
-      parts: [
-        { name: 'Capteur vitesse sortie transmission', priceMin: 50, priceMax: 150 },
-        { name: 'Connecteur electrique', priceMin: 5, priceMax: 20 },
-        { name: 'Joint capteur', priceMin: 3, priceMax: 10 },
-        { name: 'Huile transmission (appoint)', priceMin: 15, priceMax: 40 }
-      ],
-      laborTime: '1h - 2h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: true,
-        difficulty: 'Difficile' as const,
-        savings: '40-60%',
-        timeNeeded: '1h - 2h',
-        tools: ['Cle a pipe jeu complet', 'Multimetre', 'Cric et chandelles', 'Valise OBD2', 'Bac recuperation huile']
-      },
-      tips: [
-        'Capteur generalement plus accessible que celui d\'entree (cote sortie boite)',
-        'Tester le connecteur et le cablage avant de remplacer le capteur',
-        'Prevoir un bac de recuperation : l\'huile peut couler au demontage du capteur',
-        'Verifier aussi le capteur ABS : parfois partage avec le capteur sortie'
-      ],
-      warningNote: 'Compteur vitesse et ABS inoperants : reparation urgente pour la securite. Ne pas rouler longtemps sans compteur.'
-    }
-  },
-
-  P0730: { code: 'P0730', severity: { level: 3, label: 'Sérieux', color: 'danger', icon: '🔴' }, introduction: "Rapport vitesse incorrect transmission. TCM detecte rapport engage different rapport commande. Probleme mecanique transmission interne (embrayages, synchroniseurs).", symptoms: ['Voyant transmission', 'Patinage embrayages (regime moteur monte sans acceleration)', 'Passages vitesses impossibles certains rapports', 'Mode degrade transmission', 'Bruit transmission (grincement, choc)'], causes: ['Embrayages transmission uses/brules (45%)', 'Niveau huile transmission bas (20%)', 'Huile transmission degradee/brulee (15%)', 'Electrovanne pression hydraulique HS (12%)', 'Pompe huile transmission faible (5%)', 'TCM defaillant (3%)'], solutions: ['Verifier niveau huile transmission URGENT', 'Vidanger huile transmission (huile brulee = marron/noir, odeur)', 'Test pression hydraulique transmission (garage specialise)', 'Diagnostic transmission pro (demontage possible)', 'Reconstruction transmission si embrayages uses (1500-3500 euros)'], riskExplanation: "P0730 = probleme MECANIQUE transmission. Patinage embrayages = usure rapide. Continuer rouler = casse transmission complete inevitable (2000-4000 euros). ARRETER conduite si patinage severe (regime moteur 3000+ rpm sans acceleration). Diagnostic URGENT 24-48h. Si embrayages uses: reconstruction transmission necessaire (pas reparation simple).", faq: [{question: 'Patinage transmission signes?', answer: 'Regime moteur MONTE (2000-4000 rpm) mais vitesse vehicule augmente PAS proportionnellement. Sensation: moteur semballe, acceleration molle. Odeur huile brulee possible. Bruit anormal transmission (grincement). Test confirmatoire: acceleration franche -> si regime monte rapidement sans acceleration correspondante = patinage embrayages. ARRETER conduite immediatement si severe.'}, {question: 'Huile transmission peut resoudre P0730?', answer: 'PARFOIS si niveau BAS ou huile TRES degradee. Verifier niveau URGENT (jauge transmission ou orifice controle). Niveau bas <50% = remplir huile correcte (ATF type specifique vehicule). Huile noire/brulee odeur = vidange complete peut ameliorer temporairement MAIS embrayages probablement uses (vidange retarde inevitable seulement). Huile OK niveau OK = probleme mecanique interne (reconstruction necessaire). Cout vidange: 80-200 euros. Cout reconstruction: 1500-3500 euros.'}], relatedCodes: ['P0700', 'P0731', 'P0732', 'P0733'],
-
-    repairCosts: {
-      minimum: 80,
-      average: 1800,
-      maximum: 4000,
-      parts: [
-        { name: 'Kit reconstruction transmission (embrayages, joints)', priceMin: 500, priceMax: 1500 },
-        { name: 'Huile transmission ATF', priceMin: 40, priceMax: 120 },
-        { name: 'Electrovanne pression hydraulique', priceMin: 80, priceMax: 250 },
-        { name: 'Filtre huile transmission', priceMin: 15, priceMax: 40 },
-        { name: 'Convertisseur couple (si endommage)', priceMin: 200, priceMax: 600 }
-      ],
-      laborTime: '4h - 16h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: false,
-        difficulty: 'Expert' as const,
-        savings: '20-30%',
-        timeNeeded: '2 - 4 jours',
-        tools: ['Pont elevateur', 'Cric transmission', 'Jeu cles a pipe complet', 'Cle dynamometrique', 'Valise diagnostic transmission']
-      },
-      tips: [
-        'Verifier le niveau d\'huile transmission en URGENCE avant toute autre action',
-        'Une vidange peut temporairement ameliorer si l\'huile est tres degradee',
-        'Demander un devis de reconstruction vs echange standard (parfois moins cher)',
-        'Ne pas continuer a rouler si patinage severe : risque de casse complete'
-      ],
-      warningNote: 'URGENT : patinage embrayages = casse transmission imminente si severe. Arreter la conduite et faire remorquer si regime moteur s\'emballe.'
-    }
-  },
-
-  P0731: { code: 'P0731', severity: { level: 3, label: 'Sérieux', color: 'danger', icon: '🔴' }, introduction: "Rapport 1 incorrect (patinage embrayage 1ere vitesse).", symptoms: ['Patinage 1ere vitesse', 'Demarrage difficile (regime moteur eleve sans mouvement)'], causes: ['Embrayage 1ere use (50%)', 'Huile transmission bas/degradee (30%)', 'Electrovanne 1ere HS (15%)'], solutions: ['Verifier huile', 'Test pression hydraulique 1ere', 'Reconstruction transmission si embrayage use'], riskExplanation: "Embrayage 1ere patine. Demarrage impossible si severe. Reconstruction transmission probable. Arreter si patinage severe.", faq: [{question: 'Cout?', answer: 'Reconstruction: 1500-3500 euros'}], relatedCodes: ['P0730', 'P0700'],
-
-    repairCosts: {
-      minimum: 80,
-      average: 1800,
-      maximum: 3800,
-      parts: [
-        { name: 'Kit reconstruction transmission', priceMin: 500, priceMax: 1500 },
-        { name: 'Embrayage 1ere vitesse', priceMin: 150, priceMax: 400 },
-        { name: 'Huile transmission ATF', priceMin: 40, priceMax: 120 },
-        { name: 'Electrovanne 1ere', priceMin: 60, priceMax: 200 }
-      ],
-      laborTime: '4h - 16h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: false,
-        difficulty: 'Expert' as const,
-        savings: '20-30%',
-        timeNeeded: '2 - 4 jours',
-        tools: ['Pont elevateur', 'Cric transmission', 'Jeu cles a pipe complet', 'Cle dynamometrique', 'Valise diagnostic transmission']
-      },
-      tips: [
-        'Verifier le niveau d\'huile transmission avant toute intervention',
-        'Si le demarrage est impossible (patinage total en 1ere), faire remorquer',
-        'Comparer le cout reconstruction vs transmission echange standard',
-        'Un specialiste transmission est preferable a un garage generaliste'
-      ],
-      warningNote: 'Embrayage 1ere use : demarrage peut devenir impossible. Faire remorquer si patinage severe au demarrage.'
-    }
-  },
-
-  P0732: { code: 'P0732', severity: { level: 3, label: 'Sérieux', color: 'danger', icon: '🔴' }, introduction: "Rapport 2 incorrect (patinage embrayage 2e vitesse).", symptoms: ['Patinage 2e vitesse', 'Passage 1-2 impossible ou brutal'], causes: ['Embrayage 2e use (50%)', 'Huile bas (30%)', 'Electrovanne 2e HS (15%)'], solutions: ['Verifier huile', 'Diagnostic pro', 'Reconstruction transmission'], riskExplanation: "Embrayage 2e use. Reconstruction probable 1500-3500 euros.", faq: [{question: 'Rouler sans 2e?', answer: 'Court terme possible (1-3 puis 3-4 direct) mais usure acceleree transmission. Reparation urgente.'}], relatedCodes: ['P0730', 'P0700'],
-
-    repairCosts: {
-      minimum: 80,
-      average: 1800,
-      maximum: 3800,
-      parts: [
-        { name: 'Kit reconstruction transmission', priceMin: 500, priceMax: 1500 },
-        { name: 'Embrayage 2e vitesse', priceMin: 150, priceMax: 400 },
-        { name: 'Huile transmission ATF', priceMin: 40, priceMax: 120 },
-        { name: 'Electrovanne 2e', priceMin: 60, priceMax: 200 }
-      ],
-      laborTime: '4h - 16h',
-      laborRate: '50-90 euros/h selon garage',
-      diy: {
-        possible: false,
-        difficulty: 'Expert' as const,
-        savings: '20-30%',
-        timeNeeded: '2 - 4 jours',
-        tools: ['Pont elevateur', 'Cric transmission', 'Jeu cles a pipe complet', 'Cle dynamometrique', 'Valise diagnostic transmission']
-      },
-      tips: [
-        'Verifier le niveau et l\'etat de l\'huile transmission en priorite',
-        'Rouler court terme possible en evitant la 2e mais use la transmission',
-        'Comparer devis reconstruction vs echange standard de transmission',
-        'Consulter un specialiste transmission plutot qu\'un garage generaliste'
-      ],
-      warningNote: 'Passage 1-2 brutal ou impossible. Usure acceleree des autres rapports si on continue a rouler. Reparation urgente.'
-    }
-  }
-};
-
-// Fusion de tous les codes populaires (99 originaux + 300 nouveaux)
-const allPopularCodesData: Record<string, PopularCodeData> = {
-  ...popularCodesData,
-  ...popularCodesBatch1,
-  ...popularCodesBatch2,
-  ...popularCodesBatch3,
-  ...popularCodesBatch4,
-  ...popularCodesBatch5,
-  ...popularCodesBatch6,
+  P0732: { code: 'P0732', severity: { level: 3, label: 'Sérieux', color: 'danger', icon: '🔴' }, introduction: "Rapport 2 incorrect (patinage embrayage 2e vitesse).", symptoms: ['Patinage 2e vitesse', 'Passage 1-2 impossible ou brutal'], causes: ['Embrayage 2e use (50%)', 'Huile bas (30%)', 'Electrovanne 2e HS (15%)'], solutions: ['Verifier huile', 'Diagnostic pro', 'Reconstruction transmission'], riskExplanation: "Embrayage 2e use. Reconstruction probable 1500-3500 euros.", faq: [{question: 'Rouler sans 2e?', answer: 'Court terme possible (1-3 puis 3-4 direct) mais usure acceleree transmission. Reparation urgente.'}], relatedCodes: ['P0730', 'P0700'] }
 };
 
 export function getPopularCodeData(code: string): PopularCodeData | null {
-  return allPopularCodesData[code.toUpperCase()] || null;
+  return popularCodesData[code.toUpperCase()] || null;
 }
 
-export const popularCodesList = Object.keys(allPopularCodesData);
+export const popularCodesList = Object.keys(popularCodesData);
