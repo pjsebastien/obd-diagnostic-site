@@ -42,7 +42,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
-  const popularData = getPopularCodeData(params.code);
   const seoTitle = `Code erreur ${obdCode.code} : causes, solutions et coût de réparation`;
   const description = obdCode.description;
 
