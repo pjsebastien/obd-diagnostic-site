@@ -22,12 +22,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!guide) {
     return {
-      title: 'Guide non trouvé | OBD-Diagnostic.fr',
+      title: 'Guide non trouvé',
     };
   }
 
   return {
-    title: `${guide.title} | OBD-Diagnostic.fr`,
+    title: guide.title,
     description: guide.description,
     keywords: guide.seoKeywords.join(', '),
     alternates: {

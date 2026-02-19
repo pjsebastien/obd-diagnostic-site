@@ -3,11 +3,18 @@ import Link from 'next/link';
 import { JsonLd, breadcrumbSchema } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'À propos - Notre mission | OBD-Diagnostic.fr',
+  title: 'À propos - Notre mission',
   description:
     'Découvrez OBD-Diagnostic.fr, votre plateforme gratuite pour comprendre et diagnostiquer les codes erreurs OBD2 de votre véhicule. Mission, valeurs et engagement.',
   alternates: {
     canonical: 'https://obd-diagnostic.fr/a-propos',
+  },
+  openGraph: {
+    title: 'À propos - Notre mission | OBD-Diagnostic.fr',
+    description:
+      'Découvrez OBD-Diagnostic.fr, votre plateforme gratuite pour comprendre et diagnostiquer les codes erreurs OBD2 de votre véhicule.',
+    url: 'https://obd-diagnostic.fr/a-propos',
+    type: 'website',
   },
 };
 

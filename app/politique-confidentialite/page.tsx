@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Politique de confidentialité | OBD-Diagnostic.fr',
+  title: 'Politique de confidentialité',
   description:
     'Politique de confidentialité d\'OBD-Diagnostic.fr - Comment nous collectons, utilisons et protégeons vos données personnelles.',
   alternates: {

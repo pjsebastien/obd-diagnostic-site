@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Mentions légales | OBD-Diagnostic.fr',
+  title: 'Mentions légales',
   description: 'Mentions légales du site OBD-Diagnostic.fr - Informations sur l\'éditeur, l\'hébergement et les conditions d\'utilisation.',
   alternates: {
     canonical: 'https://obd-diagnostic.fr/mentions-legales',

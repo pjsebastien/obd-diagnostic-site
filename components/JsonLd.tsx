@@ -23,7 +23,12 @@ export function organizationSchema() {
     logo: 'https://obd-diagnostic.fr/icon-512.png',
     description:
       'Plateforme gratuite de diagnostic automobile. Comprenez la signification des codes OBD2, identifiez les causes de vos voyants moteur et trouvez les solutions adaptees.',
-    sameAs: [],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'customer service',
+      url: 'https://obd-diagnostic.fr/contact',
+      availableLanguage: 'French',
+    },
   };
 }
 

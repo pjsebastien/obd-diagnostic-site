@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!obdCode) {
     return {
-      title: 'Code non reconnu | OBD-Diagnostic.fr',
+      title: 'Code non reconnu',
       description: 'Le code OBD recherché n\'existe pas dans notre base de données.',
     };
   }

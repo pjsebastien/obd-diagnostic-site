@@ -4,7 +4,7 @@ import { guides } from '@/data/guides';
 import { JsonLd, breadcrumbSchema } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Guides OBD2 et Diagnostic Auto | OBD-Diagnostic.fr',
+  title: 'Guides OBD2 et Diagnostic Auto',
   description:
     'Découvrez nos guides complets pour comprendre et utiliser les codes OBD2 : lecture, diagnostic, effacement, et solutions. Devenez autonome dans l\'entretien de votre véhicule.',
   alternates: {

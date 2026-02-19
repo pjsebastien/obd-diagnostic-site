@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Date fixe basee sur la derniere mise a jour reelle du contenu
   // A mettre a jour MANUELLEMENT a chaque modification du contenu
-  const lastContentUpdate = '2026-02-06T00:00:00.000Z';
+  const lastContentUpdate = '2026-02-19T00:00:00.000Z';
 
   // Pages principales (mentions-legales et politique-confidentialite sont noindex -> hors sitemap)
   const staticPages: MetadataRoute.Sitemap = [
@@ -44,7 +44,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   // Pages de codes OBD - priorite differenciee populaires vs non-populaires
-  const codePages: MetadataRoute.Sitemap = obdCodes.map((codeObj) => ({
+  // Tri par type (P en premier, puis B, C, U) puis par code
+  const sortedCodes = [...obdCodes].sort((a, b) => {
+    const order = { P: 0, B: 1, C: 2, U: 3 } as Record<string, number>;
+    const typeA = order[a.code[0]] ?? 9;
+    const typeB = order[b.code[0]] ?? 9;
+    if (typeA !== typeB) return typeA - typeB;
+    return a.code.localeCompare(b.code);
+  });
+
+  const codePages: MetadataRoute.Sitemap = sortedCodes.map((codeObj) => ({
     url: `${baseUrl}/code/${codeObj.code}`,
     lastModified: lastContentUpdate,
     changeFrequency: 'monthly' as const,

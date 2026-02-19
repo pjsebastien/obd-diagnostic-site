@@ -5,7 +5,7 @@ import { popularCodesList } from '@/data/popular_codes_data';
 import { JsonLd, breadcrumbSchema, faqSchema } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Codes défauts OBD2 – Liste complète P, B, C, U et signification | OBD Diagnostic',
+  title: 'Codes défauts OBD2 – Liste complète P, B, C, U et signification',
   description:
     "Liste complète des codes défauts OBD2 : codes moteur (P), carrosserie (B), châssis (C) et réseau (U). Signification, explications et fiches détaillées pour chaque code.",
   keywords: [
