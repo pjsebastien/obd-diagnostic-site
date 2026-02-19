@@ -4,65 +4,55 @@ import obdCodes from '@/data/obd_codes.json';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://obd-diagnostic.fr';
-  const currentDate = new Date();
 
-  // Pages principales
+  // Date fixe basee sur la derniere mise a jour reelle du contenu
+  // A mettre a jour MANUELLEMENT a chaque modification du contenu
+  const lastContentUpdate = '2026-02-06T00:00:00.000Z';
+
+  // Pages principales (mentions-legales et politique-confidentialite sont noindex -> hors sitemap)
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
-      lastModified: currentDate,
+      lastModified: lastContentUpdate,
       changeFrequency: 'weekly',
       priority: 1.0,
     },
     {
       url: `${baseUrl}/codes-obd`,
-      lastModified: currentDate,
+      lastModified: lastContentUpdate,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/guides`,
-      lastModified: currentDate,
+      lastModified: lastContentUpdate,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/a-propos`,
-      lastModified: currentDate,
+      lastModified: lastContentUpdate,
       changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified: currentDate,
+      lastModified: lastContentUpdate,
       changeFrequency: 'monthly',
       priority: 0.5,
     },
-    {
-      url: `${baseUrl}/mentions-legales`,
-      lastModified: currentDate,
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/politique-confidentialite`,
-      lastModified: currentDate,
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
   ];
 
-  // Pages de codes OBD - tous les codes
+  // Pages de codes OBD - priorite differenciee populaires vs non-populaires
   const codePages: MetadataRoute.Sitemap = obdCodes.map((codeObj) => ({
     url: `${baseUrl}/code/${codeObj.code}`,
-    lastModified: currentDate,
+    lastModified: lastContentUpdate,
     changeFrequency: 'monthly' as const,
-    priority: 0.7,
+    priority: codeObj.popular ? 0.8 : 0.6,
   }));
 
-  // Pages de guides
+  // Pages de guides avec dates de publication reelles
   const guidePages: MetadataRoute.Sitemap = guides.map((guide) => {
-    // Parse la date de publication pour lastModified
     const publishedDate = new Date(guide.publishedDate);
 
     return {

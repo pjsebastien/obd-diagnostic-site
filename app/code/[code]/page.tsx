@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import obdCodes from '@/data/obd_codes.json';
 import { getPopularCodeData, popularCodesList } from '@/data/popular_codes_data';
+import { JsonLd, breadcrumbSchema, faqSchema } from '@/components/JsonLd';
 
 interface OBDCode {
   code: string;
@@ -42,8 +43,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
-  const seoTitle = `Code erreur ${obdCode.code} : causes, solutions et coût de réparation`;
-  const description = obdCode.description;
+  const popularData = getPopularCodeData(params.code);
+  const seoTitle = popularData
+    ? `Code erreur ${obdCode.code} : causes, solutions et coût de réparation`
+    : `Code erreur ${obdCode.code} : signification et diagnostic OBD2`;
+
+  // Meta description optimisee : redigee pour le clic, pas le contenu brut du JSON
+  const description = popularData
+    ? `Code ${obdCode.code} : ${popularData.symptoms.slice(0, 2).join(', ')}. Découvrez les causes, solutions et coût de réparation estimé.`
+    : `Code erreur ${obdCode.code} - ${obdCode.explication.slice(0, 120)}. Signification, causes possibles et solutions OBD2.`;
 
   return {
     title: seoTitle,
@@ -55,7 +63,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       'voyant moteur',
       'code défaut',
       'réparation auto',
-      obdCode.description,
     ],
     alternates: {
       canonical: `https://obd-diagnostic.fr/code/${obdCode.code}`,
@@ -129,13 +136,25 @@ export default function CodePage({ params }: PageProps) {
   if (popularData) {
     const severityColor = severityColors[popularData.severity.color as keyof typeof severityColors];
 
+    const breadcrumbItems = [
+      { name: 'Accueil', url: 'https://obd-diagnostic.fr' },
+      { name: 'Codes OBD', url: 'https://obd-diagnostic.fr/codes-obd' },
+      { name: `Code ${obdCode.code}`, url: `https://obd-diagnostic.fr/code/${obdCode.code}` },
+    ];
+
     return (
       <div className="min-h-screen bg-carbon-950 py-12">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          {/* Donnees structurees : Breadcrumb + FAQ */}
+          <JsonLd data={breadcrumbSchema(breadcrumbItems)} />
+          <JsonLd data={faqSchema(popularData.faq)} />
+
           {/* Breadcrumb */}
           <nav className="mb-8" aria-label="Breadcrumb">
             <ol className="flex items-center gap-2 text-sm text-carbon-400">
               <li><Link href="/" className="hover:text-white transition-colors">Accueil</Link></li>
+              <li><svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg></li>
+              <li><Link href="/codes-obd" className="hover:text-white transition-colors">Codes OBD</Link></li>
               <li><svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg></li>
               <li className="text-white font-medium">Code {obdCode.code}</li>
             </ol>
@@ -484,23 +503,23 @@ export default function CodePage({ params }: PageProps) {
               Pour diagnostiquer et analyser le code {obdCode.code}, voici quelques outils OBD2 recommandés :
             </p>
             <div className="grid md:grid-cols-3 gap-4">
-              <div className="bg-carbon-950 border border-carbon-700 rounded-lg p-5 hover:border-mechanic-600/50 transition-all">
+              <div className="bg-carbon-950 border border-carbon-700 rounded-lg p-5">
                 <div className="text-2xl mb-3">📱</div>
-                <h3 className="text-white font-semibold mb-2">Ancel AD310</h3>
-                <p className="text-carbon-400 text-sm mb-3">Lecteur OBD2 simple et efficace pour lire et effacer les codes (≈25€)</p>
-                <a href="#" className="text-mechanic-500 hover:text-mechanic-400 text-sm font-medium">Voir sur Amazon →</a>
+                <h3 className="text-white font-semibold mb-2">Lecteur OBD2 basique</h3>
+                <p className="text-carbon-400 text-sm mb-2">Lecteur OBD2 simple et efficace pour lire et effacer les codes défauts.</p>
+                <p className="text-mechanic-500 text-sm font-medium">Budget : environ 25€</p>
               </div>
-              <div className="bg-carbon-950 border border-carbon-700 rounded-lg p-5 hover:border-mechanic-600/50 transition-all">
+              <div className="bg-carbon-950 border border-carbon-700 rounded-lg p-5">
                 <div className="text-2xl mb-3">🔧</div>
-                <h3 className="text-white font-semibold mb-2">Autel MaxiDiag</h3>
-                <p className="text-carbon-400 text-sm mb-3">Valise diagnostic avancée avec données en temps réel (≈80€)</p>
-                <a href="#" className="text-mechanic-500 hover:text-mechanic-400 text-sm font-medium">Voir sur Amazon →</a>
+                <h3 className="text-white font-semibold mb-2">Valise diagnostic avancée</h3>
+                <p className="text-carbon-400 text-sm mb-2">Valise avec données en temps réel, graphiques et fonctions avancées.</p>
+                <p className="text-mechanic-500 text-sm font-medium">Budget : environ 80€</p>
               </div>
-              <div className="bg-carbon-950 border border-carbon-700 rounded-lg p-5 hover:border-mechanic-600/50 transition-all">
+              <div className="bg-carbon-950 border border-carbon-700 rounded-lg p-5">
                 <div className="text-2xl mb-3">📲</div>
-                <h3 className="text-white font-semibold mb-2">iCar Pro Bluetooth</h3>
-                <p className="text-carbon-400 text-sm mb-3">Interface Bluetooth compatible smartphone iOS/Android (≈30€)</p>
-                <a href="#" className="text-mechanic-500 hover:text-mechanic-400 text-sm font-medium">Voir sur Amazon →</a>
+                <h3 className="text-white font-semibold mb-2">Interface Bluetooth OBD2</h3>
+                <p className="text-carbon-400 text-sm mb-2">Interface Bluetooth compatible smartphone iOS/Android avec application dédiée.</p>
+                <p className="text-mechanic-500 text-sm font-medium">Budget : environ 30€</p>
               </div>
             </div>
           </div>
@@ -559,12 +578,33 @@ export default function CodePage({ params }: PageProps) {
   }
 
   // Page simple pour les codes non populaires
+  const simpleBreadcrumbItems = [
+    { name: 'Accueil', url: 'https://obd-diagnostic.fr' },
+    { name: 'Codes OBD', url: 'https://obd-diagnostic.fr/codes-obd' },
+    { name: `Code ${obdCode.code}`, url: `https://obd-diagnostic.fr/code/${obdCode.code}` },
+  ];
+
+  // Codes proches (meme plage de 100) pour le maillage interne
+  const codeNum = parseInt(obdCode.code.substring(1));
+  const rangeStart = Math.floor(codeNum / 100) * 100;
+  const nearbyCodesList = obdCodes
+    .filter((c) => {
+      const n = parseInt(c.code.substring(1));
+      return c.code.charAt(0) === obdCode.code.charAt(0) && n >= rangeStart && n < rangeStart + 100 && c.code !== obdCode.code;
+    })
+    .slice(0, 8);
+
   return (
     <div className="min-h-screen bg-carbon-950 py-16">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        {/* Donnees structurees : Breadcrumb */}
+        <JsonLd data={breadcrumbSchema(simpleBreadcrumbItems)} />
+
         <nav className="mb-8" aria-label="Breadcrumb">
           <ol className="flex items-center gap-2 text-sm text-carbon-400">
             <li><Link href="/" className="hover:text-white transition-colors">Accueil</Link></li>
+            <li><svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg></li>
+            <li><Link href="/codes-obd" className="hover:text-white transition-colors">Codes OBD</Link></li>
             <li><svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg></li>
             <li className="text-white font-medium">Code {obdCode.code}</li>
           </ol>
@@ -577,7 +617,7 @@ export default function CodePage({ params }: PageProps) {
               {typeInfo.label}
             </span>
           </div>
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Code erreur {obdCode.code} : causes, solutions et coût de réparation</h1>
+          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Code erreur {obdCode.code} : signification et diagnostic OBD2</h1>
           <p className="text-xl sm:text-2xl text-carbon-300">{obdCode.description}</p>
         </div>
 
@@ -625,12 +665,30 @@ export default function CodePage({ params }: PageProps) {
           </ul>
         </div>
 
+        {/* Codes proches pour le maillage interne */}
+        {nearbyCodesList.length > 0 && (
+          <div className="bg-carbon-900/30 border border-carbon-800 rounded-xl p-6 mb-8">
+            <h2 className="text-xl font-bold text-white mb-4">Codes OBD proches</h2>
+            <div className="flex flex-wrap gap-3">
+              {nearbyCodesList.map((nearCode) => (
+                <Link
+                  key={nearCode.code}
+                  href={`/code/${nearCode.code}`}
+                  className="inline-flex items-center gap-2 bg-carbon-950 hover:bg-carbon-800 border border-carbon-700 hover:border-mechanic-600/50 rounded-lg px-4 py-2 text-white font-mono text-sm transition-all"
+                >
+                  {nearCode.code}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+
         <div className="text-center">
-          <Link href="/" className="inline-flex items-center gap-2 bg-carbon-800 hover:bg-carbon-700 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 border border-carbon-700">
+          <Link href="/codes-obd" className="inline-flex items-center gap-2 bg-carbon-800 hover:bg-carbon-700 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 border border-carbon-700">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
-            Rechercher un autre code
+            Voir tous les codes OBD
           </Link>
         </div>
       </div>

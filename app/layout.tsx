@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { JsonLd, organizationSchema, websiteSchema } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: {
@@ -28,6 +29,9 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://obd-diagnostic.fr'),
   alternates: {
     canonical: '/',
+    languages: {
+      'fr': 'https://obd-diagnostic.fr',
+    },
   },
   openGraph: {
     type: 'website',
@@ -37,14 +41,6 @@ export const metadata: Metadata = {
     title: 'OBD Diagnostic - Analyse et codes erreurs voiture',
     description:
       'Comprenez la signification de chaque code OBD2, identifiez la cause de votre voyant moteur et découvrez les solutions adaptées.',
-    images: [
-      {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'OBD-Diagnostic.fr - Diagnostic automobile',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
@@ -64,8 +60,12 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    // À compléter avec vos codes de vérification
-    // google: 'votre-code-google',
+    // IMPORTANT : Ajoutez votre code de verification Google Search Console ici
+    // 1. Allez sur https://search.google.com/search-console
+    // 2. Ajoutez la propriete obd-diagnostic.fr
+    // 3. Choisissez la methode "Balise HTML"
+    // 4. Copiez le code content="XXXXX" et collez-le ci-dessous
+    // google: 'VOTRE_CODE_VERIFICATION_GSC',
   },
 };
 
@@ -81,6 +81,9 @@ export default function RootLayout({
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
+        {/* Schema.org : Organisation + Site Web (donnees structurees globales) */}
+        <JsonLd data={organizationSchema()} />
+        <JsonLd data={websiteSchema()} />
       </head>
       <body className="antialiased min-h-screen flex flex-col">
         <Header />

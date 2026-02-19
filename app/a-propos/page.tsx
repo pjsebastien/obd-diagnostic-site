@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { JsonLd, breadcrumbSchema } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'À propos - Notre mission | OBD-Diagnostic.fr',
@@ -13,6 +14,11 @@ export const metadata: Metadata = {
 export default function AProposPage() {
   return (
     <div className="min-h-screen bg-carbon-950 py-12">
+      <JsonLd data={breadcrumbSchema([
+        { name: 'Accueil', url: 'https://obd-diagnostic.fr/' },
+        { name: 'À propos', url: 'https://obd-diagnostic.fr/a-propos' },
+      ])} />
+
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <nav className="mb-8" aria-label="Breadcrumb">
@@ -245,6 +251,65 @@ export default function AProposPage() {
             </Link>
             .
           </p>
+        </section>
+
+        {/* Sources */}
+        <section className="bg-carbon-900/30 border border-carbon-800 rounded-xl p-8 mb-8">
+          <h2 className="text-3xl font-bold text-white mb-4">
+            Nos sources
+          </h2>
+          <p className="text-carbon-200 leading-relaxed mb-4">
+            Les informations présentes sur <strong className="text-white">OBD-Diagnostic.fr</strong> sont
+            issues de sources fiables et reconnues dans le domaine automobile :
+          </p>
+          <ul className="space-y-2 text-carbon-300 text-sm">
+            <li className="flex items-start gap-2">
+              <span className="text-mechanic-500 mt-1">&#8226;</span>
+              <span>Normes internationales <strong className="text-white">ISO 15031-6</strong> et <strong className="text-white">SAE J2012</strong> (définition des codes DTC)</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-mechanic-500 mt-1">&#8226;</span>
+              <span>Documentation technique constructeurs (manuels d&apos;atelier)</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-mechanic-500 mt-1">&#8226;</span>
+              <span>Retours d&apos;expérience de professionnels de la mécanique automobile</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-mechanic-500 mt-1">&#8226;</span>
+              <span>Bases de données publiques OBD2 et forums spécialisés</span>
+            </li>
+          </ul>
+        </section>
+
+        {/* Ressources utiles */}
+        <section className="bg-gradient-to-br from-mechanic-950 to-carbon-950 border border-mechanic-800/50 rounded-xl p-8 mb-8">
+          <h2 className="text-2xl font-bold text-white mb-4">
+            Explorez nos ressources
+          </h2>
+          <div className="grid sm:grid-cols-3 gap-4">
+            <Link
+              href="/codes-obd"
+              className="bg-carbon-950 border border-carbon-800 hover:border-mechanic-600/50 rounded-lg p-5 transition-all group"
+            >
+              <h3 className="text-white font-bold mb-2 group-hover:text-mechanic-400 transition-colors">Codes OBD2</h3>
+              <p className="text-carbon-400 text-sm">Liste complète des codes P, B, C, U avec leurs significations.</p>
+            </Link>
+            <Link
+              href="/guides"
+              className="bg-carbon-950 border border-carbon-800 hover:border-mechanic-600/50 rounded-lg p-5 transition-all group"
+            >
+              <h3 className="text-white font-bold mb-2 group-hover:text-mechanic-400 transition-colors">Guides pratiques</h3>
+              <p className="text-carbon-400 text-sm">Tutoriels détaillés pour le diagnostic et la réparation.</p>
+            </Link>
+            <Link
+              href="/contact"
+              className="bg-carbon-950 border border-carbon-800 hover:border-mechanic-600/50 rounded-lg p-5 transition-all group"
+            >
+              <h3 className="text-white font-bold mb-2 group-hover:text-mechanic-400 transition-colors">Contact</h3>
+              <p className="text-carbon-400 text-sm">Une question ? Contactez notre équipe.</p>
+            </Link>
+          </div>
         </section>
 
         {/* CTA */}

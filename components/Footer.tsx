@@ -3,9 +3,17 @@ import Link from 'next/link';
 const footerLinks = {
   navigation: [
     { name: 'Accueil', href: '/' },
+    { name: 'Codes OBD2', href: '/codes-obd' },
+    { name: 'Guides pratiques', href: '/guides' },
     { name: 'À propos', href: '/a-propos' },
-    { name: 'Codes OBD', href: '/codes-obd' },
     { name: 'Contact', href: '/contact' },
+  ],
+  popularCodes: [
+    { name: 'P0420 – Catalyseur', href: '/code/P0420' },
+    { name: 'P0300 – Ratés d\'allumage', href: '/code/P0300' },
+    { name: 'P0171 – Mélange pauvre', href: '/code/P0171' },
+    { name: 'P0401 – EGR insuffisant', href: '/code/P0401' },
+    { name: 'P0128 – Thermostat', href: '/code/P0128' },
   ],
   legal: [
     { name: 'Mentions légales', href: '/mentions-legales' },
@@ -19,9 +27,9 @@ export default function Footer() {
   return (
     <footer className="bg-carbon-950 border-t border-carbon-800">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           {/* Logo et description */}
-          <div className="md:col-span-2">
+          <div>
             <Link href="/" className="flex items-center gap-2 mb-4">
               <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-steel-600 to-steel-800 flex items-center justify-center">
                 <svg
@@ -43,9 +51,8 @@ export default function Footer() {
                 OBD-Diagnostic<span className="text-mechanic-500">.fr</span>
               </span>
             </Link>
-            <p className="text-carbon-400 text-sm max-w-md">
-              Site indépendant d&apos;information automobile. Comprenez la signification des codes OBD2,
-              identifiez les causes de vos voyants moteur et trouvez les solutions adaptées.
+            <p className="text-carbon-400 text-sm">
+              Site indépendant d&apos;information automobile. Comprenez les codes OBD2 et identifiez les causes de vos voyants moteur.
             </p>
           </div>
 
@@ -66,7 +73,24 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Mentions légales */}
+          {/* Codes populaires */}
+          <div>
+            <h3 className="text-white font-semibold mb-4">Codes populaires</h3>
+            <ul className="space-y-2">
+              {footerLinks.popularCodes.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-carbon-400 hover:text-mechanic-400 text-sm transition-colors duration-200 font-mono"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Informations */}
           <div>
             <h3 className="text-white font-semibold mb-4">Informations</h3>
             <ul className="space-y-2">

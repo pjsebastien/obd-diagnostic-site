@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { guides, getGuideBySlug, getAllGuideSlugs } from '@/data/guides';
+import { JsonLd, breadcrumbSchema, faqSchema, articleSchema } from '@/components/JsonLd';
 
 interface PageProps {
   params: {
@@ -66,8 +67,27 @@ export default function GuidePage({ params }: PageProps) {
 
   const relatedGuides = guides.filter((g) => guide.content.relatedGuides.includes(g.slug));
 
+  const breadcrumbItems = [
+    { name: 'Accueil', url: 'https://obd-diagnostic.fr/' },
+    { name: 'Guides', url: 'https://obd-diagnostic.fr/guides' },
+    { name: guide.title, url: `https://obd-diagnostic.fr/guides/${guide.slug}` },
+  ];
+
   return (
     <div className="min-h-screen bg-carbon-950 py-12">
+      {/* Données structurées */}
+      <JsonLd data={breadcrumbSchema(breadcrumbItems)} />
+      <JsonLd data={articleSchema({
+        title: guide.title,
+        description: guide.description,
+        url: `https://obd-diagnostic.fr/guides/${guide.slug}`,
+        datePublished: guide.publishedDate,
+        author: guide.author,
+      })} />
+      {guide.content.faq && guide.content.faq.length > 0 && (
+        <JsonLd data={faqSchema(guide.content.faq)} />
+      )}
+
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <nav className="mb-8" aria-label="Breadcrumb">

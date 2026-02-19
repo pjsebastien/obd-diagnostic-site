@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { guides } from '@/data/guides';
+import { JsonLd, breadcrumbSchema } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Guides OBD2 et Diagnostic Auto | OBD-Diagnostic.fr',
@@ -43,6 +44,11 @@ export default function GuidesPage() {
 
   return (
     <div className="min-h-screen bg-carbon-950 py-12">
+      <JsonLd data={breadcrumbSchema([
+        { name: 'Accueil', url: 'https://obd-diagnostic.fr/' },
+        { name: 'Guides', url: 'https://obd-diagnostic.fr/guides' },
+      ])} />
+
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <nav className="mb-8" aria-label="Breadcrumb">
