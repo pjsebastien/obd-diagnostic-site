@@ -54,6 +54,17 @@ export default function Footer() {
             <p className="text-carbon-400 text-sm">
               Site indépendant d&apos;information automobile. Comprenez les codes OBD2 et identifiez les causes de vos voyants moteur.
             </p>
+            <p className="text-carbon-400 text-sm mt-3">
+              Besoin de pièces auto pour vos réparations ? Retrouvez un large choix sur{' '}
+              <a
+                href="https://www.dpauto.fr/"
+                target="_blank"
+                rel="noopener"
+                className="text-mechanic-500 hover:text-mechanic-400 transition-colors"
+              >
+                DPauto.fr, spécialiste pièces détachées automobile
+              </a>.
+            </p>
           </div>
 
           {/* Navigation */}
